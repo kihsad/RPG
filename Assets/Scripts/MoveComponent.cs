@@ -14,10 +14,7 @@ public class MoveComponent : MonoBehaviour
     {
         _platforms = FindObjectsOfType<Platform>();
     }
-    private void Update()
-    {
-        Raycast();
-    }
+
    
     //private void Raycast()
     //{
@@ -46,6 +43,7 @@ public class MoveComponent : MonoBehaviour
         {
             if (Physics.Raycast(_ray, out hit))
             {
+                Debug.Log("hit");
                 _point.transform.position = hit.point;
             }
 

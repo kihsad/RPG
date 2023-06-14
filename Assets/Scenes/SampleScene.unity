@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -258,14 +258,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82686418}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.42, y: 0, z: 0.57679987}
+  m_LocalRotation: {x: -0.49017745, y: 0.49017745, z: -0.5096333, w: 0.5096333}
+  m_LocalPosition: {x: -0.65, y: 0, z: 0.41}
   m_LocalScale: {x: 0.25, y: 0.621175, z: 0.240475}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2018490414}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 87.77, z: -90}
 --- !u!136 &82686420
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12081,19 +12081,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 2018490410}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.49999997
+  m_Radius: 0.74
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 12
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 250
+  m_StoppingDistance: 0.05
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.99999994
+  m_Height: 1.18
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &2018490416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12106,8 +12106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645bb2320a65c1b4993a443e59508d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 2018490415}
-  _point: {fileID: 1673438292}
+  _canBeClicked:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &2018490417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12120,9 +12121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26ad624cb4a5cd4b91699464ab1e226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canBeClicked:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &2041112926 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8103e68eefbf40c4ebc9d4668af8a6d3, type: 3}

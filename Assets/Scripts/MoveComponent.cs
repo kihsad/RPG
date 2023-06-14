@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace RPGPlayer
@@ -22,8 +23,6 @@ namespace RPGPlayer
 
                 if (Physics.Raycast(agentRay, out hitInfo, 100, _canBeClicked))
                 {
-                    Debug.Log("hit");
-                    transform.LookAt(hitInfo.point);
                     _player.GetAgent.SetDestination(hitInfo.point);
                 }
             }

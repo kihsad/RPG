@@ -1,37 +1,33 @@
 using UnityEngine;
-using UnityEngine.AI;
 
-public class MoveComponent : MonoBehaviour
+namespace RPGPlayer
 {
-    [SerializeField]
-    public NavMeshAgent _agent;
-    [SerializeField]
-    public Transform _point;
-    private Platform[] _platforms;
-    private Ray _ray;
-
-    private void Start()
+    public class MoveComponent : MonoBehaviour
     {
-        _platforms = FindObjectsOfType<Platform>();
-    }
+        [SerializeField]
+        private LayerMask _canBeClicked;      
+        private Player _player;
 
-    public void Raycast()
-    {
-        if (Input.GetMouseButtonDown(0))
+        private void Start()
         {
-            _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            _player = GetComponent<Player>();
         }
-        RaycastHit hit;
-        foreach (Platform plarform in _platforms)
+
+        public void Raycast()
         {
-            if (Physics.Raycast(_ray, out hit))
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("hit");
-                _point.transform.position = hit.point;
+                Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hitInfo;
+
+                if (Physics.Raycast(agentRay, out hitInfo, 100, _canBeClicked))
+                {
+                    Debug.Log("hit");
+                    transform.LookAt(hitInfo.point);
+                    _player.GetAgent.SetDestination(hitInfo.point);
+                }
             }
-
         }
-        _agent.SetDestination(_point.position);
-    }
 
+    }
 }

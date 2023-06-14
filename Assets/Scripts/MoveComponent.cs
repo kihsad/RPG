@@ -15,24 +15,7 @@ public class MoveComponent : MonoBehaviour
         _platforms = FindObjectsOfType<Platform>();
     }
 
-   
-    //private void Raycast()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //    }
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(_ray, out hit))
-    //    {
-    //        if (hit.collider.CompareTag("Platform"))
-    //        {
-    //            _point.transform.position = hit.point;
-    //        }
-    //    }
-    //    _agent.SetDestination(_point.position);
-    //}
-    private void Raycast()
+    public void Raycast()
     {
         if (Input.GetMouseButtonDown(0))
         {

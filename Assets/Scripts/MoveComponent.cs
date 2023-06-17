@@ -6,7 +6,8 @@ namespace RPGPlayer
     public class MoveComponent : MonoBehaviour
     {
         [SerializeField]
-        private LayerMask _canBeClicked;      
+        private LayerMask _canBeClicked;
+
         private Player _player;
 
         private void Start()
@@ -14,7 +15,7 @@ namespace RPGPlayer
             _player = GetComponent<Player>();
         }
 
-        public void Raycast()
+        public void Moving()
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -27,6 +28,7 @@ namespace RPGPlayer
                 }
             }
         }
+      
 
     }
 }

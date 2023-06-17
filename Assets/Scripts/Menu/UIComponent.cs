@@ -1,0 +1,35 @@
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace Menu
+{
+    public class UIComponent : MonoBehaviour
+    {
+        [SerializeField]
+        private GameObject _settingsPanel;
+
+        public void ShowSettings()
+        {
+            _settingsPanel.SetActive(true);
+        }
+
+        public void CloseSettings()
+        {
+            _settingsPanel.SetActive(false);
+        }
+        public void StartNewGame()
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+            EditorApplication.isPaused = true;
+#elif UNITY_STANDALONE
+        Application.Quit();
+#endif
+        }
+    }
+}

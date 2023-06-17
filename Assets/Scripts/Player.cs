@@ -17,7 +17,7 @@ namespace RPGPlayer
         }
         private void Update()
         {
-            _moveComponent.Raycast();
+            _moveComponent.Moving();
         }
     }
 }

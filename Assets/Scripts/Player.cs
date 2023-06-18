@@ -17,7 +17,6 @@ namespace RPGPlayer
         }
         private void Update()
         {
-            //if(_moveComponent.IsMoving)
             _moveComponent.Moving();
         }
     }

@@ -2196,7 +2196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &171908269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27403,12 +27403,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655598392806, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655598392806, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4c7fe8e1a3919c549a79a706afefd1ce, type: 2}
+    - target: {fileID: 2898391655598392806, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2898391655722848863, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_Name
       value: Male Knight 03

@@ -5,30 +5,60 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    private float timer;
+    [SerializeField]
+    private LayerMask _layerMask;
+    [SerializeField, Range(0, 100)]
+    private float distance;
+    [SerializeField]
+    private Transform _detector;
+
+    private float stoppingDistance = 3f;
+
+    private Collider[] _targets = new Collider[10];
+
     private Animator _animator;
     private List<Transform> _points = new List<Transform>();
     private NavMeshAgent _agent;
+
+    //private Damager _damager;
+
     void Start()
     {
-        timer = 0;
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        Transform pointsObject = FindObjectOfType<Point>().transform;
-        foreach (Transform point in pointsObject)
-            _points.Add(point);
-        _agent.SetDestination(_points[0].position);
-    }
+        //_damager = GetComponent<Damager>();
 
-    
-    void Update()
+    }
+    private void FixedUpdate()
     {
-        if (_agent.remainingDistance <= _agent.stoppingDistance)
-            _agent.SetDestination(_points[Random.Range(0, _points.Count)].position);
-        timer += Time.deltaTime;
-        if (timer > 10)
-            _animator.SetBool("isPatrolling", false);
+        Detect();
     }
 
+    public void Detect()
+    {
+        for (int i = 0; i < Physics.OverlapSphereNonAlloc(_detector.position, distance, _targets, _layerMask); i++)
+        {
+            _agent.SetDestination(_targets[0].ClosestPoint(transform.position));
+            var _distance = Vector3.Distance(_agent.transform.position, _targets[0].ClosestPoint(transform.position));
+            if (_distance <= stoppingDistance)
+            {
+                _animator.SetBool("isAttacking", true);
+                _animator.SetBool("isPatrolling", false);
+                //_damager.Attack();
+
+            }
+            else
+            {
+                _animator.SetBool("isPatrolling", true);
+                _animator.SetBool("isAttacking", false);
+            }
+
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_detector.position, distance);
+    }
 
 }

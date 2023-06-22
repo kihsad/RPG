@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : NPC
 {
+    [SerializeField]
+    private CanvasGroup _heathGroup;
 
-    private void Update()
+    public override Transform Select() // подсветка хп элемента
     {
-        transform.position += new Vector3(1, 0, 0)*Time.deltaTime*0.1f;
+        _heathGroup.alpha = 1;
+        return base.Select();
     }
-    public void LoadData(Save.EnemySaveData save)
+    public override void DeSelect() //затухание хп элемента
     {
-        transform.position = new Vector3(save.Position.x, save.Position.y, save.Position.z);
-        transform.eulerAngles = new Vector3(save.Direction.x, save.Direction.y, save.Direction.z);
+        _heathGroup.alpha = 0;
+        base.DeSelect();
     }
 }

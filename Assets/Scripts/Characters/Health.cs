@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _value;
+    private int _health;
 
-    public int Value
+    public int Healths
     {
-        get => _value;
+        get => _health;
         set
         {
-            _value = Mathf.Clamp(value, 0, 50);
-            if (_value <= 0)
+            _health = Mathf.Clamp(value, 0, 50);
+            if (_health <= 0)
             {
                 Destroy(gameObject);
             }
@@ -21,12 +21,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Value -= damage;
-        Debug.Log(Value + name);
+        Healths -= damage;
+        Debug.Log(Healths + name);
     }
 
     public void Die()
     {
-        Value = 0;
+        Healths = 0;
     }
 }

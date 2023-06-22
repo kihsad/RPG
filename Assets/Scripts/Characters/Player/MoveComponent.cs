@@ -5,10 +5,10 @@ namespace RPGPlayer
     public class MoveComponent : MonoBehaviour
     {
         [SerializeField]
-        private LayerMask _canBeClicked;
+        private LayerMask _isGround;
 
         private float _distance;
-        public int _touchCount;
+        private int _touchCount;
 
         private Vector3 _targetPosition;
 
@@ -61,7 +61,7 @@ namespace RPGPlayer
                 Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
 
-                if (Physics.Raycast(agentRay, out hitInfo, 100, _canBeClicked))
+                if (Physics.Raycast(agentRay, out hitInfo, 50, _isGround))
                 {
                     _player.GetAgent.SetDestination(hitInfo.point);
                     _targetPosition = hitInfo.point;

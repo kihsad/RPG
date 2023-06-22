@@ -14,4 +14,5 @@ public class MeleeAttack : MonoBehaviour // характеристики ближней атаки(можно н
     public float GetDamage => _damage;
     public float GetCooldown => _cooldown;
     public float GetAttackRange => _attackRange;
+
 }

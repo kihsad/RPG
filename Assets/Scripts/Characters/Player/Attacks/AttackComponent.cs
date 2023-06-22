@@ -50,7 +50,7 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
                 var distance = Vector3.Distance(transform.position, hitInfo.point);
                 if (distance <= _meleeAttack.GetAttackRange)
                 {
-                    //анимация атаки мечом
+                    transform.GetComponent<Animator>().Play("MeleeAttack_OneHanded"); //анимация атаки мечом - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     StartCoroutine(MeleeAttackCooldown());
                 }
             }
@@ -60,7 +60,8 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
     public IEnumerator SpellAttackCooldown() // кд спелла
     {
         _spellCD = true;
-        //aнимация каста спелла
+        transform.GetComponent<Animator>().Play("SpellCast"); //aнимация каста спелла - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        yield return new WaitForSeconds(1.5f);
         Instantiate(_fireBall);
         StartCoroutine(_spellManager.Progress(1, _fireBall.GetCooldown)); // для отрисовки кд на ui
         yield return new WaitForSeconds(_fireBall.GetCooldown);
@@ -69,7 +70,6 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
     public IEnumerator MeleeAttackCooldown() // кд атаки
     {
         _meleeCD = true;
-        //aнимация атаки
         Debug.Log("Attack");
         StartCoroutine(_spellManager.Progress(0,_meleeAttack.GetCooldown)); // для отрисовки кд на ui
         yield return new WaitForSeconds(_meleeAttack.GetCooldown);

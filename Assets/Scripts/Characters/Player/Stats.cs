@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +10,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
 
     private Image _content;
 
-    private float _currentFill;
+    private float _currentFill=1;
     private float _currentValue;
 
     public float MyMaxValue { get; set; }
@@ -57,14 +55,17 @@ public class Stats : MonoBehaviour // ui статы персонажей
         }
         _content.fillAmount = _currentFill;
     }
-    public void Initialize(float currentVal,float maxVal)
+    public void Initialize(float currentVal, float maxVal)
     {
-        if(_content is null)
+        if (_content != null)
         {
-            _content = GetComponent<Image>();
-        }
         MyMaxValue = maxVal;
         MyCurrentValue = currentVal;
         _content.fillAmount = MyCurrentValue / MyMaxValue;
+        }
+        else
+        {
+            _content = GetComponent<Image>();
+        }
     }
 }

@@ -60,7 +60,6 @@ namespace RPGPlayer
                 _touchCount++;
                 Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
-
                 if (Physics.Raycast(agentRay, out hitInfo, 50, _isGround))
                 {
                     _player.GetAgent.SetDestination(hitInfo.point);

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BagScript : MonoBehaviour
@@ -8,6 +6,14 @@ public class BagScript : MonoBehaviour
     [SerializeField]
     private GameObject _slotPrefab;
 
+    private CanvasGroup _canvasGroup;
+
+    public bool IsOpen => _canvasGroup.alpha > 0;
+
+    private void Awake()
+    {
+        _canvasGroup = GetComponent<CanvasGroup>();
+    }
     public void AddSlots(int slotCount)
     {
         for(int i=0;i<slotCount;i++)
@@ -15,4 +21,10 @@ public class BagScript : MonoBehaviour
             Instantiate(_slotPrefab, transform);
         }
     }
+    public void OpenClose()
+    {
+        _canvasGroup.alpha = _canvasGroup.alpha > 0 ? 0 : 1;
+        _canvasGroup.blocksRaycasts = _canvasGroup.blocksRaycasts == true ? false : true;
+    }
+
 }

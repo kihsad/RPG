@@ -10,11 +10,15 @@ public class UIBarManager : MonoBehaviour
     [SerializeField]
     private FireBall _fireBall;
     [SerializeField]
-   // private MeleeAttack _meleeAttack;
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            InventoryScript.Instance.OpenClose();
+        }
+    }
     public IEnumerator Progress(int index,float cd)
     {
-        float timeLeft = Time.deltaTime;
         float rate = 1.0f / cd;
         float progress = 0f;
         while (progress <= 1)

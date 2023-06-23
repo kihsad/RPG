@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
 	private float _maxZoom = 15f;
 	[SerializeField]
 	private float yawSpeed = 100f;
-	private Player _target;
+	[SerializeField]
+	private Player _target = null;
 
 	private float pitch = 1.8f;        
 	private float currentZoom = 5f;
@@ -21,8 +22,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-		_target = FindObjectOfType<Player>();
-    }
+		//_target = FindObjectOfType<Player>();
+	}
     void Update()
 	{
 		
@@ -42,5 +43,9 @@ public class CameraController : MonoBehaviour
 		
 		transform.RotateAround(_target.transform.position, Vector3.up, currentYaw);
 	}
-
+    private void OnDrawGizmos()
+    {
+		Gizmos.color = Color.red;
+		Gizmos.DrawRay(transform.position,_target.transform.position - transform.position);
+    }
 }

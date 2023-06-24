@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace RPGPlayer
 {
@@ -6,7 +7,6 @@ namespace RPGPlayer
     {
         [SerializeField]
         private LayerMask _isGround;
-
         private float _distance;
         private int _touchCount;
 

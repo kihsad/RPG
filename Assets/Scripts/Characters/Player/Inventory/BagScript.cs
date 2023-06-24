@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BagScript : MonoBehaviour
@@ -8,17 +9,32 @@ public class BagScript : MonoBehaviour
 
     private CanvasGroup _canvasGroup;
 
+    private List<SlotScript> _slots = new List<SlotScript>(); 
+
     public bool IsOpen => _canvasGroup.alpha > 0;
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }
+    public bool AddItem(Item item)
+    {
+        foreach(SlotScript slot in _slots )
+        {
+            if(slot.IsEmpty)
+            {
+                slot.AddItem(item);
+                return true;
+            }
+        }
+        return false;
+    }
     public void AddSlots(int slotCount)
     {
         for(int i=0;i<slotCount;i++)
         {
-            Instantiate(_slotPrefab, transform);
+            SlotScript slot = Instantiate(_slotPrefab, transform).GetComponent<SlotScript>();
+            _slots.Add(slot);
         }
     }
     public void OpenClose()

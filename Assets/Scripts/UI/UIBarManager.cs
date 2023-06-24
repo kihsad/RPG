@@ -9,7 +9,22 @@ public class UIBarManager : MonoBehaviour
     private Image[] _castBars;
     [SerializeField]
     private FireBall _fireBall;
-    [SerializeField]
+
+    private static UIBarManager instance;
+
+    public static UIBarManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIBarManager>();
+            }
+            return instance;
+        }
+    }
+
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Z))
@@ -29,5 +44,13 @@ public class UIBarManager : MonoBehaviour
             yield return null;
         }
         _castBars[index].fillAmount = 0;
+    }
+
+    public void UpdateStackSize(IClickable clickable)
+    {
+        if(clickable.MyCount==0)
+        {
+            clickable.MyIcon.color = new Color(0, 0, 0, 0);
+        }
     }
 }

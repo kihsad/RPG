@@ -6,6 +6,7 @@ public abstract class Item : ScriptableObject
 {
     [SerializeField]
     private GameObject _item;
+
     [SerializeField]
     private Sprite _icon;
 
@@ -15,9 +16,10 @@ public abstract class Item : ScriptableObject
     private SlotScript _slot;
 
     public GameObject ItemGO => _item;
-    public Sprite Icon => _icon;
+    public Sprite MyIcon => _icon;
     public int StackSize => _stackSize;
-    protected SlotScript Slot
+
+    public SlotScript MySlot
     {
         get
         {
@@ -26,6 +28,14 @@ public abstract class Item : ScriptableObject
         set
         {
             _slot = value;
+        }
+    }
+
+    public void Remove()
+    {
+         if(MySlot!=null)
+        {
+            MySlot.RemoveItem(this);
         }
     }
 }

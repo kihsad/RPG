@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9927,6 +9927,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1984069152}
+  - {fileID: 2028131448}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15865,10 +15866,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3024451977200227178, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1798082128}
     - target: {fileID: 5119938913675502736, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -15883,7 +15880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119938913675502736, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -18.9
       objectReference: {fileID: 0}
     - target: {fileID: 5119938913675502736, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21567,7 +21564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119938913675502736, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -72.65
+      value: -38.9
       objectReference: {fileID: 0}
     - target: {fileID: 5119938913675502736, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21608,6 +21605,10 @@ PrefabInstance:
     - target: {fileID: 5496218917206736426, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_Name
       value: Boss Orc Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496218917206736426, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23321,17 +23322,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6202518890732439607, guid: 0dd6e9af1cedf5e49835c222f3e2a200, type: 3}
---- !u!114 &1798082128 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6200258453584109700, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
-  m_PrefabInstance: {fileID: 1160442357}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737bc3248cce9c942b2c8a9b35761c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1801200073 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4158906917852094009, guid: 37013eb9c7886aa428855811aa924ba7, type: 3}
@@ -24792,6 +24782,10 @@ PrefabInstance:
     - target: {fileID: 5496218917206736426, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_Name
       value: Boss Orc Prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496218917206736426, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49335,6 +49329,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6650157744671698361, guid: f6aa39582fa846e458ff0bff18ea1b3a, type: 3}
   m_PrefabInstance: {fileID: 303140414}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2028131447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028131448}
+  - component: {fileID: 2028131449}
+  m_Layer: 0
+  m_Name: DeathManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2028131448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028131447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 731881896}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028131449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028131447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4299823a6a6f324e9df6bc2a6033155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1809732024}
 --- !u!1 &2029501989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1093931477976150687, guid: 37013eb9c7886aa428855811aa924ba7, type: 3}

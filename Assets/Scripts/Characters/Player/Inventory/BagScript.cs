@@ -13,6 +13,8 @@ public class BagScript : MonoBehaviour
 
     public bool IsOpen => _canvasGroup.alpha > 0;
 
+    public List<SlotScript> MySlots => _slots;
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();

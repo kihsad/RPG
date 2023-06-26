@@ -6,7 +6,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     [SerializeField]
     protected Transform _hitBox; //коллайдер
     [SerializeField]
-    protected Stats health;
+    public Stats health;
     [SerializeField]
     private float _initHealth; //хп при старте
     

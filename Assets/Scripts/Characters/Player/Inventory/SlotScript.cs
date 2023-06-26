@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,13 +8,13 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
     [SerializeField]
     private Image _icon;
 
-    private Stack<Item> items = new Stack<Item>();
+    private Stack<Item> _items = new Stack<Item>();
 
     public bool IsEmpty
     {
         get
         {
-            return items.Count == 0;
+            return _items.Count == 0;
         }
     }
 
@@ -25,7 +24,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
         {
             if(!IsEmpty)
             {
-                return items.Peek();
+                return _items.Peek();
             }
             return null;
         }
@@ -35,7 +34,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
     {
         get
         {
-            return items.Count;
+            return _items.Count;
         }
     }
 
@@ -53,7 +52,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
 
     public bool AddItem(Item item)
     {
-        items.Push(item);
+        _items.Push(item);
         _icon.sprite = item.MyIcon;
         _icon.color = Color.white;
         item.MySlot = this;
@@ -61,10 +60,10 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
     }
     public void RemoveItem(Item item)
     {
-
-       if(!IsEmpty)
+        if(!IsEmpty)
         {
-            items.Pop();
+            Debug.Log("remove");
+            _items.Pop();
             UIBarManager.MyInstance.UpdateStackSize(this);
         }
     }
@@ -79,7 +78,21 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
 
     public void UseItem()
     {
+        Debug.Log("Use");
         if (MyItem is IUseable)
+        {
             (MyItem as IUseable).Use();
+        }
+    }
+
+    public bool StackItem(Item item)
+    {
+        if(!IsEmpty&&item.name == MyItem.name&&_items.Count<MyItem.MyStackSize)
+        {
+            _items.Push(item);
+            item.MySlot = this;
+            return true;
+        }
+        return false;
     }
 }

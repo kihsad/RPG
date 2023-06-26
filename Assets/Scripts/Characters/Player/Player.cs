@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace RPGPlayer
-{
     public class Player : Character // игрок
     {
         private NavMeshAgent _agent;
@@ -71,4 +69,3 @@ namespace RPGPlayer
             base.Update();
         }
     }
-}

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +49,7 @@ public class UIBarManager : MonoBehaviour
     {
         if(clickable.MyCount==0)
         {
+            Debug.Log("UpdateStackSize");
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
         }
     }

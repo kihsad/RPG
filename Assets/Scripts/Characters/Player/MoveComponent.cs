@@ -1,8 +1,5 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-namespace RPGPlayer
-{
     public class MoveComponent : MonoBehaviour
     {
         [SerializeField]
@@ -68,4 +65,3 @@ namespace RPGPlayer
             }
         }
     }
-}

@@ -1,6 +1,4 @@
-using RPGPlayer;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackComponent : MonoBehaviour // компонент для двух видов атак

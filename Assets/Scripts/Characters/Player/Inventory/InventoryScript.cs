@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -53,7 +52,16 @@ public class InventoryScript : MonoBehaviour
             bag.Initialize(9);
             AddItem(bag);
         }
-        
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            HealthsPotion healthsPotion = (HealthsPotion)Instantiate(_items[1]);
+            AddItem(healthsPotion);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Player.MyInstance.MyHealth -= 10;
+        }
+
     }
     public void AddBag(Bag bag)
     {
@@ -66,6 +74,31 @@ public class InventoryScript : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void PlaceInEmpty(Item item)
+    {
+        foreach (Bag bag in _bags)
+        {
+            if (bag.MyBagScrtipt.AddItem(item))
+            {
+                return;
+            }
+        }
+    }
+        private bool PlaceInStack(Item item)
+    {
+        foreach(Bag bag in _bags)
+        {
+            foreach(SlotScript slot in bag.MyBagScrtipt.MySlots)
+            {
+                if(slot.StackItem(item))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     public void OpenClose()
     {
@@ -81,6 +114,18 @@ public class InventoryScript : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        if(item.MyStackSize>0)
+        {
+            if(PlaceInStack(item))
+            {
+                return;
+            }
+        }
+        PlaceInEmpty(item);
+    }
+
+   /* public void AddItem(Item item)
+    {
         foreach(Bag bag in _bags)
         {
             if(bag.MyBagScrtipt.AddItem(item))
@@ -89,4 +134,5 @@ public class InventoryScript : MonoBehaviour
             }
         }
     }
+   */
 }

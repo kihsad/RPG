@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Item : ScriptableObject
@@ -17,7 +15,7 @@ public abstract class Item : ScriptableObject
 
     public GameObject ItemGO => _item;
     public Sprite MyIcon => _icon;
-    public int StackSize => _stackSize;
+    public int MyStackSize => _stackSize;
 
     public SlotScript MySlot
     {

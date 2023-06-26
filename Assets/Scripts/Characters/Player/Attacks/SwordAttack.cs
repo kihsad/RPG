@@ -4,7 +4,7 @@ public class SwordAttack : MonoBehaviour
 {
     private Player _player;
     private Enemy _enemy;
-
+    [SerializeField]
     private MeleeAttack _meleeAtack;
 
     //private LayerMask _layerMask;
@@ -16,7 +16,6 @@ public class SwordAttack : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>();
-        _meleeAtack = GetComponentInParent<MeleeAttack>();
         _enemy = FindObjectOfType<Enemy>();
         //_character = FindObjectOfType<Character>();
     }
@@ -42,23 +41,26 @@ public class SwordAttack : MonoBehaviour
     //}
     private void OnTriggerEnter(Collider other) // коллизии с разными видами обьектов(но в целом только для енеми т.к. рейкаст с layer Enemy)
     {
-        if(_meleeAtack._layerMask == 9)
+        var player = other.GetComponent<Player>();
+        var enemy = other.GetComponent<Enemy>();
+
+        if (player == null && enemy == null) return;
+
+        if (enemy != null)
         {
-            var enemy = other.GetComponent<Enemy>();
-            if (enemy is null)
+            if (_meleeAtack._layerMask == 8)
             {
-                return;
+                Debug.Log(enemy);
+                player.TakeDamage(enemy.GetComponent<MeleeAttack>().GetDamage);
             }
-            enemy.TakeDamage(_player.GetComponent<MeleeAttack>().GetDamage);
         }
-        else
+         if(player!=null)
         {
-            var player = other.GetComponent<Player>();
-            if (player is null)
+            Debug.Log(player);
+            if (_meleeAtack._layerMask == 9)
             {
-                return;
+                enemy.TakeDamage(player.GetComponent<MeleeAttack>().GetDamage);
             }
-            player.TakeDamage(_enemy.GetComponent<MeleeAttack>().GetDamage);
         }
         //анимация полученя урона врага
         //aнимация попадания

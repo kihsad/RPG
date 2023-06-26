@@ -11,6 +11,8 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
     private FireballPlace _spellPlace;
     [SerializeField]
     private MeleeAttack _meleeAttack;
+    [SerializeField]
+    private SwordAttack _sword;
     private UIBarManager _spellManager;
 
     private bool _spellCD=false;
@@ -18,6 +20,7 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
 
     private void Start()
     {
+        _sword.gameObject.GetComponent<Collider>().enabled = false;
         _spellManager = FindObjectOfType<UIBarManager>();
         _meleeAttack = GetComponent<MeleeAttack>();
 
@@ -48,6 +51,7 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
                 var distance = Vector3.Distance(transform.position, hitInfo.point);
                 if (distance <= _meleeAttack.GetAttackRange)
                 {
+                    _sword.gameObject.GetComponent<Collider>().enabled = true;
                     transform.GetComponent<Animator>().Play("MeleeAttack_OneHanded"); //анимация атаки мечом - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     StartCoroutine(MeleeAttackCooldown());
                 }
@@ -67,6 +71,8 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
     }
     public IEnumerator MeleeAttackCooldown() // кд атаки
     {
+        yield return new WaitForSeconds(0.1f);
+        _sword.gameObject.GetComponent<Collider>().enabled = false;
         _meleeCD = true;
         Debug.Log("Attack");
         StartCoroutine(_spellManager.Progress(0,_meleeAttack.GetCooldown)); // для отрисовки кд на ui

@@ -32,8 +32,10 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
             //die animation
             //loot
             gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
-            _animator.Play("An_Dead"); // анимация смерти врага/игрока - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            Invoke("Death", 5f);
+            //_animator.Play("An_Dead"); // анимация смерти врага/игрока - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //_animator.Play("death");
+            _animator.SetBool("isDead", true);
+            Invoke("Death", 2.5f);
         }
     }
 

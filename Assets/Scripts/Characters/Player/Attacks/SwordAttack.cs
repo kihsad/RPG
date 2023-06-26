@@ -2,20 +2,24 @@ using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
-    private Player _player;
+    [SerializeField]
+    private MeleeAttack _meleeAtack;
 
-    private void Start()
-    {
-        _player = FindObjectOfType<Player>();
-    }
     private void OnTriggerEnter(Collider other) // коллизии с разными видами обьектов(но в целом только для енеми т.к. рейкаст с layer Enemy)
     {
+        var player = other.GetComponent<Player>();
         var enemy = other.GetComponent<Enemy>();
-        if (enemy is null)
+
+        if (player == null && enemy == null) return;
+
+        if (enemy != null &&_meleeAtack.Character.gameObject.layer!=enemy.gameObject.layer)
         {
-            return;
+            enemy.TakeDamage(_meleeAtack.GetDamage);
         }
-        enemy.TakeDamage(_player.GetComponent<MeleeAttack>().GetDamage);
+        if (player != null )
+        {
+                player.TakeDamage(_meleeAtack.GetDamage);
+        }
         //анимация полученя урона врага
         //aнимация попадания
     }

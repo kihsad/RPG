@@ -71,7 +71,7 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
     }
     public IEnumerator MeleeAttackCooldown() // кд атаки
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         _sword.gameObject.GetComponent<Collider>().enabled = false;
         _meleeCD = true;
         Debug.Log("Attack");

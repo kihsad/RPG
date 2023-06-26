@@ -1770,7 +1770,7 @@ MonoBehaviour:
   _fireBall: {fileID: 3085097393062747048, guid: 8d47db560de56dd45b64d2634d5dc5d1, type: 3}
   _spellPlace: {fileID: 4616727869712513208}
   _meleeAttack: {fileID: 4085259419727578723}
-  _sword: {fileID: 0}
+  _sword: {fileID: 8925595737913101912}
 --- !u!114 &1873295027610493703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   _attackRange: 4
   _layerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
 --- !u!1 &2898391656255846616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,6 +2627,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5131920344830895689, guid: 3f9782aaa1c912940b59d55ebbbc1c79, type: 3}
   m_PrefabInstance: {fileID: 7444981089764639650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8925595737913101912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2058132744925416954, guid: 3f9782aaa1c912940b59d55ebbbc1c79, type: 3}
+  m_PrefabInstance: {fileID: 7444981089764639650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ae60abd83591e45a09025b1ab55872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7579427075776198163
 PrefabInstance:
   m_ObjectHideFlags: 0

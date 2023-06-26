@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     {
         Detect();
     }
+
     public void Detect()
     {
         int numColliders = Physics.OverlapSphereNonAlloc(_detector.position, _distance, _targets, _layerMask);
@@ -43,7 +44,7 @@ public class EnemyController : MonoBehaviour
             if (distance <= stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                _damager.Attack();
+                //_damager.Attack();
 
             }
             else

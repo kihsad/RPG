@@ -853,6 +853,9 @@ MonoBehaviour:
   _damage: 10
   _cooldown: 1
   _attackRange: 4
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &7939568267250640452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5861409178561632961, guid: 12d0272ae27e28544926f40123562015, type: 3}

@@ -1546,6 +1546,7 @@ GameObject:
   - component: {fileID: 1873295027610493703}
   - component: {fileID: 2040607345308795370}
   - component: {fileID: 5594354529575542511}
+  - component: {fileID: 4085259419727578723}
   m_Layer: 0
   m_Name: Male Knight 03
   m_TagString: Untagged
@@ -1606,10 +1607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645bb2320a65c1b4993a443e59508d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canBeClicked:
+  _isGround:
     serializedVersion: 2
-    m_Bits: 8
-  _touchCount: 0
+    m_Bits: 0
 --- !u!114 &1873295027610493703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,6 +1622,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26ad624cb4a5cd4b91699464ab1e226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitBox: {fileID: 0}
+  health: {fileID: 0}
+  _initHealth: 0
+  _spellPrefabs: []
+  _mana: {fileID: 0}
 --- !u!195 &2040607345308795370
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1667,6 +1672,24 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4085259419727578723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898391655722848863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
+  _cooldown: 1
+  _attackRange: 4
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &2898391656255846616
 GameObject:
   m_ObjectHideFlags: 0

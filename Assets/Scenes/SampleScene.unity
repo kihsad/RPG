@@ -3095,6 +3095,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 709716607}
     m_Modifications:
+    - target: {fileID: 2058132744925416954, guid: 3f9782aaa1c912940b59d55ebbbc1c79, type: 3}
+      propertyPath: _distance
+      value: 0.741
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058132744925416954, guid: 3f9782aaa1c912940b59d55ebbbc1c79, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5131920344830540393, guid: 3f9782aaa1c912940b59d55ebbbc1c79, type: 3}
       propertyPath: m_Name
       value: Sword Rookie
@@ -16183,7 +16191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5520293842067077372, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520293842067077372, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_Center.x
@@ -16204,6 +16212,14 @@ PrefabInstance:
     - target: {fileID: 5655693884602759396, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540121498577711497, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
+      propertyPath: _distance
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540121498577711497, guid: 932637c60e9c3ea45920a65e45988429, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22945,9 +22961,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2898391655722848863, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1809732015}
-    - targetCorrespondingSourceObject: {fileID: 2898391655722848863, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1809732021}
   m_SourcePrefab: {fileID: 100100000, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
 --- !u!1 &1674195139 stripped
 GameObject:
@@ -24702,11 +24715,11 @@ MonoBehaviour:
   _fireBall: {fileID: 3085097393062747048, guid: 8d47db560de56dd45b64d2634d5dc5d1, type: 3}
   _spellPlace: {fileID: 1387427734}
   _meleeAttack: {fileID: 1809732021}
---- !u!114 &1809732021
+  _sword: {fileID: 0}
+--- !u!114 &1809732021 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4085259419727578723, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+  m_PrefabInstance: {fileID: 1672908396}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809732009}
   m_Enabled: 1
@@ -24714,9 +24727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _cooldown: 1
-  _attackRange: 4
 --- !u!114 &1809732024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}

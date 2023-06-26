@@ -8,6 +8,8 @@ public class MeleeAttack : MonoBehaviour // характеристики ближней атаки(можно н
     private float _cooldown;
     [SerializeField]
     private float _attackRange;
+    [SerializeField]
+    public LayerMask _layerMask;
 
     public float GetDamage => _damage;
     public float GetCooldown => _cooldown;

@@ -5,6 +5,8 @@ public class Enemy : NPC
     [SerializeField]
     private CanvasGroup _heathGroup;
 
+    private Enemy instance;
+
     public override Transform Select() // подсветка хп элемента
     {
         _heathGroup.alpha = 1;

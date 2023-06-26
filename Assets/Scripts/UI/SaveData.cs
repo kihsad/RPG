@@ -9,7 +9,6 @@ public class SaveData
 
     public SaveData()
     {
-
     }
 }
 [Serializable]

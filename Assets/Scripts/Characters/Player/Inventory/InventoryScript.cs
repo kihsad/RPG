@@ -114,7 +114,7 @@ public class InventoryScript : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        if(item.MyStackSize>0)
+        if(item.MyStackSize > 0)
         {
             if(PlaceInStack(item))
             {
@@ -124,15 +124,4 @@ public class InventoryScript : MonoBehaviour
         PlaceInEmpty(item);
     }
 
-   /* public void AddItem(Item item)
-    {
-        foreach(Bag bag in _bags)
-        {
-            if(bag.MyBagScrtipt.AddItem(item))
-            {
-                return;
-            }
-        }
-    }
-   */
 }

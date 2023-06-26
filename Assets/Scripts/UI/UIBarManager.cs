@@ -49,8 +49,18 @@ public class UIBarManager : MonoBehaviour
     {
         if(clickable.MyCount==0)
         {
-            Debug.Log("UpdateStackSize");
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
+            clickable.MyStackText.color = new Color(0,0,0,0);
+        }
+        if (clickable.MyCount > 1)
+        {
+            clickable.MyStackText.text = clickable.MyCount.ToString();
+            clickable.MyStackText.color = Color.white;
+            clickable.MyIcon.color = Color.white;
+        }
+        else
+        {
+            clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
     }
 }

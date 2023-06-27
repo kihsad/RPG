@@ -10,7 +10,10 @@ public class InventoryScript : MonoBehaviour
     [SerializeField]
     private Item[] _items;
 
-    private List<Bag> _bags = new List<Bag>(); 
+    private SlotScript _fromSlot;
+
+    private List<Bag> _bags = new List<Bag>();
+
     public bool CanAddBag
     {
         get
@@ -23,11 +26,26 @@ public class InventoryScript : MonoBehaviour
     {
         get
         {
-            if(instance ==null)
+            if (instance == null)
             {
                 instance = FindObjectOfType<InventoryScript>();
             }
             return instance;
+        }
+    }
+    public SlotScript FromSlot
+    {
+        get
+        {
+            return _fromSlot;
+        }
+        set
+        {
+            _fromSlot = value;
+            if(value!=null)
+            {
+                _fromSlot.MyIcon.color = Color.gray;
+            }
         }
     }
 

@@ -24,11 +24,18 @@ public class Bag : Item ,IUseable
     {
         if (InventoryScript.Instance.CanAddBag)
         {
-            Debug.Log("Bag/Use");
             Remove();
             MyBagScrtipt = Instantiate(_bagPrefab, InventoryScript.Instance.transform).GetComponent<BagScript>();
             MyBagScrtipt.AddSlots(_slots);
-            InventoryScript.Instance.AddBag(this);
+
+            if(MyBagButton == null)
+            {
+                InventoryScript.Instance.AddBag(this);
+            }
+            else
+            {
+                InventoryScript.Instance.AddBag(this, MyBagButton);
+            }
         }
     }
 }

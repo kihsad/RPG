@@ -1,5 +1,5 @@
 
-interface IUseable
+public interface IUseable
 {
    /* Sprite MyIcon
     {

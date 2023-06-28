@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private Transform _detector;
 
-    private float stoppingDistance = 3f;
+    private float stoppingDistance = 5f;
 
     public Collider[] _targets = new Collider[10];
     private List<Transform> _points = new List<Transform>();
@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
             if (distance <= stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
+                _animator.SetBool("isPatrolling", false);
                 //_damager.Attack();
 
             }

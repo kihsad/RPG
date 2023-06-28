@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 	private Player _target = null;
 
 	private float pitch = 1.8f;        
-	private float currentZoom = 5f;
+	private float currentZoom = 10f;
 	private float currentYaw = 0f;
 
     private void Start()

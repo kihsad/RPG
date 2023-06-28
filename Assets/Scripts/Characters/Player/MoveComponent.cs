@@ -52,7 +52,7 @@ using UnityEngine;
 
         public void Moving()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 _touchCount++;
                 Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);

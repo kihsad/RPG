@@ -11,6 +11,13 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
     private Text _stackSize;
 
     private ObservableStack<Item> _items = new ObservableStack<Item>();
+    public ObservableStack<Item> MyItems
+    {
+        get
+        {
+            return _items;
+        }
+    }
 
     public bool IsEmpty
     {
@@ -30,6 +37,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
             return true;
         }
     }
+
     public Item MyItem
     {
         get
@@ -41,7 +49,6 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
             return null;
         }
     }
-
     public int MyCount
     {
         get
@@ -49,7 +56,6 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
             return _items.Count;
         }
     }
-
     public Image MyIcon
     {
         get
@@ -61,8 +67,8 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
             _icon = value;
         }
     }
-
     public Text MyStackText => _stackSize;
+    public BagScript MyBag { get; set; }
 
     private void Awake()
     {
@@ -124,6 +130,17 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IClickable
             {
                 HandScript.Instance.TakeMoveable(MyItem as IMoveable);
                 InventoryScript.Instance.FromSlot = this;
+            }
+            else if(InventoryScript.Instance.FromSlot ==null && IsEmpty && (HandScript.Instance.MyMoveable is Bag))
+            {
+                Bag bag = (Bag)HandScript.Instance.MyMoveable;
+
+                if (bag.MyBagScrtipt != MyBag && InventoryScript.Instance.MyEmptySlotCount - bag.Slots>0)
+                {
+                    AddItem(bag);
+                    bag.MyBagButton.RemoveBag();
+                    HandScript.Instance.Drop();
+                }
             }
             else if (InventoryScript.Instance.FromSlot != null)
             {

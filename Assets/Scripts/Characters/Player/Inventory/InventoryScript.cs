@@ -14,14 +14,6 @@ public class InventoryScript : MonoBehaviour
 
     private List<Bag> _bags = new List<Bag>();
 
-    public bool CanAddBag
-    {
-        get
-        {
-            return _bags.Count < 1;
-        }
-    }
-
     public static InventoryScript Instance
     {
         get
@@ -33,6 +25,7 @@ public class InventoryScript : MonoBehaviour
             return instance;
         }
     }
+
     public SlotScript FromSlot
     {
         get
@@ -42,12 +35,48 @@ public class InventoryScript : MonoBehaviour
         set
         {
             _fromSlot = value;
-            if(value!=null)
+            if (value != null)
             {
                 _fromSlot.MyIcon.color = Color.gray;
             }
         }
     }
+    public int MyEmptySlotCount
+    {
+        get
+        {
+            int count = 0;
+            foreach(Bag bag in _bags)
+            {
+                count += bag.MyBagScrtipt.MyEmptySlotsCount;
+            }
+            return count;
+        }
+    }
+
+    public bool CanAddBag
+    {
+        get
+        {
+            return _bags.Count < 1;
+        }
+    }
+
+    private bool PlaceInStack(Item item)
+    {
+        foreach (Bag bag in _bags)
+        {
+            foreach (SlotScript slot in bag.MyBagScrtipt.MySlots)
+            {
+                if (slot.StackItem(item))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
     private void Awake()
     {
@@ -81,6 +110,7 @@ public class InventoryScript : MonoBehaviour
         }
 
     }
+
     public void AddBag(Bag bag)
     {
         foreach(BagButton bagButton in _bagButtons)
@@ -89,11 +119,16 @@ public class InventoryScript : MonoBehaviour
             {
                 bagButton.MyBag = bag;
                 _bags.Add(bag);
+                bag.MyBagButton = bagButton;
                 break;
             }
         }
     }
-
+    public void RemoveBag(Bag bag)
+    {
+        _bags.Remove(bag);
+        Destroy(bag.MyBagScrtipt.gameObject);
+    }
     private void PlaceInEmpty(Item item)
     {
         foreach (Bag bag in _bags)
@@ -103,20 +138,6 @@ public class InventoryScript : MonoBehaviour
                 return;
             }
         }
-    }
-        private bool PlaceInStack(Item item)
-    {
-        foreach(Bag bag in _bags)
-        {
-            foreach(SlotScript slot in bag.MyBagScrtipt.MySlots)
-            {
-                if(slot.StackItem(item))
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
     public void OpenClose()
     {

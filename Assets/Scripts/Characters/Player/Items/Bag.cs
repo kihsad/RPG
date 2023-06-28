@@ -10,6 +10,7 @@ public class Bag : Item ,IUseable
 
     public BagScript MyBagScrtipt { get; set; }
 
+    public BagButton MyBagButton { get; set; }
     public int Slots => _slots;
 
    /* public Sprite MyIcon => throw new System.NotImplementedException();*/

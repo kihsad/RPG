@@ -14,6 +14,14 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
     protected bool isAttacking = false;
 
+    public bool IsAlive
+    {
+        get
+        {
+            return health.MyCurrentValue > 0;
+        }
+    }
+    public Transform HitBox => _hitBox;
     protected virtual void Start()
     {
         _animator = GetComponent<Animator>();
@@ -27,13 +35,11 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public virtual void TakeDamage(float damage)
     {
         health.MyCurrentValue -= damage;
-        if(health.MyCurrentValue<=0)
+        if (health.MyCurrentValue <= 0)
         {
             //die animation
             //loot
             gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
-            //_animator.Play("An_Dead"); // анимация смерти врага/игрока - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //_animator.Play("death");
             _animator.SetBool("isDead", true);
             Invoke("Death", 2.5f);
         }

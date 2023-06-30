@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Armor", menuName = "Items/Armor", order = 2)]
+public class Armor : Item
+{
+    [SerializeField]
+    private GameObject _armorPrefab;
+    [SerializeField]
+    private ArmorType _armorType;
+    [SerializeField]
+    private int _strength;
+    [SerializeField]
+    private int _stamina;
+    [SerializeField]
+    private int _intellect;
+
+    public ArmorType ArmorType => _armorType;
+    public GameObject ArmorPrefab => _armorPrefab;
+    public override string GetDescription()
+    {
+        string stats = string.Empty;
+
+        if(_strength>0)
+        {
+            stats += string.Format("\n+{0} strength",_strength);
+        }
+        if (_stamina > 0)
+        {
+            stats += string.Format("\n+{0} stamina", _stamina);
+        }
+        if (_intellect > 0)
+        {
+            stats += string.Format("\n+{0} intellect", _intellect);
+        }
+        return base.GetDescription() + stats;
+    }
+
+    public void Equip()
+    {
+        CharacterPanel.Instance.EquipArmor(this);
+    }
+}
+
+public enum ArmorType
+{
+    Helmet,
+    Shield,
+    Sword,
+    Cape,
+    Wings,
+    Boots
+}

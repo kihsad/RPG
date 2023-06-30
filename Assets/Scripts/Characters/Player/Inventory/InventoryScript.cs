@@ -123,15 +123,16 @@ public class InventoryScript : MonoBehaviour
         }
         return false;
     }
-    private void PlaceInEmpty(Item item)
+    private bool PlaceInEmpty(Item item)
     {
         foreach (Bag bag in _bags)
         {
             if (bag.MyBagScrtipt.AddItem(item))
             {
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public void AddBag(Bag bag)
@@ -183,16 +184,16 @@ public class InventoryScript : MonoBehaviour
     }
 
 
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
         if(item.MyStackSize > 0)
         {
             if(PlaceInStack(item))
             {
-                return;
+                return true;
             }
         }
-        PlaceInEmpty(item);
+        return PlaceInEmpty(item);
     }
         
 

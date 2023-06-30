@@ -11,4 +11,8 @@ public class HealthsPotion : Item, IUseable
         Remove();
         Player.MyInstance.MyHealth += _healValue;
     }
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\nUse: Restores {0} health.",_healValue);
+    }
 }

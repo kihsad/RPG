@@ -8,6 +8,13 @@ public class UIBarManager : MonoBehaviour
     private Image[] _castBars;
     [SerializeField]
     private FireBall _fireBall;
+    [SerializeField]
+    private GameObject _tooltip;
+    [SerializeField]
+    private CharacterPanel _characterPanel;
+    [SerializeField]
+    private RectTransform _tooltipRect;
+    private Text _tooltipText;
 
     private static UIBarManager instance;
 
@@ -23,6 +30,10 @@ public class UIBarManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _tooltipText = _tooltip.GetComponentInChildren<Text>();
+    }
 
     private void Update()
     {
@@ -64,5 +75,23 @@ public class UIBarManager : MonoBehaviour
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
             clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    public void ShowTooltip(Vector2 pivot , Vector3 position , IDescribable description)
+    {
+        _tooltipRect.pivot = pivot;
+        _tooltip.SetActive(true);
+        _tooltip.transform.position = position;
+        _tooltipText.text = description.GetDescription();
+    }
+    public void HideTooltip()
+    {
+
+        _tooltip.SetActive(false);
+    }
+
+    public void RefreshTooltip(IDescribable description)
+    {
+        _tooltipText.text = description.GetDescription();
     }
 }

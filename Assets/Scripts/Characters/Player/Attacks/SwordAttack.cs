@@ -12,7 +12,7 @@ public class SwordAttack : MonoBehaviour
 
         if (player == null && enemy == null) return;
 
-        if (enemy != null &&_meleeAtack.Character.gameObject.layer!=enemy.gameObject.layer)
+        if (enemy != null &&_meleeAtack.Character.gameObject.layer!=enemy.gameObject.layer&&_meleeAtack.Character.GetComponent<Player>().MyTarget==enemy.GetComponent<Character>().HitBox)
         {
             enemy.TakeDamage(_meleeAtack.GetDamage);
         }

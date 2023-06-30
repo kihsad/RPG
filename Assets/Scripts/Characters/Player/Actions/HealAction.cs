@@ -10,14 +10,11 @@ public class HealAction : MonoBehaviour
     [SerializeField]
     private Item _healthPotion;
     [SerializeField]
-    private Image _stackSize;
-    [SerializeField]
     private float _healCooldown=0.5f;
 
     private bool _isCd=false;
 
     private Stack<IUseable> _useables;
-    private int _count;
 
     private void Update()
     {
@@ -44,9 +41,9 @@ public class HealAction : MonoBehaviour
         if(useable is HealthsPotion)
         {
             _useables = InventoryScript.Instance.GetUseables(useable);
-            _count = _useables.Count;
         }
-        this.MyUseable = useable;
+       
+        MyUseable = useable;
     }
 
     private IEnumerator PotionCD()

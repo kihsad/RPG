@@ -17,4 +17,12 @@ public class Enemy : NPC
         _heathGroup.alpha = 0;
         base.DeSelect();
     }
+
+    public override void Interact()
+    {
+        if(!IsAlive)
+        {
+
+        }
+    }
 }

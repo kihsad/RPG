@@ -1,20 +1,36 @@
 using UnityEngine;
 
-public abstract class Item : ScriptableObject,IMoveable
+public abstract class Item : ScriptableObject, IMoveable, IDescribable
 {
-    //[SerializeField]
-    //private GameObject _item;
-
     [SerializeField]
     private Sprite _icon;
 
     [SerializeField]
     private int _stackSize;
 
+    [SerializeField]
+    private Quality _quality;
+
     private SlotScript _slot;
 
-    //public GameObject ItemGO => _item;
+    private CharButton _charButton;
+    public CharButton CharButton
+    {
+        get
+        {
+            return _charButton;
+        }
+        set
+        {
+            MySlot = null;
+            _charButton = value;
+        }
+    }
+    [SerializeField]
+    private string _title;
 
+    public string Title => _title;
+    public Quality Quality => _quality;
     public int MyStackSize => _stackSize;
 
     public SlotScript MySlot
@@ -30,6 +46,12 @@ public abstract class Item : ScriptableObject,IMoveable
     }
 
     public Sprite MyIcon => _icon;
+
+    public virtual string GetDescription()
+    {
+
+        return string.Format("<color={0}>{1}</color>",QualityColor.Colors[_quality],_title);
+    }
 
     public void Remove()
     {

@@ -19,7 +19,7 @@ using UnityEngine.AI;
 
         private float _initMana=50;
 
-       // private float _healthValue;
+        public Transform MyTarget { get; set; }
 
         public float MyHealth
         {

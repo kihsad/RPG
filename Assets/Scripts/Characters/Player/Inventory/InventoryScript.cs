@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void ItemCountChangedEvent(Item item);
+
 public class InventoryScript : MonoBehaviour
 {
+    public event ItemCountChangedEvent itemCountChangedEvent;
     private static InventoryScript instance;
     //for Debugging 
     [SerializeField]
@@ -72,14 +75,14 @@ public class InventoryScript : MonoBehaviour
     {
         get
         {
-            return _bags.Count < 2;
+            return _bags.Count < 1;
         }
     }
 
     private void Awake()
     {
            Bag bag = (Bag)Instantiate(_items[0]);
-            bag.Initialize(9);
+            bag.Initialize(16);
             bag.Use();
             OpenClose();
     }
@@ -117,6 +120,7 @@ public class InventoryScript : MonoBehaviour
             {
                 if (slot.StackItem(item))
                 {
+                    OnItemCountChanged(item);
                     return true;
                 }
             }
@@ -129,6 +133,7 @@ public class InventoryScript : MonoBehaviour
         {
             if (bag.MyBagScrtipt.AddItem(item))
             {
+                OnItemCountChanged(item);
                 return true;
             }
         }
@@ -209,6 +214,31 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
+    public int GetItemCount(string type)
+    {
+        int itemCount = 0;
+
+        foreach(Bag bag in _bags)
+        {
+            foreach(SlotScript slot in bag.MyBagScrtipt.MySlots)
+            {
+                if(!slot.IsEmpty && slot.MyItem.Title == type)
+                {
+                    itemCount += slot.MyItems.Count;
+                    Debug.Log(itemCount);
+                }
+            }
+        }
+        return itemCount;
+    }
+
+    public void OnItemCountChanged(Item item)
+    {
+        if(itemCountChangedEvent!=null)
+        {
+            itemCountChangedEvent.Invoke(item);
+        }
+    }
     public Stack<IUseable> GetUseables(IUseable type)
     {
         Stack<IUseable> useables = new Stack<IUseable>();

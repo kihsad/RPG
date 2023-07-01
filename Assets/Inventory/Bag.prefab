@@ -102,7 +102,7 @@ MonoBehaviour:
   m_CellSize: {x: 90, y: 90}
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 4
 --- !u!114 &-4892801292513944426
 MonoBehaviour:
   m_ObjectHideFlags: 0

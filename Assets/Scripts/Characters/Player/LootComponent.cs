@@ -27,7 +27,15 @@ public class LootComponent : MonoBehaviour
                 if (distance < _lootableDistance)
                 {
                     _lootTarget = hitInfo.point;
-                    hitInfo.collider.GetComponent<LootTable>().Interact();
+                    if(hitInfo.collider.GetComponent<QuestGiver>()!=null)
+                    {
+                        (hitInfo.collider.GetComponent<QuestGiver>() as NPC).Interact();
+                    }
+                    if (hitInfo.collider.GetComponent<LootTable>() != null)
+                    {
+                        hitInfo.collider.GetComponent<LootTable>().Interact();
+                    }
+
                 }
             }
         }

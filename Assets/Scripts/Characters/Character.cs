@@ -9,7 +9,9 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public Stats health;
     [SerializeField]
     private float _initHealth; //хп при старте
-    
+    [SerializeField]
+    private string _typeStr;
+
     private Animator _animator;
 
     protected bool isAttacking = false;
@@ -21,6 +23,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
             return health.MyCurrentValue > 0;
         }
     }
+    public string Type => _typeStr;
     public Transform HitBox => _hitBox;
     protected virtual void Start()
     {
@@ -39,6 +42,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         {
             //die animation
             //loot
+            KillManager.Instance.OnKillConfirmed(this);
             gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
             _animator.SetBool("isDead", true);
             Invoke("Death", 2.5f);
@@ -47,6 +51,6 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
     public void Death()
     {
-        _animator.GetComponent<NPC>().OnCharacterRemoved();
+        _animator.GetComponent<Enemy>().OnCharacterRemoved();
     }
 }

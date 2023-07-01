@@ -40,17 +40,6 @@ public class LootWindow : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }
-    private void Start()
-    {
-       /* 
-        List<Item> tmp = new List<Item>();
-        for (int i = 0; i < _items.Length; i++)
-        {
-            tmp.Add(_items[i]);
-        }
-        CreatePages(tmp);
-       */
-    }
 
     public void CreatePages(List<Item> items)
     {
@@ -121,9 +110,6 @@ public class LootWindow : MonoBehaviour
             AddLoot();
         }
     }
-
-
-
 
 
 

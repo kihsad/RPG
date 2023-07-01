@@ -83,7 +83,8 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         _icon.sprite = item.MyIcon;
         _icon.color = Color.white;
         item.MySlot = this;
-        return true;    
+        InventoryScript.Instance.OnItemCountChanged(item);
+        return true;
     }
     public bool AddItems(ObservableStack<Item> newItems)
     {
@@ -170,8 +171,8 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
                 else if(HandScript.Instance.MyMoveable is Armor)
                 {
                     Armor armor = (Armor)HandScript.Instance.MyMoveable;
-                    AddItem(armor);
                     CharacterPanel.Instance.SelectedButton.DequipArmor();
+                    AddItem(armor);
                     HandScript.Instance.Drop();
                 }
             }
@@ -196,6 +197,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         if (MyItem is IUseable)
         {
             (MyItem as IUseable).Use();
+            InventoryScript.Instance.OnItemCountChanged(MyItem);
         }
         else if(MyItem is Armor)
         {
@@ -250,9 +252,14 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
     }
     public void Clear()
     {
+        int initCount = MyItems.Count;
+
         if(_items.Count>0)
         {
-            _items.Clear();
+            for (int i = 0; i < initCount; i++)
+            {
+                InventoryScript.Instance.OnItemCountChanged(MyItems.Pop());
+            }
         }
     }
 

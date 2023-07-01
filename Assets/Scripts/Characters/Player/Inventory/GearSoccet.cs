@@ -18,5 +18,6 @@ public class GearSoccet : MonoBehaviour
         var armor = transform.GetChild(0).gameObject;
         armor.SetActive(false);
         Destroy(armor);
+
     }
 }

@@ -1,28 +1,32 @@
 using UnityEngine;
 
-public class Enemy : NPC
+public delegate void CharacterRemoved();
+
+
+public class Enemy : Character
 {
+    public event CharacterRemoved _characterRemoved;
+
     [SerializeField]
     private CanvasGroup _heathGroup;
 
-    private Enemy instance;
-
-    public override Transform Select() // подсветка хп элемента
+    public Transform Select() // подсветка хп элемента
     {
         _heathGroup.alpha = 1;
-        return base.Select();
+        return _hitBox;
     }
-    public override void DeSelect() //затухание хп элемента
+    public void DeSelect() //затухание хп элемента
     {
         _heathGroup.alpha = 0;
-        base.DeSelect();
     }
 
-    public override void Interact()
+    public void OnCharacterRemoved()
     {
-        if(!IsAlive)
+        if (_characterRemoved is not null)
         {
-
+            _characterRemoved();
         }
+        Destroy(gameObject);
     }
+
 }

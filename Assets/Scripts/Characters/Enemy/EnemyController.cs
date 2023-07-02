@@ -14,17 +14,18 @@ public class EnemyController : MonoBehaviour
     private float stoppingDistance = 3f;
 
     public Collider[] _targets = new Collider[10];
-    private List<Transform> _points = new List<Transform>();
+    public List<Transform> _points = new List<Transform>();
 
     private Animator _animator;
     private NavMeshAgent _agent;
-    private Damager _damager;
+    [SerializeField]
+    private SwordAttack _sword;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        _damager = GetComponent<Damager>();
+        _sword.gameObject.GetComponent<Collider>().enabled = false;
 
     }
     private void FixedUpdate()
@@ -44,11 +45,13 @@ public class EnemyController : MonoBehaviour
             if (distance <= stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                //_damager.Attack();
+                if(_animator.GetBool("isAttacking"))
+                _sword.gameObject.GetComponent<Collider>().enabled = true;
 
             }
             else
             {
+                _sword.gameObject.GetComponent<Collider>().enabled = false;
                 _animator.SetBool("isPatrolling", true);
                 _animator.SetBool("isAttacking", false);
             }

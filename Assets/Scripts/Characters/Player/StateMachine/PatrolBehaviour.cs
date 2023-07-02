@@ -29,7 +29,7 @@ public class PatrolBehaviour : StateMachineBehaviour
             _agent.SetDestination(_enemyController._points[Random.Range(0, _enemyController._points.Count)].position);
         //distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
         timer += Time.deltaTime;
-        if (timer > 10)
+        if (timer > Random.Range(1,10))
             animator.SetBool("isPatrolling", false);
     }
 

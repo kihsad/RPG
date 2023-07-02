@@ -6,7 +6,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     [SerializeField]
     protected Transform _hitBox; //коллайдер
     [SerializeField]
-    public Stats health;
+    private Stats health;
     [SerializeField]
     private float _initHealth; //хп при старте
     [SerializeField]
@@ -25,6 +25,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     }
     public string Type => _typeStr;
     public Transform HitBox => _hitBox;
+    public Stats Health => health;
     protected virtual void Start()
     {
         _animator = GetComponent<Animator>();
@@ -49,6 +50,11 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         }
     }
 
+    public void GetHealth(int health)
+    {
+        Health.MyCurrentValue += health;
+        CombatTextManager.Instance.CreateText(transform.position, health.ToString(),SCtype.Heal);
+    }
     public void Death()
     {
         _animator.GetComponent<Enemy>().OnCharacterRemoved();

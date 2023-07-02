@@ -40,7 +40,7 @@ public class Armor : Item
     public void Equip()
     {
         CharacterPanel.Instance.EquipArmor(this);
-        InventoryScript.Instance.OnItemCountChanged(this);
+      //  InventoryScript.Instance.OnItemCountChanged(this);
     }
 }
 

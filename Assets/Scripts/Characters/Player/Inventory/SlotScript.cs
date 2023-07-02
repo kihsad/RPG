@@ -83,7 +83,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         _icon.sprite = item.MyIcon;
         _icon.color = Color.white;
         item.MySlot = this;
-        InventoryScript.Instance.OnItemCountChanged(item);
+        //InventoryScript.Instance.OnItemCountChanged(item);
         return true;
     }
     public bool AddItems(ObservableStack<Item> newItems)
@@ -197,7 +197,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         if (MyItem is IUseable)
         {
             (MyItem as IUseable).Use();
-            InventoryScript.Instance.OnItemCountChanged(MyItem);
+            //InventoryScript.Instance.OnItemCountChanged(MyItem);
         }
         else if(MyItem is Armor)
         {

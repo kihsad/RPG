@@ -25,11 +25,11 @@ using UnityEngine.AI;
         {
             get
             {
-                return health.MyCurrentValue;
+                return Health.MyCurrentValue;
             }
             set
             {
-                health.MyCurrentValue = value;
+                Health.MyCurrentValue = value;
             }
         }
         public int MyLevel

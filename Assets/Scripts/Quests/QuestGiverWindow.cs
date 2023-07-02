@@ -103,6 +103,17 @@ public class QuestGiverWindow : Window
                     _questGiver.Quests[i] = null;
                 }
             }
+
+            foreach(CollectObjective obj in _selectedQuest.CollectObjectives)
+            {
+                InventoryScript.Instance.itemCountChangedEvent -= new ItemCountChangedEvent(obj.UpdateItemCount);
+                obj.Complete();
+            }
+            foreach (KillObjective obj in _selectedQuest.KillObjectives)
+            {
+                KillManager.Instance._killConfirmedEvent -= new KillConfirmed(obj.UpdateKillCount);
+            }
+            QuestLog.Instance.RemoveQuest(_selectedQuest.MyQuestScript);
             Back();
         }
     }

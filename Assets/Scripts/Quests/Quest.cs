@@ -21,6 +21,7 @@ public class Quest
         set => _description = value;
     }
     public QuestScript MyQuestScript { get; set; }
+    public QuestGiver MyQuestGiver { get; set; }
     public string Title
     {
         get
@@ -84,9 +85,13 @@ public class CollectObjective : Objective
 {
     public void UpdateItemCount(Item item)
     {
-        if(Type.ToLower() == item.Title.ToLower())
+        if (Type.ToLower() == item.Title.ToLower())
         {
             CurrentAmount = InventoryScript.Instance.GetItemCount(item.Title);
+            if (CurrentAmount <= Amount)
+            {
+                MessageFeedManager.Instance.WriteMessage(string.Format("{0}: {1}/{2}", item.Title, CurrentAmount, Amount));
+            }
             QuestLog.Instance.UpdateSelected();
             QuestLog.Instance.CheckCompletion();
         }
@@ -94,8 +99,18 @@ public class CollectObjective : Objective
     public void UpdateItemCount()
     {
             CurrentAmount = InventoryScript.Instance.GetItemCount(Type);
-            QuestLog.Instance.UpdateSelected();
+        QuestLog.Instance.UpdateSelected();
             QuestLog.Instance.CheckCompletion();
+    }
+
+    public void Complete()
+    {
+        Stack<Item> items = InventoryScript.Instance.GetItems(Type, Amount);
+
+        foreach(Item item in items)
+        {
+            item.Remove();
+        }
     }
 }
 [System.Serializable]
@@ -105,7 +120,15 @@ public class KillObjective : Objective
     {
         if(Type == character.Type)
         {
+            if (CurrentAmount >= Amount) return;
+
             CurrentAmount++;
+
+            if (CurrentAmount <= Amount)
+            {
+                MessageFeedManager.Instance.WriteMessage(string.Format("{0}: {1}/{2}", character.Type, CurrentAmount, Amount));
+            }
+
             QuestLog.Instance.CheckCompletion();
             QuestLog.Instance.UpdateSelected();
         }

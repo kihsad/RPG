@@ -200,7 +200,28 @@ public class InventoryScript : MonoBehaviour
         }
         return PlaceInEmpty(item);
     }
-        
+        public Stack<Item> GetItems(string type,int count)
+    {
+        Stack<Item> items = new Stack<Item>();
+        foreach (Bag bag in _bags)
+        {
+            foreach (SlotScript slot in bag.MyBagScrtipt.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.Title == type)
+                {
+                    foreach(Item item  in slot.MyItems)
+                    {
+                        items.Push(item);
+                    }
+                    if(items.Count == count)
+                    {
+                        return items;
+                    }
+                }
+            }
+        }
+        return items;
+    }
 
     public void OpenClose()
     {

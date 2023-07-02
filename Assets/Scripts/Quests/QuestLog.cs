@@ -15,6 +15,14 @@ public class QuestLog : MonoBehaviour
     private Text _questDescription;
     [SerializeField]
     private CanvasGroup _canvasGroup;
+
+    [SerializeField]
+    private Text _questCountTxt;
+    [SerializeField]
+    private int _maxCount;
+
+    private int _currentCount=0;
+
     private Quest _selectedQuest;
 
     private List<QuestScript> _questScripts = new List<QuestScript>();
@@ -34,6 +42,10 @@ public class QuestLog : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        _questCountTxt.text = _currentCount + "/" + _maxCount;
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.L))
@@ -43,8 +55,12 @@ public class QuestLog : MonoBehaviour
     }
     public void AcceptQuest(Quest quest)
     {
+        if (_currentCount >= _maxCount) return;
 
-        foreach(CollectObjective obj in quest.CollectObjectives)
+        _currentCount++;
+        _questCountTxt.text = _currentCount + "/" + _maxCount;
+
+        foreach (CollectObjective obj in quest.CollectObjectives)
         {
             InventoryScript.Instance.itemCountChangedEvent += new ItemCountChangedEvent(obj.UpdateItemCount);
             obj.UpdateItemCount();
@@ -95,6 +111,7 @@ public class QuestLog : MonoBehaviour
     {
         foreach(QuestScript qs in _questScripts)
         {
+            qs.MyQuest.MyQuestGiver.UpdateQuestStatus();
             qs.IsComplete();
         }
     }
@@ -120,6 +137,27 @@ public class QuestLog : MonoBehaviour
 
     public void AbandonQuest()
     {
+        foreach (CollectObjective obj in _selectedQuest.CollectObjectives)
+        {
+            InventoryScript.Instance.itemCountChangedEvent -= new ItemCountChangedEvent(obj.UpdateItemCount);
+        }
+        foreach (KillObjective obj in _selectedQuest.KillObjectives)
+        {
+            KillManager.Instance._killConfirmedEvent -= new KillConfirmed(obj.UpdateKillCount);
+        }
+        RemoveQuest(_selectedQuest.MyQuestScript);
+    }
+    public void RemoveQuest(QuestScript quest)
+    {
+        _questScripts.Remove(quest);
+        Destroy(quest.gameObject);
+        _quests.Remove(quest.MyQuest);
+        _questDescription.text = string.Empty;
+        _selectedQuest = null;
+        _currentCount--;
+        _questCountTxt.text = _currentCount + "/" + _maxCount;
+        quest.MyQuest.MyQuestGiver.UpdateQuestStatus();
+        quest = null;
 
     }
     public bool HasQuest(Quest quest)

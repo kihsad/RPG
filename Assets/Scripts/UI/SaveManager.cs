@@ -46,10 +46,10 @@ public class SaveManager : MonoBehaviour
 
     private void SavePlayer(SaveData data)
     {
-        data.MyPlayerData = new PlayerData(Player.MyInstance.MyLevel,Player.MyInstance.MyHealth,Player.MyInstance.MyHealth,Player.MyInstance.transform.position);
+        data.MyPlayerData = new PlayerData(Player.MyInstance.Level,Player.MyInstance.MyHealth,Player.MyInstance.MyHealth,Player.MyInstance.transform.position);
     }
     private void LoadPlayer(SaveData data)
     {
-        Player.MyInstance.MyLevel = data.MyPlayerData.MyLevel;
+        Player.MyInstance.Level = data.MyPlayerData.MyLevel;
     }
 }

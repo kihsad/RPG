@@ -11,8 +11,11 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     private float _initHealth; //хп при старте
     [SerializeField]
     private string _typeStr;
-
+    [SerializeField]
+    private int _level;
     private Animator _animator;
+
+    private Vector3 _offset = new Vector3(2,3,0);
 
     protected bool isAttacking = false;
 
@@ -26,6 +29,17 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public string Type => _typeStr;
     public Transform HitBox => _hitBox;
     public Stats Health => health;
+    public int Level
+    {
+        get
+        {
+            return _level;
+        }
+        set
+        {
+            _level = value;
+        }
+    }
     protected virtual void Start()
     {
         _animator = GetComponent<Animator>();
@@ -39,6 +53,9 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public virtual void TakeDamage(float damage)
     {
         health.MyCurrentValue -= damage;
+        if(this as Enemy)
+        CombatTextManager.Instance.CreateText(transform.position+_offset, damage.ToString(), SCtype.Damage);
+
         if (health.MyCurrentValue <= 0)
         {
             //die animation
@@ -47,13 +64,18 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
             gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
             _animator.SetBool("isDead", true);
             Invoke("Death", 2.5f);
+
+            if(this is Enemy)
+            {
+                Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+            }
         }
     }
 
     public void GetHealth(int health)
     {
         Health.MyCurrentValue += health;
-        CombatTextManager.Instance.CreateText(transform.position, health.ToString(),SCtype.Heal);
+        CombatTextManager.Instance.CreateText(transform.position+_offset, health.ToString(),SCtype.Heal);
     }
     public void Death()
     {

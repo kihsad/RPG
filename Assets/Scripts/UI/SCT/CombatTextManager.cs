@@ -25,25 +25,31 @@ public class CombatTextManager : MonoBehaviour
     {
         Text sct = Instantiate(_prefabCT, transform).GetComponent<Text>();
         sct.transform.position = posisiton;
-        string operation = string.Empty;
-
+        string before = string.Empty;
+        string after=string.Empty;
         switch (type)
         {
             case SCtype.Damage:
-                operation = "-";
+                before = "-";
                 sct.color = Color.red;
                 break;
             case SCtype.Heal:
-                operation = "+";
+                before = "+";
                 sct.color = Color.green;
                 break;
+            case SCtype.XP:
+                before = "+";
+                after = "XP";
+                sct.color = Color.blue;
+                break;
         }
-        sct.text = operation + text;
+        sct.text = before + text+after;
     }
 }
 
 public enum SCtype
 {
     Damage,
-    Heal
+    Heal,
+    XP
 }

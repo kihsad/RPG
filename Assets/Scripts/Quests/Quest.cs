@@ -7,7 +7,6 @@ public class Quest
 {
     [SerializeField]
     private string _title;
-
     [SerializeField]
     private string _description;
     [SerializeField]
@@ -15,13 +14,16 @@ public class Quest
     [SerializeField]
     private KillObjective[] _killObjectives;
 
+    [SerializeField]
+    private int _level;
+    [SerializeField]
+    private int _xp;
+
     public string Description
     {
         get => _description;
         set => _description = value;
     }
-    public QuestScript MyQuestScript { get; set; }
-    public QuestGiver MyQuestGiver { get; set; }
     public string Title
     {
         get
@@ -34,8 +36,12 @@ public class Quest
         }
     }
 
+    public QuestScript MyQuestScript { get; set; }
+    public QuestGiver MyQuestGiver { get; set; }
+
     public CollectObjective[] CollectObjectives => _collectObjectives;
     public KillObjective[] KillObjectives => _killObjectives;
+
     public bool isComplete
     {
         get
@@ -57,6 +63,8 @@ public class Quest
             return true;
         }
     }
+    public int Level { get => _level; set => _level = value; }
+    public int Xp { get => _xp;}
 }
 [System.Serializable]
 public abstract class Objective

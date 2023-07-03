@@ -54,7 +54,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
             }
         }
     }
-    private void Start()
+    private void Awake()
     {
         _content = GetComponent<Image>();
     }
@@ -76,7 +76,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
         }
         else
         {
-            _content = GetComponent<Image>();
+           // _content = GetComponent<Image>();
         }
     }
     public void Reset()

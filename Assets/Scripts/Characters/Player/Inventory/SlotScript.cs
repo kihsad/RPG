@@ -69,6 +69,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
     }
     public Text MyStackText => _stackSize;
     public BagScript MyBag { get; set; }
+    public int MyIndex { get; set; }
 
     private void Awake()
     {

@@ -19,10 +19,7 @@ public class CameraController : MonoBehaviour
 	private float currentZoom = 10f;
 	private float currentYaw = 0f;
 
-    private void Start()
-    {
-		//_target = FindObjectOfType<Player>();
-	}
+
     void Update()
 	{
 		

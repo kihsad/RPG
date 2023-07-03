@@ -42,6 +42,8 @@ public class QuestLog : MonoBehaviour
 
     }
 
+    public List<Quest> Quests { get => _quests; set => _quests = value; }
+
     private void Start()
     {
         _questCountTxt.text = _currentCount + "/" + _maxCount;

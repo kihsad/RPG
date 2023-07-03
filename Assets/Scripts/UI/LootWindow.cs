@@ -140,6 +140,7 @@ public class LootWindow : MonoBehaviour
 
     public void CloseLootWindow()
     {
+        _pageIndex = 0;
         pages.Clear();
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;

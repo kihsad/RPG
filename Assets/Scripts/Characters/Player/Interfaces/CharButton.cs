@@ -14,6 +14,8 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
     [SerializeField]
     private Image _icon;
 
+    public Armor EquippedArmor { get => _equippedArmor;}
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Left)

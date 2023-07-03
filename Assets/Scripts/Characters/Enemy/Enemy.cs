@@ -10,6 +10,11 @@ public class Enemy : Character
     [SerializeField]
     private CanvasGroup _heathGroup;
 
+    protected override void Awake()
+    {
+        _health.Initialize(_initHealth, _initHealth);
+        base.Awake();
+    }
     public Transform Select() // подсветка хп элемента
     {
         _heathGroup.alpha = 1;

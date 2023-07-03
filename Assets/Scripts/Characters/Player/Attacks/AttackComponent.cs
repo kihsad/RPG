@@ -18,7 +18,7 @@ public class AttackComponent : MonoBehaviour // компонент для двух видов атак
     private bool _spellCD=false;
     private bool _meleeCD = false;
 
-    private void Start()
+    private void Awake()
     {
         _sword.gameObject.GetComponent<Collider>().enabled = false;
         _spellManager = FindObjectOfType<UIBarManager>();

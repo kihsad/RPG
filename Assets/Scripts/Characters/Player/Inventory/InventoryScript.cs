@@ -29,6 +29,7 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
+    public List<Bag> MyBags => _bags;
     public SlotScript FromSlot
     {
         get
@@ -86,31 +87,6 @@ public class InventoryScript : MonoBehaviour
             bag.Use();
             OpenClose();
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            Bag bag = (Bag)Instantiate(_items[0]);
-            bag.Initialize(9);
-            bag.Use();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Bag bag = (Bag)Instantiate(_items[0]);
-            bag.Initialize(9);
-            AddItem(bag);
-        }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            HealthsPotion healthsPotion = (HealthsPotion)Instantiate(_items[1]);
-            AddItem(healthsPotion);
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Player.MyInstance.MyHealth -= 10;
-        }
-
-    }
 
     private bool PlaceInStack(Item item)
     {
@@ -139,6 +115,11 @@ public class InventoryScript : MonoBehaviour
         }
         return false;
     }
+    public void PlaceInSpecific(Item item,int slotIndex)
+    {
+        _bags[0].MyBagScrtipt.MySlots[slotIndex].AddItem(item);
+
+    }
 
     public void AddBag(Bag bag)
     {
@@ -158,6 +139,15 @@ public class InventoryScript : MonoBehaviour
         _bags.Add(bag);
         bagButton.MyBag = bag;
     }
+
+    public void AddBag(Bag bag,int bagIndex)
+    {
+        bag.SetupScript();
+        MyBags.Add(bag);
+        bag.MyBagButton = _bagButtons[bagIndex];
+        _bagButtons[bagIndex].MyBag = bag;
+    }
+
     public void RemoveBag(Bag bag)
     {
         _bags.Remove(bag);
@@ -246,13 +236,28 @@ public class InventoryScript : MonoBehaviour
                 if(!slot.IsEmpty && slot.MyItem.Title == type)
                 {
                     itemCount += slot.MyItems.Count;
-                    Debug.Log(itemCount);
                 }
             }
         }
         return itemCount;
     }
 
+    public List<SlotScript> GetAllItems()
+    {
+        List<SlotScript> slots = new List<SlotScript>();
+
+        foreach(Bag bag in MyBags)
+        {
+            foreach(SlotScript slot in bag.MyBagScrtipt.MySlots)
+            {
+                if(!slot.IsEmpty)
+                {
+                    slots.Add(slot);
+                }
+            }
+        }
+        return slots;
+    }
     public void OnItemCountChanged(Item item)
     {
         if(itemCountChangedEvent!=null)

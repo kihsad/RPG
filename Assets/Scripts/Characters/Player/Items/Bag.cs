@@ -20,6 +20,11 @@ public class Bag : Item ,IUseable
         _slots = slots;
     }
 
+    public void SetupScript()
+    {
+        MyBagScrtipt = Instantiate(_bagPrefab, InventoryScript.Instance.transform).GetComponent<BagScript>();
+        MyBagScrtipt.AddSlots(_slots);
+    }
     public void Use()
     {
         if (InventoryScript.Instance.CanAddBag)

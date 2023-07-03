@@ -7,7 +7,7 @@ public class HealthsPotion : Item, IUseable
     private int _healValue;
     public void Use()
     {
-        if(Player.MyInstance.Health.MyCurrentValue < Player.MyInstance.Health.MyMaxValue)
+        if(Player.MyInstance.MyHealth.MyCurrentValue < Player.MyInstance.MyHealth.MyMaxValue)
         Remove();
         Player.MyInstance.GetHealth(_healValue);
     }

@@ -6,9 +6,9 @@ public abstract class Character : MonoBehaviour //персонажи (наследуютс€ враги ,
     [SerializeField]
     protected Transform _hitBox; //коллайдер
     [SerializeField]
-    private Stats health;
+    protected Stats _health;
     [SerializeField]
-    private float _initHealth; //хп при старте
+    protected float _initHealth; //хп при старте
     [SerializeField]
     private string _typeStr;
     [SerializeField]
@@ -23,12 +23,16 @@ public abstract class Character : MonoBehaviour //персонажи (наследуютс€ враги ,
     {
         get
         {
-            return health.MyCurrentValue > 0;
+            return _health.MyCurrentValue > 0;
         }
     }
     public string Type => _typeStr;
     public Transform HitBox => _hitBox;
-    public Stats Health => health;
+    public Stats MyHealth
+    {
+        get => _health;
+        set => _health = value;
+    }
     public int Level
     {
         get
@@ -40,23 +44,22 @@ public abstract class Character : MonoBehaviour //персонажи (наследуютс€ враги ,
             _level = value;
         }
     }
-    protected virtual void Start()
+
+    protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
-        health.Initialize(_initHealth, _initHealth); // дл€ ui элемента
     }
     protected virtual void Update()
     {
-        
     }
 
     public virtual void TakeDamage(float damage)
     {
-        health.MyCurrentValue -= damage;
+        _health.MyCurrentValue -= damage;
         if(this as Enemy)
         CombatTextManager.Instance.CreateText(transform.position+_offset, damage.ToString(), SCtype.Damage);
 
-        if (health.MyCurrentValue <= 0)
+        if (_health.MyCurrentValue <= 0)
         {
             //die animation
             //loot
@@ -65,16 +68,16 @@ public abstract class Character : MonoBehaviour //персонажи (наследуютс€ враги ,
             _animator.SetBool("isDead", true);
             Invoke("Death", 2.5f);
 
-            if(this is Enemy)
+            if(!IsAlive && this as Enemy)
             {
-                Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+                    Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
             }
         }
     }
 
     public void GetHealth(int health)
     {
-        Health.MyCurrentValue += health;
+        _health.MyCurrentValue += health;
         CombatTextManager.Instance.CreateText(transform.position+_offset, health.ToString(),SCtype.Heal);
     }
     public void Death()

@@ -18,13 +18,13 @@ public class EnemyController : MonoBehaviour
 
     private Animator _animator;
     private NavMeshAgent _agent;
-    private Damager _damager;
+    //private Damager _damager;
 
-    void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        _damager = GetComponent<Damager>();
+        //_damager = GetComponent<Damager>();
 
     }
     private void FixedUpdate()

@@ -12,7 +12,7 @@ public class CombatText : MonoBehaviour
     [SerializeField]
     private float _lifeTime;
 
-    private void Start()
+    private void Awake()
     {
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, Camera.main.transform.eulerAngles.y - transform.eulerAngles.y-180, 0);
         StartCoroutine(FadeOut());

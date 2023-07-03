@@ -40,7 +40,17 @@ public class Quest
     public QuestGiver MyQuestGiver { get; set; }
 
     public CollectObjective[] CollectObjectives => _collectObjectives;
-    public KillObjective[] KillObjectives => _killObjectives;
+    public KillObjective[] KillObjectives
+    {
+        get
+        {
+            return _killObjectives;
+        }
+        set
+        {
+            _killObjectives = value; 
+        }
+    }
 
     public bool isComplete
     {

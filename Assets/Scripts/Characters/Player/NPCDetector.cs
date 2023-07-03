@@ -4,7 +4,7 @@ using UnityEngine;
 public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
 {
     private List<Enemy> _enemies;
-    private void Start()
+    private void Awake()
     {
         _enemies = new List<Enemy>();
     }

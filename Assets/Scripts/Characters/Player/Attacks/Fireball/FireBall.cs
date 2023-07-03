@@ -18,7 +18,7 @@ public class FireBall : MonoBehaviour //скрипт для префаба
     public float GetCooldown => _cooldownSpell;
     public float GetDamage => _damage;
 
-    private void Start()
+    private void Awake()
     {        
         StartCoroutine(DestroyFireBall());
     }

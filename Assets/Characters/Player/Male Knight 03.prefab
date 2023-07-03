@@ -1841,13 +1841,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 2898391655723208319}
-  health: {fileID: 0}
+  _health: {fileID: 0}
   _initHealth: 100
   _typeStr: Player
+  _level: 1
   _spellPrefabs:
   - {fileID: 6822723455392497395, guid: 7267c2d344175a849b975dd2eec4b182, type: 3}
   _mana: {fileID: 0}
-  _xp: {fileID: 0}
+  _xpStat: {fileID: 0}
+  _levelText: {fileID: 0}
+  _initMana: 50
 --- !u!195 &2040607345308795370
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1940,7 +1943,7 @@ MonoBehaviour:
   _interactable:
     serializedVersion: 2
     m_Bits: 2048
-  _lootableDistance: 5
+  _lootableDistance: 7
 --- !u!1 &2898391656255846616
 GameObject:
   m_ObjectHideFlags: 0

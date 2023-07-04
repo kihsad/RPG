@@ -7,7 +7,7 @@ public class NPC: MonoBehaviour
 
     public bool _isInteracting { get; set; }
 
-    public void Interact()
+    public virtual void Interact()
     {
         if(!_isInteracting)
         {
@@ -15,7 +15,7 @@ public class NPC: MonoBehaviour
             _window.Open(this);
         }
     }
-    public void StopIntract()
+    public virtual void StopIntract()
     {
         if(_isInteracting)
         {

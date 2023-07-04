@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class LootComponent : MonoBehaviour
+public class InteractComponent : MonoBehaviour
 {
     [SerializeField]
     private LayerMask _interactable;
@@ -35,6 +35,11 @@ public class LootComponent : MonoBehaviour
                     if (hitInfo.collider.GetComponent<LootTable>() != null)
                     {
                         hitInfo.collider.GetComponent<LootTable>().Interact();
+                    }
+                    if (hitInfo.collider.GetComponent<Citizen>() != null)
+                    {
+                        Debug.Log("ctz");
+                        hitInfo.collider.GetComponent<Citizen>().Interact();
                     }
 
                 }

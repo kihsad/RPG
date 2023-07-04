@@ -1,24 +1,26 @@
 using UnityEngine;
 
-public delegate void CharacterRemoved();
-
-public class NPC : Character
+public class NPC: MonoBehaviour
 {
-    public event CharacterRemoved _characterRemoved;
-    public virtual Transform Select()
-    {
-        return _hitBox;
-    }
-    public virtual void DeSelect()
-    {
+    [SerializeField]
+    private Window _window;
 
-    }
-    public void OnCharacterRemoved()
+    public bool _isInteracting { get; set; }
+
+    public virtual void Interact()
     {
-        if(_characterRemoved is not null)
+        if(!_isInteracting)
         {
-            _characterRemoved();
+            _isInteracting = true;
+            _window.Open(this);
         }
-        Destroy(gameObject);
+    }
+    public virtual void StopIntract()
+    {
+        if(_isInteracting)
+        {
+            _isInteracting = false;
+            _window.Close();
+        }
     }
 }

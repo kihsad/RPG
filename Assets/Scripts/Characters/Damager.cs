@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damager : MonoBehaviour
+/*public class Damager : MonoBehaviour
 {
     public Transform _sword;
 
@@ -31,3 +31,4 @@ public class Damager : MonoBehaviour
         Gizmos.DrawWireSphere(_sword.position, _attackRange);
     }
 }
+*/

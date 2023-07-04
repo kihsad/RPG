@@ -12,16 +12,23 @@ public class PauseMenu : MonoBehaviour
     private Button _unpauseButton;
     [SerializeField]
     private Button _startMenuButton;
+    [SerializeField]
+    private CanvasGroup _canvasGroup;
 
 
     private void Awake()
     {
         _exitButton.onClick.AddListener(ExitGame);
-        _unpauseButton.onClick.AddListener(ReturnToGame);
+        _unpauseButton.onClick.AddListener(OpenClose);
         _startMenuButton.onClick.AddListener(ToStartMenu);
-        gameObject.SetActive(false);
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenClose();
+        }
+    }
     private void ToStartMenu()
     {
         SceneManager.LoadScene(0);
@@ -35,8 +42,17 @@ public class PauseMenu : MonoBehaviour
 #endif
     }
 
-    private void ReturnToGame()
+    private void OpenClose()
     {
-        gameObject.SetActive(false);
+        if(_canvasGroup.alpha==1)
+        {
+            _canvasGroup.alpha = 0;
+            _canvasGroup.blocksRaycasts = false;
+        }
+        else
+        {
+            _canvasGroup.alpha = 1;
+            _canvasGroup.blocksRaycasts = true;
+        }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
 {
     private List<Enemy> _enemies;
-    private void Start()
+
+    private void Awake()
     {
         _enemies = new List<Enemy>();
     }
@@ -12,12 +13,13 @@ public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
     {
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.GetComponent<Enemy>();
         if (enemy == null) return;
         Debug.Log("enter");
-        enemy.Select();
+        //enemy.Select();
         _enemies.Add(enemy);
     }
     private void OnTriggerExit(Collider other)

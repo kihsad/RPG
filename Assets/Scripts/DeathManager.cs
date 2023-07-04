@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DeathManager : MonoBehaviour
 {
     [SerializeField]
-    Player _player;
+    private Player _player;
 
     private void Update()
     {

@@ -6,41 +6,82 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     [SerializeField]
     protected Transform _hitBox; //коллайдер
     [SerializeField]
-    public Stats health;
+    protected Stats _health;
     [SerializeField]
-    private float _initHealth; //хп при старте
-    
+    protected float _initHealth; //хп при старте
+    [SerializeField]
+    private string _typeStr;
+    [SerializeField]
+    private int _level;
     private Animator _animator;
 
-    protected bool isAttacking = false;
+    private Vector3 _offset = new Vector3(2,3,0);
 
-    protected virtual void Start()
+    protected bool _isAttacking = false;
+
+    public bool IsAlive
+    {
+        get
+        {
+            return _health.MyCurrentValue > 0;
+        }
+    }
+    public string Type => _typeStr;
+    public Transform HitBox => _hitBox;
+    public Stats MyHealth
+    {
+        get => _health;
+        set => _health = value;
+    }
+    public int MyLevel
+    {
+        get
+        {
+            return _level;
+        }
+        set
+        {
+            _level = value;
+        }
+    }
+
+    protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
-        health.Initialize(_initHealth, _initHealth); // для ui элемента
     }
     protected virtual void Update()
     {
-        
     }
 
     public virtual void TakeDamage(float damage)
     {
-        health.MyCurrentValue -= damage;
-        if(health.MyCurrentValue<=0)
+        _health.MyCurrentValue -= damage;
+        if(this as Enemy)
+        CombatTextManager.Instance.CreateText(transform.position+_offset, damage.ToString(), SCtype.Damage);
+
+        if (_health.MyCurrentValue <= 0)
         {
             //die animation
             //loot
-            gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
-            //_animator.Play("An_Dead"); // анимация смерти врага/игрока - заглушка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //_animator.Play("death");
+            KillManager.Instance.OnKillConfirmed(this);
+            //gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
             _animator.SetBool("isDead", true);
             Invoke("Death", 2.5f);
+
+            if(this is Enemy && !IsAlive)
+            {
+                    Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+            }
         }
     }
 
+    public void GetHealth(int health)
+    {
+        _health.MyCurrentValue += health;
+        CombatTextManager.Instance.CreateText(transform.position+_offset, health.ToString(),SCtype.Heal);
+    }
     public void Death()
     {
-        _animator.GetComponent<NPC>().OnCharacterRemoved();
+        _animator.GetComponent<Enemy>().OnCharacterRemoved();
     }
 }

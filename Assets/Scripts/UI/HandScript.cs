@@ -1,31 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class HandScript : MonoBehaviour
 {
-
-    public IMoveable IMoveable { get; set; }
+    public IMoveable MyMoveable { get; set; }
     private static HandScript instance;
-    private Image icon;
+    private Image _icon;
 
     private Vector3 _offset;
 
     private void Start()
     {
-        _offset = new Vector3(20, 10, 0);
-        icon = GetComponent<Image>();
+        _offset = new Vector3(35, 10, 0);
+        _icon = GetComponent<Image>();
     }
     private void Update()
     {
-        icon.transform.position = Input.mousePosition + _offset ;
+        _icon.transform.position = Input.mousePosition + _offset ;
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && Instance.MyMoveable != null)
+        {
+            DeleteItem();
+        }
     }
     public static HandScript Instance
     {
         get
         {
-            if (instance is null)
+            if (instance == null)
             {
                 instance = FindObjectOfType<HandScript>();
             }
@@ -34,8 +38,38 @@ public class HandScript : MonoBehaviour
     }
     public void TakeMoveable(IMoveable moveable)
     {
-        this.IMoveable = moveable;
-        icon.sprite = moveable.MyIcon;
-        icon.color = Color.white;
+        this.MyMoveable = moveable;
+        _icon.sprite = moveable.MyIcon;
+        _icon.enabled=true;
+    }
+    public IMoveable Put()
+    {
+        IMoveable tmp = MyMoveable;
+        MyMoveable = null;
+        _icon.enabled=false;
+        return tmp;
+    }
+    public void Drop()
+    {
+        MyMoveable = null;
+        _icon.enabled=false;
+        InventoryScript.Instance.FromSlot = null;
+    }
+    public void DeleteItem()
+    {
+        if (MyMoveable is Item)
+        {
+            Item item = (Item)MyMoveable;
+            if(item.MySlot!=null)
+            {
+                item.MySlot.Clear();
+            }
+            else if(item.CharButton!=null)
+            {
+                item.CharButton.DequipArmor();
+            }
+        }
+        Drop();
+        InventoryScript.Instance.FromSlot = null;
     }
 }

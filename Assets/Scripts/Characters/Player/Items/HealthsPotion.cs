@@ -5,10 +5,16 @@ public class HealthsPotion : Item, IUseable
 {
     [SerializeField]
     private int _healValue;
+
     public void Use()
     {
-        if(Player.MyInstance.health.MyCurrentValue < Player.MyInstance.health.MyMaxValue)
+        if(Player.MyInstance.MyHealth.MyCurrentValue < Player.MyInstance.MyHealth.MyMaxValue)
         Remove();
-        Player.MyInstance.MyHealth += _healValue;
+        Player.MyInstance.GetHealth(_healValue);
+    }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\nUse: Restores {0} health.",_healValue);
     }
 }

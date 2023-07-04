@@ -12,9 +12,19 @@ public class Stats : MonoBehaviour // ui статы персонажей
 
     private float _currentFill=1;
     private float _currentValue;
+    private float _overflow;
 
+    public float Overflow
+    {
+        get
+        {
+            float tmp = _overflow;
+            _overflow = 0;
+            return tmp;
+        }
+    }
     public float MyMaxValue { get; set; }
-
+    public bool IsFull { get { return _content.fillAmount == 1; } }
     public float MyCurrentValue
     {
         get
@@ -26,6 +36,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
         {
             if (value > MyMaxValue)
             {
+                _overflow = value - MyMaxValue;
                 _currentValue = MyMaxValue;
             }
             else if (value < 0)
@@ -43,7 +54,8 @@ public class Stats : MonoBehaviour // ui статы персонажей
             }
         }
     }
-    private void Start()
+
+    private void Awake()
     {
         _content = GetComponent<Image>();
     }
@@ -51,21 +63,33 @@ public class Stats : MonoBehaviour // ui статы персонажей
     {
         if(_currentFill!=_content.fillAmount)
         {
-            _content.fillAmount = Mathf.Lerp(_content.fillAmount, _currentFill, Time.deltaTime*_lerpSpeed);
+            _content.fillAmount = Mathf.MoveTowards(_content.fillAmount, _currentFill, Time.deltaTime*_lerpSpeed);
         }
         _content.fillAmount = _currentFill;
     }
+
     public void Initialize(float currentVal, float maxVal)
     {
-        if (_content != null)
+        if (_content == null)
         {
-        MyMaxValue = maxVal;
+            _content = GetComponent<Image>(); 
+        }
+            MyMaxValue = maxVal;
         MyCurrentValue = currentVal;
         _content.fillAmount = MyCurrentValue / MyMaxValue;
-        }
-        else
+
+    }
+    public void SetMaxValue(float maxVal)
+    {
+        if (_content == null)
         {
             _content = GetComponent<Image>();
         }
+            MyMaxValue = maxVal;
+            MyCurrentValue = _currentValue;
+    }
+    public void Reset()
+    {
+        _content.fillAmount = 0;
     }
 }

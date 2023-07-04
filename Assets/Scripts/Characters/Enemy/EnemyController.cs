@@ -4,14 +4,15 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+
+    [SerializeField]
+    private Transform _detector;
     [SerializeField]
     private LayerMask _layerMask;
     [SerializeField, Range(0, 100)]
     private float _distance;
-    [SerializeField]
-    private Transform _detector;
 
-    private float stoppingDistance = 3f;
+    private float _stoppingDistance = 5f;
 
     public Collider[] _targets = new Collider[10];
     public List<Transform> _points = new List<Transform>();
@@ -21,7 +22,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private SwordAttack _sword;
 
-    void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
@@ -42,7 +43,7 @@ public class EnemyController : MonoBehaviour
         {
             distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
             _agent.SetDestination(_targets[0].transform.position);
-            if (distance <= stoppingDistance)
+            if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
                 if(_animator.GetBool("isAttacking"))

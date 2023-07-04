@@ -8,6 +8,15 @@ public class UIBarManager : MonoBehaviour
     private Image[] _castBars;
     [SerializeField]
     private FireBall _fireBall;
+    [SerializeField]
+    private GameObject _tooltip;
+    [SerializeField]
+    private CharacterPanel _characterPanel;
+    [SerializeField]
+    private RectTransform _tooltipRect;
+    [SerializeField]
+    private Text _strengthTxt, _staminaTxt, _intellectTxt;
+    private Text _tooltipText;
 
     private static UIBarManager instance;
 
@@ -23,6 +32,10 @@ public class UIBarManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _tooltipText = _tooltip.GetComponentInChildren<Text>();
+    }
 
     private void Update()
     {
@@ -47,20 +60,48 @@ public class UIBarManager : MonoBehaviour
 
     public void UpdateStackSize(IClickable clickable)
     {
-        if(clickable.MyCount==0)
-        {
-            clickable.MyIcon.color = new Color(0, 0, 0, 0);
-            clickable.MyStackText.color = new Color(0,0,0,0);
-        }
         if (clickable.MyCount > 1)
         {
             clickable.MyStackText.text = clickable.MyCount.ToString();
-            clickable.MyStackText.color = Color.white;
-            clickable.MyIcon.color = Color.white;
+            clickable.MyStackText.enabled=true;
+            clickable.MyIcon.enabled=true;
         }
         else
         {
-            clickable.MyStackText.color = new Color(0, 0, 0, 0);
+            clickable.MyStackText.enabled = false;
+            clickable.MyIcon.enabled=true;
         }
+
+        if (clickable.MyCount == 0)
+        {
+            clickable.MyIcon.enabled=false;
+            clickable.MyStackText.enabled=false;
+        }
+    }
+
+    public void ShowTooltip(Vector2 pivot , Vector3 position , IDescribable description)
+    {
+        _tooltipRect.pivot = pivot;
+        _tooltip.SetActive(true);
+        _tooltip.transform.position = position;
+        _tooltipText.text = description.GetDescription();
+    }
+    public void HideTooltip()
+    {
+
+        _tooltip.SetActive(false);
+    }
+
+    public void RefreshTooltip(IDescribable description)
+    {
+        _tooltipText.text = description.GetDescription();
+    }
+
+
+    public void UpdateStatsText(int strength,int stamina,int intellect)
+    {
+        _strengthTxt.text = "Strength: " + strength.ToString();
+        _staminaTxt.text = "Stamina: " + stamina.ToString();
+        _intellectTxt.text = "Intellect: " + intellect.ToString();
     }
 }

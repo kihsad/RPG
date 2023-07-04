@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+/*public class Health : MonoBehaviour
 {
     private int _health;
 
@@ -30,3 +30,4 @@ public class Health : MonoBehaviour
         Healths = 0;
     }
 }
+*/

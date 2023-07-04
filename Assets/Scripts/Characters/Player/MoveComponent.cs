@@ -25,7 +25,8 @@ using UnityEngine;
                 _animator.SetBool("isMoving", value);
             }
         }
-        private void Start()
+
+        private void Awake()
         {
             _distance = 0f;
             _touchCount = 0;
@@ -52,7 +53,7 @@ using UnityEngine;
 
         public void Moving()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 _touchCount++;
                 Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);

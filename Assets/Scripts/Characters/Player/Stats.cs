@@ -70,18 +70,24 @@ public class Stats : MonoBehaviour // ui статы персонажей
 
     public void Initialize(float currentVal, float maxVal)
     {
-        if (_content != null)
+        if (_content == null)
         {
-        MyMaxValue = maxVal;
+            _content = GetComponent<Image>(); 
+        }
+            MyMaxValue = maxVal;
         MyCurrentValue = currentVal;
         _content.fillAmount = MyCurrentValue / MyMaxValue;
-        }
-        else
-        {
-           // _content = GetComponent<Image>();
-        }
-    }
 
+    }
+    public void SetMaxValue(float maxVal)
+    {
+        if (_content == null)
+        {
+            _content = GetComponent<Image>();
+        }
+            MyMaxValue = maxVal;
+            MyCurrentValue = _currentValue;
+    }
     public void Reset()
     {
         _content.fillAmount = 0;

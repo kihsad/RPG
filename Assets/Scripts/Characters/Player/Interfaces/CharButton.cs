@@ -22,7 +22,9 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
 
         if(_equippedArmor!=null)
         {
-            if(_equippedArmor!=armor)
+            Player.MyInstance.DequipGear(_equippedArmor);
+
+            if (_equippedArmor!=armor)
             {
                 armor.MySlot.AddItem(_equippedArmor);
             }
@@ -48,6 +50,8 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
         {
             _gearSoccet.Equip(_equippedArmor);
         }
+
+        Player.MyInstance.EquipGear(armor);
     }
     public void DequipArmor()
     {
@@ -55,7 +59,12 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
         _icon.enabled = false;
         if(_gearSoccet!=null)
         {
+            Player.MyInstance.DequipGear(_equippedArmor);
             _gearSoccet.Dequip();
+        }
+        else if(_equippedArmor!=null)
+        {
+            Player.MyInstance.DequipGear(_equippedArmor);
         }
         _equippedArmor.CharButton = null;
         _equippedArmor = null;

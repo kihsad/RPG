@@ -33,7 +33,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         get => _health;
         set => _health = value;
     }
-    public int Level
+    public int MyLevel
     {
         get
         {

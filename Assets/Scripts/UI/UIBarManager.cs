@@ -14,6 +14,8 @@ public class UIBarManager : MonoBehaviour
     private CharacterPanel _characterPanel;
     [SerializeField]
     private RectTransform _tooltipRect;
+    [SerializeField]
+    private Text _strengthTxt, _staminaTxt, _intellectTxt;
     private Text _tooltipText;
 
     private static UIBarManager instance;
@@ -93,5 +95,13 @@ public class UIBarManager : MonoBehaviour
     public void RefreshTooltip(IDescribable description)
     {
         _tooltipText.text = description.GetDescription();
+    }
+
+
+    public void UpdateStatsText(int strength,int stamina,int intellect)
+    {
+        _strengthTxt.text = "Strength: " + strength.ToString();
+        _staminaTxt.text = "Stamina: " + stamina.ToString();
+        _intellectTxt.text = "Intellect: " + intellect.ToString();
     }
 }

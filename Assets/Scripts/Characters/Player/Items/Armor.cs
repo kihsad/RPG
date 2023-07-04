@@ -19,6 +19,10 @@ public class Armor : Item
     public ArmorType ArmorType => _armorType;
     public GameObject ArmorPrefab => _armorPrefab;
 
+    public int Strength { get => _strength; set => _strength = value; }
+    public int Stamina { get => _stamina; set => _stamina = value; }
+    public int Intellect { get => _intellect; set => _intellect = value; }
+
     public override string GetDescription()
     {
         string stats = string.Empty;

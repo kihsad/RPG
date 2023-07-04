@@ -32,6 +32,8 @@ public class BagScript : MonoBehaviour
         }
     }
 
+    public int MyBagIndex { get; set; }
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();

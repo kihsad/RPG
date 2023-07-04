@@ -143,6 +143,7 @@ public class InventoryScript : MonoBehaviour
     {
         bag.SetupScript();
         MyBags.Add(bag);
+        bag.MyBagScrtipt.MyBagIndex = bagIndex;
         bag.MyBagButton = _bagButtons[bagIndex];
         _bagButtons[bagIndex].MyBag = bag;
     }

@@ -144,9 +144,9 @@ public class SaveManager : MonoBehaviour
         catch (System.Exception)
         {
             //Delete(saved);
-            //Player.MyInstance.SetDefaultsValues();
-            //PlayerPrefs.DeleteKey("Load");
-           // SceneManager.LoadScene("SampleScene");
+           // Player.MyInstance.SetDefaultsValues();
+           //PlayerPrefs.DeleteKey("Load");
+           //SceneManager.LoadScene("SampleScene");
         }
     }
 

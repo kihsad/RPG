@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public delegate void CharacterRemoved();
 
+public delegate void CharacterRemoved();
 
 public class Enemy : Character
 {
-    public event CharacterRemoved _characterRemoved;
 
     [SerializeField]
     private CanvasGroup _heathGroup;
+
+    public event CharacterRemoved _characterRemoved;
 
     protected override void Awake()
     {

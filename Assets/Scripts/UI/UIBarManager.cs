@@ -61,19 +61,19 @@ public class UIBarManager : MonoBehaviour
         if (clickable.MyCount > 1)
         {
             clickable.MyStackText.text = clickable.MyCount.ToString();
-            clickable.MyStackText.color = Color.white;
-            clickable.MyIcon.color = Color.white;
+            clickable.MyStackText.enabled=true;
+            clickable.MyIcon.enabled=true;
         }
         else
         {
-            clickable.MyStackText.color = new Color(0, 0, 0, 0);
-            clickable.MyIcon.color = Color.white;
+            clickable.MyStackText.enabled = false;
+            clickable.MyIcon.enabled=true;
         }
 
         if (clickable.MyCount == 0)
         {
-            clickable.MyIcon.color = new Color(0, 0, 0, 0);
-            clickable.MyStackText.color = new Color(0, 0, 0, 0);
+            clickable.MyIcon.enabled=false;
+            clickable.MyStackText.enabled=false;
         }
     }
 

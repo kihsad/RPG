@@ -13,6 +13,7 @@ namespace Menu
         private Slider _volumeSlider;
         [SerializeField]
         private Dropdown _gameMode;
+
         private int _volumeOnOff;
         private int _soundsOnOff;
         private int _volumeDuration;
@@ -20,10 +21,16 @@ namespace Menu
 
         void Start()
         {
-            Load();
+            LoadParams();
         }
 
         void Update()
+        {
+            VolumeValue();
+            SaveParams();
+        }
+
+        private void VolumeValue()
         {
             if (_isMusicOn.isOn)
             {
@@ -45,9 +52,8 @@ namespace Menu
 
             _volumeDuration = (int)_volumeSlider.value;
             _modeNumber = _gameMode.value;
-            Save();
         }
-        private void Save()
+        private void SaveParams()
         {
             PlayerPrefs.SetInt("_volumeDuration", _volumeDuration);
             PlayerPrefs.SetInt("_modeNumber", _modeNumber);
@@ -55,7 +61,7 @@ namespace Menu
             PlayerPrefs.SetInt("_soundsOnOff", _soundsOnOff);
             PlayerPrefs.Save();
         }
-        private void Load()
+        private void LoadParams()
         {
             if (PlayerPrefs.HasKey("_volumeDuration"))
             {

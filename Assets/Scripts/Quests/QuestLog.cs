@@ -7,15 +7,12 @@ public class QuestLog : MonoBehaviour
 {
     [SerializeField]
     private GameObject _questPrefab;
-
     [SerializeField]
     private Transform _questParent;
-
     [SerializeField]
     private Text _questDescription;
     [SerializeField]
     private CanvasGroup _canvasGroup;
-
     [SerializeField]
     private Text _questCountTxt;
     [SerializeField]
@@ -55,6 +52,7 @@ public class QuestLog : MonoBehaviour
             OpenClose();
         }
     }
+
     public void AcceptQuest(Quest quest)
     {
         if (_currentCount >= _maxCount) return;
@@ -82,11 +80,11 @@ public class QuestLog : MonoBehaviour
         go.GetComponent<Text>().text = quest.Title;
         CheckCompletion();
     }
-
     public void UpdateSelected()
     {
         ShowDescription(_selectedQuest);
     }
+
     public void ShowDescription(Quest quest)
     {
         if (quest == null) return;
@@ -162,6 +160,7 @@ public class QuestLog : MonoBehaviour
         quest = null;
 
     }
+
     public bool HasQuest(Quest quest)
     {
         return _quests.Exists(x => x.Title == quest.Title);

@@ -26,11 +26,7 @@ public class FireBall : MonoBehaviour //скрипт для префаба
     {
         transform.position += transform.forward * _speed * Time.deltaTime;
     }
-    private IEnumerator DestroyFireBall() // уничтожение обьекта через время
-    {
-        yield return new WaitForSeconds(_lifeTime);
-        Destroy(gameObject);
-    }
+
     private void OnTriggerEnter(Collider other) // коллизии с разными видами обьектов(но в целом только для енеми т.к. рейкаст с layer Enemy)
     {
         var enemy = other.GetComponent<Enemy>();
@@ -42,6 +38,12 @@ public class FireBall : MonoBehaviour //скрипт для префаба
         enemy.TakeDamage(_damage);
         //анимация полученя урона врага
         //aнимация попадания
+        Destroy(gameObject);
+    }
+
+    private IEnumerator DestroyFireBall() // уничтожение обьекта через время
+    {
+        yield return new WaitForSeconds(_lifeTime);
         Destroy(gameObject);
     }
 }

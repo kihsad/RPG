@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class QGQuestScript : MonoBehaviour
 {
-public Quest Quest { get; set; }
+
+    public Quest Quest { get; set; }
 
     public void Select()
     {

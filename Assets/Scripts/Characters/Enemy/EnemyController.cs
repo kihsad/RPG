@@ -4,16 +4,17 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+
+    [SerializeField]
+    private Transform _detector;
     [SerializeField]
     private LayerMask _layerMask;
     [SerializeField, Range(0, 100)]
     private float _distance;
-    [SerializeField]
-    private Transform _detector;
 
-    private float stoppingDistance = 5f;
+    private float _stoppingDistance = 5f;
 
-    public Collider[] _targets = new Collider[10];
+    private Collider[] _targets = new Collider[10];
     private List<Transform> _points = new List<Transform>();
 
     private Animator _animator;
@@ -41,7 +42,7 @@ public class EnemyController : MonoBehaviour
         {
             distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
             _agent.SetDestination(_targets[0].transform.position);
-            if (distance <= stoppingDistance)
+            if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
                 _animator.SetBool("isPatrolling", false);

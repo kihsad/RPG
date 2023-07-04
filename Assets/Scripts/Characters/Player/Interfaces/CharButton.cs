@@ -16,29 +16,6 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
 
     public Armor EquippedArmor { get => _equippedArmor;}
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(eventData.button == PointerEventData.InputButton.Left)
-        {
-            if(HandScript.Instance.MyMoveable is Armor)
-            {
-                Armor tmp = (Armor)HandScript.Instance.MyMoveable;
-
-                if(tmp.ArmorType == _armorType)
-                {
-                    EquipArmor(tmp);
-                }
-                UIBarManager.MyInstance.RefreshTooltip(tmp);
-            }
-            else if(HandScript.Instance.MyMoveable == null && _equippedArmor!=null)
-            {
-                HandScript.Instance.TakeMoveable(_equippedArmor);
-                CharacterPanel.Instance.SelectedButton = this;
-                _icon.color = Color.grey;
-            }
-        }
-    }
-
     public void EquipArmor(Armor armor)
     {
         armor.Remove(); 
@@ -82,6 +59,29 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
         }
         _equippedArmor.CharButton = null;
         _equippedArmor = null;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (HandScript.Instance.MyMoveable is Armor)
+            {
+                Armor tmp = (Armor)HandScript.Instance.MyMoveable;
+
+                if (tmp.ArmorType == _armorType)
+                {
+                    EquipArmor(tmp);
+                }
+                UIBarManager.MyInstance.RefreshTooltip(tmp);
+            }
+            else if (HandScript.Instance.MyMoveable == null && _equippedArmor != null)
+            {
+                HandScript.Instance.TakeMoveable(_equippedArmor);
+                CharacterPanel.Instance.SelectedButton = this;
+                _icon.color = Color.grey;
+            }
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -53,7 +53,7 @@ public class QuestGiverWindow : Window
             go.GetComponent<QGQuestScript>().Quest = quest;
 
             _quests.Add(go);
-            if(QuestLog.Instance.HasQuest(quest)&&quest.isComplete)
+            if(QuestLog.Instance.HasQuest(quest)&&quest.IsComplete)
             {
                 go.GetComponent<Text>().text += "(C)";
             }
@@ -69,7 +69,7 @@ public class QuestGiverWindow : Window
     {
         _selectedQuest = quest;
 
-        if(QuestLog.Instance.HasQuest(quest) && quest.isComplete)
+        if(QuestLog.Instance.HasQuest(quest) && quest.IsComplete)
         {
             _acceptBtn.gameObject.SetActive(false);
             _completeBtn.gameObject.SetActive(true);
@@ -92,10 +92,9 @@ public class QuestGiverWindow : Window
         _questDescription.GetComponent<Text>().text = string.Format("{0}\n\n<size=15>{1}</size>\n\n", quest.Title, quest.Description);
     }
 
-   
     public void CompleteQuest()
     {
-        if(_selectedQuest.isComplete)
+        if(_selectedQuest.IsComplete)
         {
             for(int i =0;i<_questGiver.Quests.Length;i++)
             {
@@ -122,7 +121,6 @@ public class QuestGiverWindow : Window
             Back();
         }
     }
-
     public void Back()
     {
         _backBtn.gameObject.SetActive(false);
@@ -135,6 +133,7 @@ public class QuestGiverWindow : Window
         QuestLog.Instance.AcceptQuest(_selectedQuest);
         Back();
     }
+
     public override void Open(NPC npc)
     {
         ShowQuest(npc as QuestGiver);

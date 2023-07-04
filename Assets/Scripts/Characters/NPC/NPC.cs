@@ -5,21 +5,21 @@ public class NPC: MonoBehaviour
     [SerializeField]
     private Window _window;
 
-    public bool isInteracting { get; set; }
+    public bool _isInteracting { get; set; }
 
     public void Interact()
     {
-        if(!isInteracting)
+        if(!_isInteracting)
         {
-            isInteracting = true;
+            _isInteracting = true;
             _window.Open(this);
         }
     }
     public void StopIntract()
     {
-        if(isInteracting)
+        if(_isInteracting)
         {
-            isInteracting = false;
+            _isInteracting = false;
             _window.Close();
         }
     }

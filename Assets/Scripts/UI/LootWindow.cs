@@ -31,7 +31,7 @@ public class LootWindow : MonoBehaviour
         {
             if(instance == null)
             {
-                instance = GameObject.FindObjectOfType<LootWindow>();
+                instance = FindObjectOfType<LootWindow>();
             }
             return instance;
         }

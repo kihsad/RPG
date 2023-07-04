@@ -4,12 +4,12 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
 {
     [SerializeField]
     private Sprite _icon;
-
     [SerializeField]
     private int _stackSize;
-
     [SerializeField]
     private Quality _quality;
+    [SerializeField]
+    private string _title;
 
     private SlotScript _slot;
 
@@ -26,13 +26,10 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
             _charButton = value;
         }
     }
-    [SerializeField]
-    private string _title;
 
     public string Title => _title;
     public Quality Quality => _quality;
     public int MyStackSize => _stackSize;
-
     public SlotScript MySlot
     {
         get
@@ -44,7 +41,6 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
             _slot = value;
         }
     }
-
     public Sprite MyIcon => _icon;
 
     public virtual string GetDescription()

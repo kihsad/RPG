@@ -17,7 +17,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
     private Vector3 _offset = new Vector3(2,3,0);
 
-    protected bool isAttacking = false;
+    protected bool _isAttacking = false;
 
     public bool IsAlive
     {
@@ -64,11 +64,11 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
             //die animation
             //loot
             KillManager.Instance.OnKillConfirmed(this);
-            gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
+            //gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
             _animator.SetBool("isDead", true);
             Invoke("Death", 2.5f);
 
-            if(!IsAlive && this as Enemy)
+            if(this is Enemy && !IsAlive)
             {
                     Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
             }

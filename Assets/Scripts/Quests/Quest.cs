@@ -39,7 +39,7 @@ public class Quest
     public QuestScript MyQuestScript { get; set; }
     public QuestGiver MyQuestGiver { get; set; }
 
-    public CollectObjective[] CollectObjectives => _collectObjectives;
+    public CollectObjective[] CollectObjectives => _collectObjectives;   
     public KillObjective[] KillObjectives
     {
         get
@@ -52,7 +52,7 @@ public class Quest
         }
     }
 
-    public bool isComplete
+    public bool IsComplete
     {
         get
         {
@@ -74,7 +74,7 @@ public class Quest
         }
     }
     public int Level { get => _level; set => _level = value; }
-    public int Xp { get => _xp;}
+    public int Xp => _xp;
 }
 [System.Serializable]
 public abstract class Objective

@@ -12,7 +12,7 @@ public class HealAction : MonoBehaviour
     [SerializeField]
     private float _healCooldown=0.5f;
 
-    private bool _isCd=false;
+    private bool _isCd = false;
 
     private Stack<IUseable> _useables;
 

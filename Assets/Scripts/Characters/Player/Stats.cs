@@ -13,6 +13,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
     private float _currentFill=1;
     private float _currentValue;
     private float _overflow;
+
     public float Overflow
     {
         get
@@ -23,7 +24,6 @@ public class Stats : MonoBehaviour // ui статы персонажей
         }
     }
     public float MyMaxValue { get; set; }
-
     public bool IsFull { get { return _content.fillAmount == 1; } }
     public float MyCurrentValue
     {
@@ -54,6 +54,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
             }
         }
     }
+
     private void Awake()
     {
         _content = GetComponent<Image>();
@@ -66,6 +67,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
         }
         _content.fillAmount = _currentFill;
     }
+
     public void Initialize(float currentVal, float maxVal)
     {
         if (_content != null)
@@ -79,6 +81,7 @@ public class Stats : MonoBehaviour // ui статы персонажей
            // _content = GetComponent<Image>();
         }
     }
+
     public void Reset()
     {
         _content.fillAmount = 0;

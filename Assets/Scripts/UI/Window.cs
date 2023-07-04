@@ -16,7 +16,7 @@ public class Window : MonoBehaviour
     }
     public virtual void Close()
     {
-        _npc.isInteracting = false;
+        _npc._isInteracting = false;
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
         _npc = null;

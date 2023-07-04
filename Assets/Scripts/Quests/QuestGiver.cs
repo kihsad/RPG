@@ -15,7 +15,6 @@ public class QuestGiver : NPC
 
     public Quest[] Quests => _quests;
     private List<string> _completedQuests = new List<string>();
-
     public List<string> CompletedQuests
     {
         get
@@ -39,7 +38,7 @@ public class QuestGiver : NPC
         }
     }
 
-    public int QuestGiverId { get => _questGiverId;}
+    public int QuestGiverId => _questGiverId;
 
     private void Awake()
     {
@@ -55,7 +54,7 @@ public class QuestGiver : NPC
         {
             if(quest!=null)
             {
-                if(quest.isComplete&&QuestLog.Instance.HasQuest(quest))
+                if(quest.IsComplete&&QuestLog.Instance.HasQuest(quest))
                 {
                     _statusRenderer.sprite = _exclamationSprite;
                     break;
@@ -65,7 +64,7 @@ public class QuestGiver : NPC
                     _statusRenderer.sprite = _questionSprite;
                     break;
                 }
-                else if (!quest.isComplete && QuestLog.Instance.HasQuest(quest))
+                else if (!quest.IsComplete && QuestLog.Instance.HasQuest(quest))
                 {
                     _statusRenderer.sprite = _exclamationSprite;
                     break;

@@ -21,6 +21,7 @@ public class LootButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
         _lootWindow = GetComponentInParent<LootWindow>();
     }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(InventoryScript.Instance.AddItem(MyLoot))

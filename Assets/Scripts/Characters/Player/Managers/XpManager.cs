@@ -51,6 +51,7 @@ static class XpManager
 
         return 0;
     }
+
     private static int ZeroDifference()
     {
         if(Player.MyInstance.Level<=7)

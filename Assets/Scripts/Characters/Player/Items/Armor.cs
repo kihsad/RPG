@@ -18,6 +18,7 @@ public class Armor : Item
 
     public ArmorType ArmorType => _armorType;
     public GameObject ArmorPrefab => _armorPrefab;
+
     public override string GetDescription()
     {
         string stats = string.Empty;

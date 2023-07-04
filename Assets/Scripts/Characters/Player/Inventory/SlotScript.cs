@@ -106,15 +106,17 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         }
         return false;
     }
+
     private bool PutItemBack()
     {
         if(InventoryScript.Instance.FromSlot == this)
         {
-            InventoryScript.Instance.FromSlot.MyIcon.color = Color.white;
+            InventoryScript.Instance.FromSlot.MyIcon.enabled=true;
             return true;
         }
         return false;
     }
+
     public void RemoveItem(Item item)
     {
         if(!IsEmpty)
@@ -123,75 +125,6 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
             _items.Pop();
         }
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(eventData.button == PointerEventData.InputButton.Left)
-        {
-            if (InventoryScript.Instance.FromSlot == null && !IsEmpty)
-            {
-                if (HandScript.Instance.MyMoveable != null)
-                {
-                    if (HandScript.Instance.MyMoveable is Bag)
-                    {
-                        if (MyItem is Bag)
-                        {
-                            InventoryScript.Instance.SwapBags(HandScript.Instance.MyMoveable as Bag, MyItem as Bag);
-                        }
-                    }
-                    else if(HandScript.Instance.MyMoveable is Armor)
-                    {
-                        if(MyItem is Armor&&(MyItem as Armor).ArmorType==(HandScript.Instance.MyMoveable as Armor).ArmorType)
-                        {
-                            (MyItem as Armor).Equip();
-                            
-                            HandScript.Instance.Drop();
-                        }
-                    }
-                }
-                else
-                {
-                    HandScript.Instance.TakeMoveable(MyItem as IMoveable);
-                    InventoryScript.Instance.FromSlot = this;
-                }
-            }
-            else if(InventoryScript.Instance.FromSlot ==null && IsEmpty)
-            {
-                if(HandScript.Instance.MyMoveable is Bag)
-                {
-                    Bag bag = (Bag)HandScript.Instance.MyMoveable;
-
-                    if (bag.MyBagScrtipt != MyBag && InventoryScript.Instance.MyEmptySlotCount - bag.Slots > 0)
-                    {
-                        AddItem(bag);
-                        bag.MyBagButton.RemoveBag();
-                        HandScript.Instance.Drop();
-                        
-                    }
-                }
-                else if(HandScript.Instance.MyMoveable is Armor)
-                {
-                    Armor armor = (Armor)HandScript.Instance.MyMoveable;
-                    CharacterPanel.Instance.SelectedButton.DequipArmor();
-                    AddItem(armor);
-                    HandScript.Instance.Drop();
-                }
-            }
-            else if (InventoryScript.Instance.FromSlot != null)
-            {
-                if (PutItemBack() || MergeItems(InventoryScript.Instance.FromSlot)|| SwapItems(InventoryScript.Instance.FromSlot)||AddItems(InventoryScript.Instance.FromSlot._items))
-                {
-                    HandScript.Instance.Drop();
-                    InventoryScript.Instance.FromSlot = null;
-                }
-            }
-            if(HandScript.Instance.MyMoveable == null&&eventData.clickCount==2)
-            {
-                UseItem();
-            }
-        }
-    }
-
     public void UseItem()
     {
         Debug.Log("Use");
@@ -260,6 +193,74 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
             for (int i = 0; i < initCount; i++)
             {
                 InventoryScript.Instance.OnItemCountChanged(MyItems.Pop());
+            }
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (InventoryScript.Instance.FromSlot == null && !IsEmpty)
+            {
+                if (HandScript.Instance.MyMoveable != null)
+                {
+                    if (HandScript.Instance.MyMoveable is Bag)
+                    {
+                        if (MyItem is Bag)
+                        {
+                            InventoryScript.Instance.SwapBags(HandScript.Instance.MyMoveable as Bag, MyItem as Bag);
+                        }
+                    }
+                    else if (HandScript.Instance.MyMoveable is Armor)
+                    {
+                        if (MyItem is Armor && (MyItem as Armor).ArmorType == (HandScript.Instance.MyMoveable as Armor).ArmorType)
+                        {
+                            (MyItem as Armor).Equip();
+
+                            HandScript.Instance.Drop();
+                        }
+                    }
+                }
+                else
+                {
+                    HandScript.Instance.TakeMoveable(MyItem as IMoveable);
+                    InventoryScript.Instance.FromSlot = this;
+                }
+            }
+            else if (InventoryScript.Instance.FromSlot == null && IsEmpty)
+            {
+                if (HandScript.Instance.MyMoveable is Bag)
+                {
+                    Bag bag = (Bag)HandScript.Instance.MyMoveable;
+
+                    if (bag.MyBagScrtipt != MyBag && InventoryScript.Instance.MyEmptySlotCount - bag.Slots > 0)
+                    {
+                        AddItem(bag);
+                        bag.MyBagButton.RemoveBag();
+                        HandScript.Instance.Drop();
+
+                    }
+                }
+                else if (HandScript.Instance.MyMoveable is Armor)
+                {
+                    Armor armor = (Armor)HandScript.Instance.MyMoveable;
+                    CharacterPanel.Instance.SelectedButton.DequipArmor();
+                    AddItem(armor);
+                    HandScript.Instance.Drop();
+                }
+            }
+            else if (InventoryScript.Instance.FromSlot != null)
+            {
+                if (PutItemBack() || MergeItems(InventoryScript.Instance.FromSlot) || SwapItems(InventoryScript.Instance.FromSlot) || AddItems(InventoryScript.Instance.FromSlot._items))
+                {
+                    HandScript.Instance.Drop();
+                    InventoryScript.Instance.FromSlot = null;
+                }
+            }
+            if (HandScript.Instance.MyMoveable == null && eventData.clickCount == 2)
+            {
+                UseItem();
             }
         }
     }

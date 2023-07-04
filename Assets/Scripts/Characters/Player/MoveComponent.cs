@@ -25,6 +25,7 @@ using UnityEngine;
                 _animator.SetBool("isMoving", value);
             }
         }
+
         private void Awake()
         {
             _distance = 0f;

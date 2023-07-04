@@ -11,10 +11,11 @@ public class LootComponent : MonoBehaviour
 
     private void Update()
     {
-        ClickLoot();
+        OnClick();
         CloseLoot();
     }
-    private void ClickLoot()
+
+    private void OnClick()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
@@ -40,6 +41,7 @@ public class LootComponent : MonoBehaviour
             }
         }
     }
+
     private void CloseLoot()
     {
         if (Vector3.Distance(transform.position, _lootTarget) > 3)

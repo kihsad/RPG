@@ -6,17 +6,8 @@ public delegate void ItemCountChangedEvent(Item item);
 public class InventoryScript : MonoBehaviour
 {
     public event ItemCountChangedEvent itemCountChangedEvent;
+
     private static InventoryScript instance;
-    //for Debugging 
-    [SerializeField]
-    private BagButton[] _bagButtons;
-    [SerializeField]
-    private Item[] _items;
-
-    private SlotScript _fromSlot;
-
-    private List<Bag> _bags = new List<Bag>();
-
     public static InventoryScript Instance
     {
         get
@@ -28,6 +19,14 @@ public class InventoryScript : MonoBehaviour
             return instance;
         }
     }
+
+    [SerializeField]
+    private BagButton[] _bagButtons;
+    [SerializeField]
+    private Item[] _items;
+
+    private SlotScript _fromSlot;
+    private List<Bag> _bags = new List<Bag>();
 
     public List<Bag> MyBags => _bags;
     public SlotScript FromSlot
@@ -45,6 +44,7 @@ public class InventoryScript : MonoBehaviour
             }
         }
     }
+
     public int MyEmptySlotCount
     {
         get
@@ -139,7 +139,6 @@ public class InventoryScript : MonoBehaviour
         _bags.Add(bag);
         bagButton.MyBag = bag;
     }
-
     public void AddBag(Bag bag,int bagIndex)
     {
         bag.SetupScript();
@@ -190,7 +189,8 @@ public class InventoryScript : MonoBehaviour
         }
         return PlaceInEmpty(item);
     }
-        public Stack<Item> GetItems(string type,int count)
+
+    public Stack<Item> GetItems(string type,int count)
     {
         Stack<Item> items = new Stack<Item>();
         foreach (Bag bag in _bags)
@@ -212,19 +212,6 @@ public class InventoryScript : MonoBehaviour
         }
         return items;
     }
-
-    public void OpenClose()
-    {
-        bool closedBag = _bags.Find(x => !x.MyBagScrtipt.IsOpen);
-        foreach (Bag bag in _bags)
-        {
-            if (bag.MyBagScrtipt.IsOpen != closedBag)
-            {
-                bag.MyBagScrtipt.OpenClose();
-            }
-        }
-    }
-
     public int GetItemCount(string type)
     {
         int itemCount = 0;
@@ -241,7 +228,6 @@ public class InventoryScript : MonoBehaviour
         }
         return itemCount;
     }
-
     public List<SlotScript> GetAllItems()
     {
         List<SlotScript> slots = new List<SlotScript>();
@@ -258,24 +244,17 @@ public class InventoryScript : MonoBehaviour
         }
         return slots;
     }
-    public void OnItemCountChanged(Item item)
-    {
-        if(itemCountChangedEvent!=null)
-        {
-            itemCountChangedEvent.Invoke(item);
-        }
-    }
     public Stack<IUseable> GetUseables(IUseable type)
     {
         Stack<IUseable> useables = new Stack<IUseable>();
 
-        foreach(Bag bag in _bags)
+        foreach (Bag bag in _bags)
         {
-            foreach(SlotScript slot in bag.MyBagScrtipt.MySlots)
+            foreach (SlotScript slot in bag.MyBagScrtipt.MySlots)
             {
-                if(!slot.IsEmpty && slot.MyItem.GetType()==type.GetType())
+                if (!slot.IsEmpty && slot.MyItem.GetType() == type.GetType())
                 {
-                    foreach(Item item in slot.MyItems)
+                    foreach (Item item in slot.MyItems)
                     {
                         useables.Push(item as IUseable);
                     }
@@ -284,4 +263,25 @@ public class InventoryScript : MonoBehaviour
         }
         return useables;
     }
+
+    public void OnItemCountChanged(Item item)
+    {
+        if(itemCountChangedEvent!=null)
+        {
+            itemCountChangedEvent.Invoke(item);
+        }
+    }
+
+    public void OpenClose()
+    {
+        bool closedBag = _bags.Find(x => !x.MyBagScrtipt.IsOpen);
+        foreach (Bag bag in _bags)
+        {
+            if (bag.MyBagScrtipt.IsOpen != closedBag)
+            {
+                bag.MyBagScrtipt.OpenClose();
+            }
+        }
+    }
+
 }

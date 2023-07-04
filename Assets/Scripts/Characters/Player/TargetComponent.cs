@@ -7,10 +7,10 @@ public class TargetComponent : MonoBehaviour
 {
     [SerializeField]
     private Player _player;
-    private Enemy _currentTarget;
     [SerializeField]
     private LayerMask _npc;
 
+    private Enemy _currentTarget;
 
     private void Update()
     {

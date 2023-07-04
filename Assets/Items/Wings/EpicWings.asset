@@ -16,7 +16,7 @@ MonoBehaviour:
   _stackSize: 1
   _quality: 3
   _title: Fire Wings
-  _armorPrefab: {fileID: 0}
+  _armorPrefab: {fileID: 3243176153602074004, guid: 93a44d2426cd95046abe267e819d5ea4, type: 3}
   _armorType: 4
   _strength: 4
   _stamina: 8

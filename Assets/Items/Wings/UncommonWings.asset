@@ -16,7 +16,7 @@ MonoBehaviour:
   _stackSize: 1
   _quality: 1
   _title: Earth Wings
-  _armorPrefab: {fileID: 0}
+  _armorPrefab: {fileID: 6943427887392404578, guid: b423b11250d615a4c84844e4cab36f6c, type: 3}
   _armorType: 4
   _strength: 1
   _stamina: 4

@@ -16,7 +16,7 @@ MonoBehaviour:
   _stackSize: 1
   _quality: 0
   _title: Wings
-  _armorPrefab: {fileID: 0}
+  _armorPrefab: {fileID: 3208236909172001357, guid: eec5f7267b6cdf2499eea309c35b49d8, type: 3}
   _armorType: 4
   _strength: 0
   _stamina: 4

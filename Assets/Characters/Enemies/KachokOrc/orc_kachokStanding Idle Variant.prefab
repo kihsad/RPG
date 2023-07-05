@@ -399,6 +399,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2134eff2ad115534e96ca68a3705e2b6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2134eff2ad115534e96ca68a3705e2b6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2134eff2ad115534e96ca68a3705e2b6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2134eff2ad115534e96ca68a3705e2b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.195953
       objectReference: {fileID: 0}
@@ -781,7 +793,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8473283240847497562}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -792,8 +804,8 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &6891438308408109941
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -813,10 +825,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.8277783
+  m_Radius: 0.7036891
+  m_Height: 2.5570142
   m_Direction: 1
-  m_Center: {x: 0, y: 0.91388917, z: 0}
+  m_Center: {x: 0.07816377, y: 0.7785071, z: 0.12552556}
 --- !u!54 &5996232133588302815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -842,7 +854,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &7861535756207111494
 MonoBehaviour:

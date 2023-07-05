@@ -28,7 +28,7 @@ public class Enemy : Character
 
     public void OnCharacterRemoved()
     {
-        if (_characterRemoved != null)
+        if (_characterRemoved is not null)
         {
             _characterRemoved();
         }

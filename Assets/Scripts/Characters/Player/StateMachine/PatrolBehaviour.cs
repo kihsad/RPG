@@ -26,7 +26,7 @@ public class PatrolBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (_agent.remainingDistance <= _agent.stoppingDistance)
-            _agent.SetDestination(_enemyController._points[Random.Range(0, _enemyController._points.Count)].position);
+            _agent.SetDestination(_enemyController._points[Random.Range(0, _enemyController._points.Count-1)].position);
         //distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
         timer += Time.deltaTime;
         if (timer > Random.Range(1,10))

@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     private void ToStartMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
     private void ExitGame()
     {
@@ -54,5 +55,6 @@ public class PauseMenu : MonoBehaviour
             _canvasGroup.alpha = 1;
             _canvasGroup.blocksRaycasts = true;
         }
+        Time.timeScale = 1f;
     }
 }

@@ -1,10 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class BearController : MonoBehaviour
 {
-
     [SerializeField]
     private Transform _detector;
     [SerializeField]
@@ -15,10 +15,10 @@ public class EnemyController : MonoBehaviour
     private float _stoppingDistance = 5f;
 
     public Collider[] _targets = new Collider[10];
-    public List<Transform> _points = new List<Transform>();
 
     private Animator _animator;
     private NavMeshAgent _agent;
+
     [SerializeField]
     private SwordAttack _sword;
 
@@ -26,13 +26,10 @@ public class EnemyController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        if(_sword != null)
-        _sword.gameObject.GetComponent<Collider>().enabled = false;
 
     }
     private void FixedUpdate()
     {
-        if(_detector != null)
         Detect();
     }
 
@@ -48,14 +45,9 @@ public class EnemyController : MonoBehaviour
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                if(_animator.GetBool("isAttacking"))
-                _sword.gameObject.GetComponent<Collider>().enabled = true;
-
             }
             else
             {
-                _sword.gameObject.GetComponent<Collider>().enabled = false;
-                _animator.SetBool("isPatrolling", true);
                 _animator.SetBool("isAttacking", false);
             }
             if (distance > _distance)

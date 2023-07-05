@@ -857,8 +857,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 9141452486170379232}
-  health: {fileID: 1011750777853516186}
+  _health: {fileID: 0}
   _initHealth: 25
+  _typeStr: 
+  _level: 0
   _heathGroup: {fileID: 6083149055705308805}
 --- !u!114 &8138514333487818786
 MonoBehaviour:
@@ -872,11 +874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b137eec957aaf3244a9ddb8d500059d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detector: {fileID: 6960439628489640192}
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
   _distance: 3.8
-  _detector: {fileID: 6960439628489640192}
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -893,7 +895,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _sword: {fileID: 0}
+  _sword: {fileID: 6265166118463324519}
 --- !u!114 &6904294194626115236
 MonoBehaviour:
   m_ObjectHideFlags: 0

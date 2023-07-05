@@ -69,7 +69,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.4888, y: 0.040001154}
+  m_AnchoredPosition: {x: 0.04, y: 0.641}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5756372105844955684
@@ -183,8 +183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.029000044, y: 0.04}
-  m_SizeDelta: {x: -0.058, y: -0.07999999}
+  m_AnchoredPosition: {x: -0.0000008940697, y: -0.0000034570694}
+  m_SizeDelta: {x: 0.0000013113, y: 0.0000022948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4571770046467517450
 CanvasRenderer:
@@ -264,7 +264,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7923390736592516215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 4, y: 0.5}
+  m_AnchoredPosition: {x: -0.0476, y: 2.392}
+  m_SizeDelta: {x: 1.5607, y: 0.2167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8584021558131715134
 CanvasRenderer:
@@ -325,7 +325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: efefb145b2064b042aedc1b90ff5dc80, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: efefb145b2064b042aedc1b90ff5dc80, type: 3}
       propertyPath: m_LocalPosition.x
@@ -536,8 +536,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 2074002236192805589}
-  health: {fileID: 2541662370371812535}
-  _initHealth: 10
+  _health: {fileID: 2541662370371812535}
+  _initHealth: 60
+  _typeStr: Skeleton
+  _level: 5
   _heathGroup: {fileID: 8720432380927597063}
 --- !u!114 &6728942660350178910
 MonoBehaviour:
@@ -551,11 +553,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b137eec957aaf3244a9ddb8d500059d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detector: {fileID: 5525320492541995591}
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
   _distance: 3
-  _detector: {fileID: 5525320492541995591}
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -679,8 +681,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.20496313, y: 0.028223092, z: 0.902819}
-  m_Center: {x: 0.13067812, y: 1.6098979, z: 0.75334364}
+  m_Size: {x: 0.24368456, y: 0.36047468, z: 1.4281367}
+  m_Center: {x: 0.09911106, y: 1.4826369, z: 1.0160131}
 --- !u!114 &2833586753974495251
 MonoBehaviour:
   m_ObjectHideFlags: 0

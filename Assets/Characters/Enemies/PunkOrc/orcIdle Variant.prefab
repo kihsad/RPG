@@ -183,8 +183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.029000044, y: 0.04}
-  m_SizeDelta: {x: -0.058, y: -0.07999999}
+  m_AnchoredPosition: {x: 0, y: -0.0000002682209}
+  m_SizeDelta: {x: -0.00000023842, y: -0.000000089407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1747851345625727516
 CanvasRenderer:
@@ -264,7 +264,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6783148055485376228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.066}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 4, y: 0.5}
+  m_AnchoredPosition: {x: -0.1517, y: 3.236}
+  m_SizeDelta: {x: 1.9558, y: 0.3342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6352688826174479684
 CanvasRenderer:
@@ -419,8 +419,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.23294047, y: 0.53341836, z: 0.031368338}
-  m_Center: {x: 0.0729482, y: 0.12086079, z: 0.51094425}
+  m_Size: {x: 0.23294048, y: 0.6209534, z: 0.07959295}
+  m_Center: {x: 0.072948694, y: 0.16462792, z: 0.5350551}
 --- !u!4 &1843872854085489125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4fa757032a79add48add06253778370c, type: 3}
@@ -440,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22d5f66dac606a04d94de874aafed04e, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22d5f66dac606a04d94de874aafed04e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -773,8 +773,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 3487024316570015702}
-  health: {fileID: 6183295309962097823}
-  _initHealth: 20
+  _health: {fileID: 6183295309962097823}
+  _initHealth: 250
+  _typeStr: PunkOrc
+  _level: 12
   _heathGroup: {fileID: 3446672501698083667}
 --- !u!114 &2033712190319577558
 MonoBehaviour:
@@ -788,11 +790,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b137eec957aaf3244a9ddb8d500059d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detector: {fileID: 2760126518750476088}
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
   _distance: 4
-  _detector: {fileID: 2760126518750476088}
   _targets:
   - {fileID: 0}
   - {fileID: 0}

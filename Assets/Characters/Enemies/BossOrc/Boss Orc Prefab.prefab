@@ -67,8 +67,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.029000044, y: 0.04}
-  m_SizeDelta: {x: -0.058, y: -0.07999999}
+  m_AnchoredPosition: {x: 0.0000017881393, y: 0.00000035762787}
+  m_SizeDelta: {x: 0.0000038147, y: -0.00000083447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1184698026687131115
 CanvasRenderer:
@@ -264,7 +264,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7498447568315438041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 4, y: 0.5}
+  m_AnchoredPosition: {x: -0.1081, y: 5.18}
+  m_SizeDelta: {x: 3.1659, y: 0.4845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4235185795780206917
 CanvasRenderer:
@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12d0272ae27e28544926f40123562015, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12d0272ae27e28544926f40123562015, type: 3}
       propertyPath: m_LocalScale.x
@@ -780,8 +780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 7939568267250640452}
-  health: {fileID: 4954672784663426519}
-  _initHealth: 25
+  _health: {fileID: 4954672784663426519}
+  _initHealth: 400
+  _typeStr: Orc
+  _level: 20
   _heathGroup: {fileID: 2987917276152076795}
 --- !u!54 &7560244519654890852
 Rigidbody:
@@ -822,11 +824,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b137eec957aaf3244a9ddb8d500059d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detector: {fileID: 268131926582245084}
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
   _distance: 6
-  _detector: {fileID: 268131926582245084}
   _targets:
   - {fileID: 0}
   - {fileID: 0}

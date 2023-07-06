@@ -41,7 +41,11 @@ public class BearController : MonoBehaviour
         for (int i = 0; i < numColliders; i++)
         {
             distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
-            _agent.SetDestination(_targets[0].transform.position);
+
+            if (_targets[i].GetComponent<Enemy>().IsAlive)
+            {
+                _agent.SetDestination(_targets[i].transform.position);
+            }
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
@@ -49,14 +53,6 @@ public class BearController : MonoBehaviour
             else
             {
                 _animator.SetBool("isAttacking", false);
-            }
-            if (distance > _distance)
-            {
-                _distance = 6f;
-            }
-            else
-            {
-                _distance = 15f;
             }
         }
     }

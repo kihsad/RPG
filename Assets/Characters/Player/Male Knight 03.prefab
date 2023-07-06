@@ -1746,6 +1746,7 @@ GameObject:
   - component: {fileID: 4560749819454062474}
   - component: {fileID: 6628410574576201735}
   - component: {fileID: 2084273564152688635}
+  - component: {fileID: 3949663893533825357}
   m_Layer: 8
   m_Name: Male Knight 03
   m_TagString: Untagged
@@ -1996,6 +1997,22 @@ MonoBehaviour:
   _buffTime: 4
   _actionManager: {fileID: 0}
   _sword: {fileID: 4085259419727578723}
+--- !u!114 &3949663893533825357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898391655722848863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8319aed93a1efc940a130f05432f3114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bear: {fileID: 83932237713861372, guid: c982dfc37929d1049a4eaa40f7bf8667, type: 3}
+  _coolDown: 25
+  _lifeTime: 10
+  _uiBarManager: {fileID: 0}
 --- !u!1 &2898391656255846616
 GameObject:
   m_ObjectHideFlags: 0

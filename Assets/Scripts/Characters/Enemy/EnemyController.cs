@@ -33,9 +33,11 @@ public class EnemyController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(_detector != null)
-        Detect();
-        SwordEnabled();
+        if (_detector != null)
+        {
+            Detect();
+            SwordEnabled();
+        }
     }
 
     public void Detect()
@@ -77,10 +79,5 @@ public class EnemyController : MonoBehaviour
         {
             _sword.gameObject.GetComponent<Collider>().enabled = false;
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_detector.position, _distance);
     }
 }

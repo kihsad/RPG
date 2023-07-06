@@ -70,12 +70,16 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
         if (_health.MyCurrentValue <= 0)
         {
-            StartCoroutine(Death());
+            transform.GetComponent<Collider>().enabled = false;
             _animator.SetBool("isDead", true);
-            if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
+            if(this is Enemy)
             {
-                Player.MyInstance.MyTarget = null;
-                Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+                if (!IsAlive)
+                {
+                    Player.MyInstance.MyTarget = null;
+                    Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+                }
+                StartCoroutine(Death());
             }
         }
     }

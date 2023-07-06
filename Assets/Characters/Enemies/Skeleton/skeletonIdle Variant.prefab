@@ -440,7 +440,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -539,7 +539,7 @@ MonoBehaviour:
   _health: {fileID: 2541662370371812535}
   _initHealth: 130
   _typeStr: Skeleton
-  _level: 7
+  _level: 4
   _chestPrefab: {fileID: -2066058163609243677, guid: 7ce79ac3d1a5e6d4cbdeb9953951e153, type: 3}
   _heathGroup: {fileID: 8720432380927597063}
 --- !u!114 &6728942660350178910
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 15
-  _cooldown: 0.5
+  _cooldown: 0.75
   _attackRange: 2
   character: {fileID: 3138730862551931660}
 --- !u!1001 &5553155953155479973

@@ -39,7 +39,7 @@ public class UIBarManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.I))
         {
             InventoryScript.Instance.OpenClose();
         }

@@ -34,7 +34,7 @@ public class CharacterPanel : MonoBehaviour
     }
     public void OpenCloseButton()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             OpenClose();
         }

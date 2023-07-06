@@ -12,14 +12,14 @@ public class BearAction : MonoBehaviour
     private float _lifeTime;
     [SerializeField]
     private UIBarManager _uiBarManager;
+    [SerializeField]
+    private Transform _bearPlace;
     private bool _isCD;
-    private Vector3 _offset;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
-            _offset = -Vector3.forward*3f;
             StartCoroutine(BearSpawn());
         }
     }
@@ -28,9 +28,8 @@ public class BearAction : MonoBehaviour
     {
         _isCD = true;
 
-        var go = Instantiate(_bear);
+        var go = Instantiate(_bear,_bearPlace);
         go.GetComponent<MeleeAttack>().Character = GetComponent<Player>();
-        _bear.transform.position = transform.position + _offset;
         StartCoroutine(_uiBarManager.Progress(4, _coolDown));
         yield return new WaitForSeconds(_lifeTime);
         Destroy(go);

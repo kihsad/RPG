@@ -1743,13 +1743,16 @@ GameObject:
   - component: {fileID: 4085259419727578723}
   - component: {fileID: 1723269218639018558}
   - component: {fileID: 3203103628710297241}
+  - component: {fileID: 4560749819454062474}
+  - component: {fileID: 6628410574576201735}
+  - component: {fileID: 2084273564152688635}
   m_Layer: 8
   m_Name: Male Knight 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2898391655723208319
 Transform:
   m_ObjectHideFlags: 0
@@ -1771,7 +1774,7 @@ Transform:
   - {fileID: 5798960171685834946}
   - {fileID: 6245895139017948021}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2898391655598392806
 Animator:
@@ -1824,8 +1827,6 @@ MonoBehaviour:
   _isEnemy:
     serializedVersion: 2
     m_Bits: 512
-  _fireBall: {fileID: 3085097393062747048, guid: 8d47db560de56dd45b64d2634d5dc5d1, type: 3}
-  _spellPlace: {fileID: 4616727869712513208}
   _meleeAttack: {fileID: 4085259419727578723}
   _sword: {fileID: 1034511529129619567}
 --- !u!114 &1873295027610493703
@@ -1845,6 +1846,7 @@ MonoBehaviour:
   _initHealth: 100
   _typeStr: Player
   _level: 1
+  _chestPrefab: {fileID: 0}
   _spellPrefabs:
   - {fileID: 6822723455392497395, guid: 7267c2d344175a849b975dd2eec4b182, type: 3}
   _mana: {fileID: 0}
@@ -1893,9 +1895,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2.4040322
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0, y: 0.7020161, z: 0}
 --- !u!114 &4085259419727578723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,8 +1911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _cooldown: 1
-  _attackRange: 4
+  _cooldown: 0.7
+  _attackRange: 3
   character: {fileID: 1873295027610493703}
 --- !u!114 &1723269218639018558
 MonoBehaviour:
@@ -1944,6 +1946,56 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   _lootableDistance: 7
+--- !u!114 &4560749819454062474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898391655722848863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb1caa81b460134695881bf94db414a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2898391655598392806}
+  _fireBall: {fileID: 3085097393062747048, guid: 8d47db560de56dd45b64d2634d5dc5d1, type: 3}
+  _spellManager: {fileID: 0}
+  _spellPlace: {fileID: 6286164355016176199}
+  _player: {fileID: 1873295027610493703}
+--- !u!114 &6628410574576201735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898391655722848863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e0907ba2abc1d4686f300f44b676db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1873295027610493703}
+  _immortalTime: 4
+  _coolDown: 12
+  _cooldownManager: {fileID: 0}
+--- !u!114 &2084273564152688635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898391655722848863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3f8e0c6e4ed7447bfa887b282fc27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1873295027610493703}
+  _coolDown: 15
+  _buffTime: 4
+  _actionManager: {fileID: 0}
+  _sword: {fileID: 4085259419727578723}
 --- !u!1 &2898391656255846616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,8 +2074,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.20651774, y: 0.55903846, z: 1.0528778}
-  m_Center: {x: 0.025790958, y: 0.22050022, z: 0.67265457}
+  m_Size: {x: 0.18275571, y: 0.35491845, z: 1.3264202}
+  m_Center: {x: 0.037672203, y: 0.11844508, z: 0.8094274}
 --- !u!1 &3217752335062597577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,7 +2307,7 @@ Transform:
   m_GameObject: {fileID: 5558869616701051842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 70, y: 70, z: 70}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2898391655723208319}
@@ -2329,7 +2381,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4989286098305164840
 MonoBehaviour:

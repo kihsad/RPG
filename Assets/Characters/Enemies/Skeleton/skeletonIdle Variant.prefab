@@ -586,9 +586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
-  _cooldown: 1
-  _attackRange: 6
+  _damage: 6
+  _cooldown: 0.5
+  _attackRange: 3
   character: {fileID: 3138730862551931660}
 --- !u!1001 &5553155953155479973
 PrefabInstance:

@@ -14,11 +14,11 @@ public class SwordAttack : MonoBehaviour
 
         if (enemy != null&& enemy.IsAlive &&_meleeAtack.Character.gameObject.layer!=enemy.gameObject.layer&&_meleeAtack.Character.GetComponent<Player>().MyTarget==enemy.GetComponent<Character>().HitBox)
         {
-            enemy.TakeDamage(_meleeAtack.GetDamage);
+            enemy.TakeDamage(_meleeAtack.MyDamage);
         }
         if (player != null )
         {
-                player.TakeDamage(_meleeAtack.GetDamage);
+                player.TakeDamage(_meleeAtack.MyDamage);
         }
         //анимаци€ получен€ урона врага
         //aнимаци€ попадани€

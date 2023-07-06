@@ -26,9 +26,11 @@ public class Player : Character // игрок
     [SerializeField]
     private float _initMana;
 
-    private int _intellectMultiplier=15;
+    private int _intellectMultiplier=5;
+    private int _strengthMultiplier=3;
     private MoveComponent _moveComponent;
-    private AttackComponent _attackComponent;
+    private MeleeAttackComponent _attackComponent;
+    private MeleeAttack _meleeAttack;
     private NavMeshAgent _agent;
     public NavMeshAgent GetAgent => _agent;
 
@@ -46,7 +48,8 @@ public class Player : Character // игрок
         base.Awake();
         _agent = GetComponent<NavMeshAgent>();
         _moveComponent = GetComponent<MoveComponent>();
-        _attackComponent = GetComponent<AttackComponent>();
+        _attackComponent = GetComponent<MeleeAttackComponent>();
+        _meleeAttack = GetComponent<MeleeAttack>();
     }
     private void Start()
     {
@@ -66,9 +69,8 @@ public class Player : Character // игрок
         _levelText.text = MyLevel.ToString();
         
         _stamina = 50;
-        _strength = 0;
+        _strength = 10;
         _intellect = 10;
-
         ResetStats();
         UIBarManager.MyInstance.UpdateStatsText(_strength, _stamina, _intellect);
     }
@@ -76,12 +78,13 @@ public class Player : Character // игрок
     {
         _health.Initialize(_stamina*StaminaMultiplier(), _stamina*StaminaMultiplier());
         _mana.Initialize(_intellect* _intellectMultiplier, _intellect* _intellectMultiplier);
-            
+        _meleeAttack.MyDamage = _strength*_strengthMultiplier;
     }
     private void UpdateMaxStats()
     {
         MyHealth.SetMaxValue(_stamina * StaminaMultiplier());
         MyMana.SetMaxValue(_intellect* _intellectMultiplier);
+        _meleeAttack.MyDamage = _strength * _strengthMultiplier;
     }
     public void GainXP(int xp)
     {

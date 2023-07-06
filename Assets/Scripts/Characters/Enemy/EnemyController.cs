@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         Detect();
+        SwordEnabled();
     }
 
     public void Detect()
@@ -46,13 +47,10 @@ public class EnemyController : MonoBehaviour
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                if(_animator.GetBool("isAttacking"))
-                _sword.gameObject.GetComponent<Collider>().enabled = true;
-
+                transform.LookAt(_targets[0].transform);
             }
             else
             {
-                _sword.gameObject.GetComponent<Collider>().enabled = false;
                 _animator.SetBool("isPatrolling", true);
                 _animator.SetBool("isAttacking", false);
             }
@@ -64,6 +62,17 @@ public class EnemyController : MonoBehaviour
             {
                 _distance = 15f;
             }
+        }
+    }
+    private void SwordEnabled()
+    {
+        if (_animator.GetBool("isAttacking")&&!_animator.GetBool("isPatrolling"))
+        { 
+            _sword.gameObject.GetComponent<Collider>().enabled = true;
+        }
+        else
+        {
+            _sword.gameObject.GetComponent<Collider>().enabled = false;
         }
     }
     private void OnDrawGizmos()

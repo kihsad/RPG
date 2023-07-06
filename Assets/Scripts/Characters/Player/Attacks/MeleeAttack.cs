@@ -11,9 +11,21 @@ public class MeleeAttack : MonoBehaviour // характеристики ближней атаки(можно н
     [SerializeField]
     private Character character;
 
-    public float GetDamage => _damage;
-    public float GetCooldown => _cooldown;
-    public float GetAttackRange => _attackRange;
+    public float MyDamage
+    {
+        get
+        {
+            return _damage;
+        }
+        set
+        {
+            _damage = value;
+        }
+    }
+    public float SwordCooldown => _cooldown;
+    public float AttackRange => _attackRange;
     public Character Character => character;
+
+
 
 }

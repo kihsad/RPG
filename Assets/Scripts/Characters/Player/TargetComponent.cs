@@ -25,21 +25,11 @@ public class TargetComponent : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(agentRay, out hitInfo, 100, _npc))
             {
-                if (_currentTarget != null)
-                {
-                    _currentTarget.DeSelect();
-                }
                 _currentTarget = hitInfo.collider.GetComponent<Enemy>();
-                _player.MyTarget = _currentTarget.Select();
-                Debug.Log(_player.MyTarget);
+                _player.MyTarget = _currentTarget.HitBox;
             }
             else
             {
-                if (_currentTarget != null)
-                {
-                    _currentTarget.DeSelect();
-                }
-
                 _currentTarget = null;
                 _player.MyTarget = null;
             }

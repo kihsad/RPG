@@ -59,18 +59,23 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         if(this as Enemy)
         CombatTextManager.Instance.CreateText(transform.position+_offset, damage.ToString(), SCtype.Damage);
 
+        if (this is Enemy && IsAlive)
+        {
+            _animator.SetTrigger("hit");
+            transform.GetComponent<NavMeshAgent>().SetDestination(Player.MyInstance.transform.position);
+        }
+
         if (_health.MyCurrentValue <= 0)
         {
             //die animation
             //loot
-            KillManager.Instance.OnKillConfirmed(this);
-            //gameObject.GetComponent<NavMeshAgent>().enabled = false; //для падения на землю
             _animator.SetBool("isDead", true);
-            Invoke("Death", 2.5f);
-
-            if(this is Enemy && !IsAlive)
+            KillManager.Instance.OnKillConfirmed(this);
+            Invoke("Death",2f);
+            if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
             {
-                    Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+                Player.MyInstance.MyTarget = null;
+                Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
             }
         }
     }

@@ -14,7 +14,7 @@ public class Teleport : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var player = other.gameObject.GetComponent<Player>();
-        if (player is null) return;
+        if (player == null) return;
         _player.GetComponent<Player>().enabled = false;
         Debug.Log(name);
         _uiTeleport.gameObject.SetActive(true);

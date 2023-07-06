@@ -4851,8 +4851,6 @@ GameObject:
   - component: {fileID: 4820230929438123878}
   - component: {fileID: 4820230929441548102}
   - component: {fileID: 4820230929440548230}
-  - component: {fileID: -5060145800236540996}
-  - component: {fileID: 5154319262816268826}
   m_Layer: 0
   m_Name: Sword Justice Aqua
   m_TagString: Untagged
@@ -4926,37 +4924,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5060145800236540996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4820230929438292806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ae60abd83591e45a09025b1ab55872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meleeAtack: {fileID: 0}
---- !u!65 &5154319262816268826
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4820230929438292806}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12312585, y: 0.44587237, z: 1.3226306}
-  m_Center: {x: -0.0000000055879354, y: -0.000000022351742, z: 0.44454023}

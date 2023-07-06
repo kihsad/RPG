@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4350442920777805996}
   - component: {fileID: 4350442920779100300}
   - component: {fileID: 4350442920780231244}
-  - component: {fileID: -2444328092475800048}
-  - component: {fileID: 8365918308835378970}
   m_Layer: 0
   m_Name: Sword Awry
   m_TagString: Untagged
@@ -85,37 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-2444328092475800048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4350442920777968780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ae60abd83591e45a09025b1ab55872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meleeAtack: {fileID: 0}
---- !u!65 &8365918308835378970
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4350442920777968780}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.13724476, y: 0.3177581, z: 1.2191427}
-  m_Center: {x: 0, y: -0.05905501, z: 0.35776722}

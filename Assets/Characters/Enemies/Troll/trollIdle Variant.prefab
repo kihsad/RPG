@@ -789,9 +789,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 728433717129224954}
   _health: {fileID: 8441356492625663145}
-  _initHealth: 650
+  _initHealth: 1000
   _typeStr: Troll
   _level: 30
+  _chestPrefab: {fileID: -5568876713037609238, guid: f087ce651e72ff0448f866843bb25c71, type: 3}
   _heathGroup: {fileID: 8060875032757045306}
 --- !u!114 &8453009125132316370
 MonoBehaviour:
@@ -839,9 +840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 15
-  _cooldown: 1
-  _attackRange: 7
+  _damage: 70
+  _cooldown: 4
+  _attackRange: 8
   character: {fileID: 3790996825144730733}
 --- !u!4 &728433717129224954 stripped
 Transform:

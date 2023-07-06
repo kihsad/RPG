@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    private List<Item> items;
-
-    public List<Item> MyItems { get => items; set => items = value; }
-    public BagScript Bag { get => bag; set => bag = value; }
 
     [SerializeField]
-    private BagScript bag;
+    private float _lifeTime;
 
-    private void Awake()
+    private void Update()
     {
-        items = new List<Item>();
+        DestroyChest();
     }
+    public void DestroyChest()
+    {
+        if(LootWindow.Instance.droppedLoot == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            StartCoroutine(DestroyCoroutine());
+        }
+    }
+
+    private IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(_lifeTime);
+        Destroy(gameObject);
+    }
+
 }
 

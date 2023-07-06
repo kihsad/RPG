@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,8 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     [SerializeField]
     private int _level;
     private Animator _animator;
+    [SerializeField]
+    private Chest _chestPrefab;
 
     private Vector3 _offset = new Vector3(2,3,0);
 
@@ -67,11 +70,8 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
         if (_health.MyCurrentValue <= 0)
         {
-            //die animation
-            //loot
+            StartCoroutine(Death());
             _animator.SetBool("isDead", true);
-            KillManager.Instance.OnKillConfirmed(this);
-            Invoke("Death",2f);
             if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
             {
                 Player.MyInstance.MyTarget = null;
@@ -85,8 +85,13 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         _health.MyCurrentValue += health;
         CombatTextManager.Instance.CreateText(transform.position+_offset, health.ToString(),SCtype.Heal);
     }
-    public void Death()
+    public IEnumerator Death()
     {
+        var go = Instantiate(_chestPrefab);
+        go.transform.position = transform.position;
+        yield return new WaitForSeconds(3f);
+        KillManager.Instance.OnKillConfirmed(this);
         _animator.GetComponent<Enemy>().OnCharacterRemoved();
     }
+
 }

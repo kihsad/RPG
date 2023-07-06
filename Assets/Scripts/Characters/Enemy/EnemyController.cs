@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Range(0, 100)]
     private float _distance;
 
+
     private float _stoppingDistance = 5f;
 
     public Collider[] _targets = new Collider[10];
@@ -47,7 +48,7 @@ public class EnemyController : MonoBehaviour
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                transform.LookAt(_targets[0].transform);
+                //transform.LookAt(_targets[0].transform);
             }
             else
             {

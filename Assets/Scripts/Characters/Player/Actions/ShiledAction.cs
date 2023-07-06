@@ -26,7 +26,7 @@ public class ShiledAction : MonoBehaviour
     {
         _isCD = true;
         _player.GetComponent<Collider>().enabled = false;
-        StartCoroutine(_cooldownManager.Progress(1, _coolDown));
+        StartCoroutine(_cooldownManager.Progress(2, _coolDown));
         yield return new WaitForSeconds(_immortalTime);
         _player.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(_coolDown-_immortalTime);

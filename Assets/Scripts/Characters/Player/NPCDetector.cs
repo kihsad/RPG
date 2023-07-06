@@ -5,7 +5,6 @@ public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
 {
     private List<Enemy> _enemies;
 
-
     private void Awake()
     {
         _enemies = new List<Enemy>();
@@ -14,17 +13,29 @@ public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.GetComponent<Enemy>();
-        if (enemy == null) return;
-        Debug.Log("enter");
-        enemy.Select();
-        _enemies.Add(enemy);
+        var chest = other.GetComponent<Chest>();
+        if (enemy != null)
+        {
+            enemy.Select();
+            _enemies.Add(enemy);
+        }
+        if(chest!=null)
+        {
+            Debug.Log("dd");
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         var enemy = other.GetComponent<Enemy>();
-        if (enemy == null) return;
-        Debug.Log("exit");
-        enemy.DeSelect();
-        _enemies.Remove(enemy);
+        var chest = other.GetComponent<Chest>();
+        if (enemy != null)
+        {
+            enemy.DeSelect();
+           _enemies.Remove(enemy);
+        }
+        if (chest != null)
+        {
+            Destroy(chest.gameObject);
+        }
     }
 }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2208398176814738932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 1.8250012, z: 2.63}
+  m_LocalPosition: {x: 0.06, y: 1.8250012, z: 2.31}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -337,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: efefb145b2064b042aedc1b90ff5dc80, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.6
+      value: -12.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: efefb145b2064b042aedc1b90ff5dc80, type: 3}
       propertyPath: m_LocalRotation.w
@@ -492,10 +492,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5518961
+  m_Radius: 0.5579338
   m_Height: 2.176155
   m_Direction: 1
-  m_Center: {x: 0.008648872, y: 1.0464935, z: 0}
+  m_Center: {x: 0.021848679, y: 1.0464935, z: 0.13013172}
 --- !u!54 &5253457744125262886
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -537,9 +537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 2074002236192805589}
   _health: {fileID: 2541662370371812535}
-  _initHealth: 60
+  _initHealth: 130
   _typeStr: Skeleton
-  _level: 5
+  _level: 7
+  _chestPrefab: {fileID: -2066058163609243677, guid: 7ce79ac3d1a5e6d4cbdeb9953951e153, type: 3}
   _heathGroup: {fileID: 8720432380927597063}
 --- !u!114 &6728942660350178910
 MonoBehaviour:
@@ -586,9 +587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 6
+  _damage: 15
   _cooldown: 0.5
-  _attackRange: 3
+  _attackRange: 2
   character: {fileID: 3138730862551931660}
 --- !u!1001 &5553155953155479973
 PrefabInstance:

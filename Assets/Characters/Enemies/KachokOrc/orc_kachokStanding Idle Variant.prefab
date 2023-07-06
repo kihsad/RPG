@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3472614432381690860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.91}
+  m_LocalPosition: {x: 0, y: 0, z: 2.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -870,9 +870,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 9141452486170379232}
   _health: {fileID: 1011750777853516186}
-  _initHealth: 100
-  _typeStr: MiniOrc
-  _level: 6
+  _initHealth: 700
+  _typeStr: OrcMedium
+  _level: 18
+  _chestPrefab: {fileID: 1476784832958817625, guid: abbb0eb4f3a95f64b959b63b1d095ad4, type: 3}
   _heathGroup: {fileID: 6083149055705308805}
 --- !u!114 &8138514333487818786
 MonoBehaviour:
@@ -920,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 7
+  _damage: 27
   _cooldown: 1
   _attackRange: 6
   character: {fileID: 7861535756207111494}

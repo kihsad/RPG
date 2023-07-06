@@ -729,10 +729,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7477009
+  m_Radius: 1.0613312
   m_Height: 2.3038626
   m_Direction: 1
-  m_Center: {x: -0.019042253, y: 0.91354895, z: 0.018445969}
+  m_Center: {x: 0.12664545, y: 0.91354895, z: 0.1863885}
 --- !u!54 &7144201314107025372
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -774,9 +774,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 3487024316570015702}
   _health: {fileID: 6183295309962097823}
-  _initHealth: 250
-  _typeStr: PunkOrc
-  _level: 12
+  _initHealth: 500
+  _typeStr: OrcPunk
+  _level: 13
+  _chestPrefab: {fileID: 5604034726133576521, guid: d3c0ce43cd18ea04d868918d34805856, type: 3}
   _heathGroup: {fileID: 3446672501698083667}
 --- !u!114 &2033712190319577558
 MonoBehaviour:
@@ -823,9 +824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 8
-  _cooldown: 1
-  _attackRange: 6
+  _damage: 22
+  _cooldown: 1.25
+  _attackRange: 3
   character: {fileID: 4667885050410937192}
 --- !u!4 &1821363213479826690 stripped
 Transform:

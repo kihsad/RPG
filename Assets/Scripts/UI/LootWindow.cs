@@ -15,7 +15,7 @@ public class LootWindow : MonoBehaviour
     private CanvasGroup _canvasGroup;
     
     private List<List<Item>> pages = new List<List<Item>>();
-    private List<Item> droppedLoot = new List<Item>();
+    public List<Item> droppedLoot = new List<Item>();
 
     private int _pageIndex=0;
 
@@ -110,8 +110,6 @@ public class LootWindow : MonoBehaviour
             AddLoot();
         }
     }
-
-
 
     public void OpenLootWindow()
     {

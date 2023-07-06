@@ -781,9 +781,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 7939568267250640452}
   _health: {fileID: 4954672784663426519}
-  _initHealth: 400
+  _initHealth: 1000
   _typeStr: Orc
   _level: 20
+  _chestPrefab: {fileID: 7839861976473272471, guid: fb6ab137578b7d84a8f0136adf0ff3bf, type: 3}
   _heathGroup: {fileID: 2987917276152076795}
 --- !u!54 &7560244519654890852
 Rigidbody:
@@ -854,9 +855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _cooldown: 1
-  _attackRange: 6
+  _damage: 45
+  _cooldown: 2
+  _attackRange: 7
   character: {fileID: 6200258453584109700}
 --- !u!4 &7939568267250640452 stripped
 Transform:

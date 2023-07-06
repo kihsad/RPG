@@ -68,9 +68,9 @@ public class Player : Character // игрок
         _xpStat.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
         _levelText.text = MyLevel.ToString();
         
-        _stamina = 50;
-        _strength = 10;
-        _intellect = 10;
+        _stamina = 100;
+        _strength = 20;
+        _intellect = 20;
         ResetStats();
         UIBarManager.MyInstance.UpdateStatsText(_strength, _stamina, _intellect);
     }
@@ -143,22 +143,22 @@ public class Player : Character // игрок
     {
         if (MyLevel < 10)
         {
-            return 1;
+            return 2;
         }
         else if (MyLevel > 10)
         {
-            return 2;
+            return 3;
         }
-        return 3;
+        return 4;
     }
 
     private int IncresedBaseStat()
     {
         if (MyLevel < 10)
         {
-            return 3;
+            return 5;
         }
-        return 0;
+        return 2;
     }
 
     private IEnumerator Regen()

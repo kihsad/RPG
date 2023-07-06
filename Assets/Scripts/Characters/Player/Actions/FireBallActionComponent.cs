@@ -27,7 +27,7 @@ public class FireBallActionComponent : MonoBehaviour
     }
     private void FireBallAction()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && !_spellCD && _player.MyTarget!=null && Player.MyInstance.MyMana.MyCurrentValue >= _fireBall.ManaCost)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !_spellCD && _player.MyTarget!=null && Player.MyInstance.MyMana.MyCurrentValue >= _fireBall.ManaCost)
         {
             if (Vector3.Distance(transform.position, _player.MyTarget.position) <= 20)
             {

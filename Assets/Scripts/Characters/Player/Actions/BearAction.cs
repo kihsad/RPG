@@ -17,9 +17,9 @@ public class BearAction : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
-            _offset = Vector3.forward*3f;
+            _offset = -Vector3.forward*3f;
             StartCoroutine(BearSpawn());
         }
     }

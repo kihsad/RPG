@@ -16,7 +16,7 @@ public class ShiledAction : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && !_isCD)
+        if(Input.GetKeyDown(KeyCode.Alpha2) && !_isCD)
         {
             StartCoroutine(ShieldCooldown());
         }

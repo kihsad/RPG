@@ -21,7 +21,7 @@ public class BuffAction : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W)&& !_isCD)
+        if(Input.GetKeyDown(KeyCode.Alpha3)&& !_isCD)
         {
             StartCoroutine(BuffActionCorroutine());
         }

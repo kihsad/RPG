@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1228306485775788680, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: m_Speed
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2527841793875255935, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: _distance
@@ -18,27 +18,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3207189688952634400, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: _damage
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3207189688952634400, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: _cooldown
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207189688952634400, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
+      propertyPath: _attackRange
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4776108361136494013, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4776108361136494013, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -90.09027
+      value: -79.38022
       objectReference: {fileID: 0}
     - target: {fileID: 4776108361136494013, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.308006
+      value: 2.4077907
       objectReference: {fileID: 0}
     - target: {fileID: 4776108361136494013, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.890644
+      value: 27.463472
       objectReference: {fileID: 0}
     - target: {fileID: 4776108361136494013, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -72,8 +76,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8057474151763784709, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
+      propertyPath: _meleeAtack
+      value: 
+      objectReference: {fileID: 7254138431072262619}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
+--- !u!114 &7254138431072262619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3207189688952634400, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
+  m_PrefabInstance: {fileID: 5199927486301038075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

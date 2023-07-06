@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a6ac4b9e6485ed4db126c6902531388, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.41
+      value: -8.921972
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a6ac4b9e6485ed4db126c6902531388, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -41.05
+      value: -41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a6ac4b9e6485ed4db126c6902531388, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.54
+      value: -14.13596
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a6ac4b9e6485ed4db126c6902531388, type: 3}
       propertyPath: m_LocalRotation.w
@@ -130,11 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b137eec957aaf3244a9ddb8d500059d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detector: {fileID: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
   _distance: 0
-  _detector: {fileID: 0}
   _targets:
   - {fileID: 0}
   - {fileID: 0}

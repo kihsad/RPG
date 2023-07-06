@@ -1,10 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class BearController : MonoBehaviour
 {
-
     [SerializeField]
     private Transform _detector;
     [SerializeField]
@@ -12,14 +12,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Range(0, 100)]
     private float _distance;
 
-
     private float _stoppingDistance = 5f;
 
     public Collider[] _targets = new Collider[10];
-    public List<Transform> _points = new List<Transform>();
 
     private Animator _animator;
     private NavMeshAgent _agent;
+
     [SerializeField]
     private SwordAttack _sword;
 
@@ -27,15 +26,11 @@ public class EnemyController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        if(_sword != null)
-        _sword.gameObject.GetComponent<Collider>().enabled = false;
 
     }
     private void FixedUpdate()
     {
-        if(_detector != null)
         Detect();
-        SwordEnabled();
     }
 
     public void Detect()
@@ -50,11 +45,9 @@ public class EnemyController : MonoBehaviour
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                //transform.LookAt(_targets[0].transform);
             }
             else
             {
-                _animator.SetBool("isPatrolling", true);
                 _animator.SetBool("isAttacking", false);
             }
             if (distance > _distance)
@@ -65,17 +58,6 @@ public class EnemyController : MonoBehaviour
             {
                 _distance = 15f;
             }
-        }
-    }
-    private void SwordEnabled()
-    {
-        if (_animator.GetBool("isAttacking")&&!_animator.GetBool("isPatrolling"))
-        { 
-            _sword.gameObject.GetComponent<Collider>().enabled = true;
-        }
-        else
-        {
-            _sword.gameObject.GetComponent<Collider>().enabled = false;
         }
     }
     private void OnDrawGizmos()

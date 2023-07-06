@@ -19,6 +19,8 @@ public class OpenPauseMenu : MonoBehaviour
         if (key)
         {
             _menu.gameObject.SetActive(true);
+            Time.timeScale = 0f;
         }
+        
     }
 }

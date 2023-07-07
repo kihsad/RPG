@@ -76,6 +76,10 @@ public class QuestGiver : NPC
                 count++;
                 if(count == _quests.Length)
                 {
+                    if (QuestGiverId == 1)
+                    {
+                        GrassLocationComplete.Instance.OpenDoors();
+                    }
                     _statusRenderer.enabled = false;
                 }
             }

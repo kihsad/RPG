@@ -30,6 +30,7 @@ public class BearAction : MonoBehaviour
 
         var go = Instantiate(_bear,_bearPlace);
         go.GetComponent<MeleeAttack>().Character = GetComponent<Player>();
+        go.transform.SetParent(transform.parent);
         StartCoroutine(_uiBarManager.Progress(4, _coolDown));
         yield return new WaitForSeconds(_lifeTime);
         Destroy(go);

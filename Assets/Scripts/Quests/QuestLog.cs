@@ -104,7 +104,7 @@ public class QuestLog : MonoBehaviour
         {
             objectives += objective.Type + ":" + objective.CurrentAmount + "/" + objective.Amount + "\n";
         }
-        _questDescription.text = string.Format("{0}\n\n<size=25>{1}</size>\nObjectives\n<size=20>{2}</size>", title,quest.Description,objectives);
+        _questDescription.text = string.Format("{0}\n\n<size=22>{1}</size>\n\n÷ÂÎË:\n\n<size=20>{2}</size>", title,quest.Description,objectives);
     }
 
     public void CheckCompletion()

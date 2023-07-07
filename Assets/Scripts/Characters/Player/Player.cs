@@ -28,9 +28,13 @@ public class Player : Character // игрок
 
     private int _intellectMultiplier=5;
     private int _strengthMultiplier=3;
+    [SerializeField]
     private MoveComponent _moveComponent;
+    [SerializeField]
     private MeleeAttackComponent _attackComponent;
+    [SerializeField]
     private MeleeAttack _meleeAttack;
+    [SerializeField]
     private NavMeshAgent _agent;
     public NavMeshAgent GetAgent => _agent;
 
@@ -38,21 +42,14 @@ public class Player : Character // игрок
     public Stats MyXp { get => _xpStat; set => _xpStat = value; }
     public Stats MyMana { get => _mana; set => _mana = value; }
 
-    private int _strength=0;
-    private int _stamina=50;
-    private int _intellect=10;
+    private int _strength=20;
+    private int _stamina=100;
+    private int _intellect=20;
 
 
-    protected override void Awake()
-    {
-        base.Awake();
-        _agent = GetComponent<NavMeshAgent>();
-        _moveComponent = GetComponent<MoveComponent>();
-        _attackComponent = GetComponent<MeleeAttackComponent>();
-        _meleeAttack = GetComponent<MeleeAttack>();
-    }
     private void Start()
     {
+        _agent.enabled = false;
         ResetStats();
         StartCoroutine(Regen());
     }
@@ -79,6 +76,7 @@ public class Player : Character // игрок
         _health.Initialize(_stamina*StaminaMultiplier(), _stamina*StaminaMultiplier());
         _mana.Initialize(_intellect* _intellectMultiplier, _intellect* _intellectMultiplier);
         _meleeAttack.MyDamage = _strength*_strengthMultiplier;
+        _agent.enabled = true;
     }
     private void UpdateMaxStats()
     {

@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[0]._item
@@ -45,12 +45,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ac964c7666526ea42a261340c2bdeb8f, type: 2}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: _loot.Array.data[7]._item
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cc0118d921e85848bcea9e0ce80e7ca, type: 2}
+    - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: _loot.Array.data[8]._item
+      value: 
+      objectReference: {fileID: 11400000, guid: 77ed62b57eda0a54e8d4d6271a096491, type: 2}
+    - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[0]._dropChance
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[1]._dropChance
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[2]._dropChance
@@ -62,10 +70,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[4]._dropChance
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[5]._dropChance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: _loot.Array.data[6]._dropChance
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: _loot.Array.data[7]._dropChance
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: _loot.Array.data[8]._dropChance
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7427108931389181183, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}

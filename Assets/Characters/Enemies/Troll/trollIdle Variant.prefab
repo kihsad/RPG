@@ -143,8 +143,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1678218, y: 1.3826656, z: 1.2517953}
+  m_Center: {x: -0.083911, y: -0.19133185, z: 0.02251546}
 --- !u!114 &1381504979285967069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,9 +840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 70
-  _cooldown: 4
-  _attackRange: 8
+  _damage: 55
+  _cooldown: 2
+  _attackRange: 6
   character: {fileID: 3790996825144730733}
 --- !u!4 &728433717129224954 stripped
 Transform:

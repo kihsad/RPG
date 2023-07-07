@@ -5,7 +5,7 @@ public class HealthsPotion : Item, IUseable
 {
     [SerializeField]
     private int _healValue;
-
+     
     public void Use()
     {
         if(Player.MyInstance.MyHealth.MyCurrentValue < Player.MyInstance.MyHealth.MyMaxValue)

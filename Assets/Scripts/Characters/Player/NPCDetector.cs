@@ -33,7 +33,7 @@ public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
             enemy.DeSelect();
            _enemies.Remove(enemy);
         }
-        if (chest != null)
+        if (chest != null&&!chest.IsQuest)
         {
             Destroy(chest.gameObject);
         }

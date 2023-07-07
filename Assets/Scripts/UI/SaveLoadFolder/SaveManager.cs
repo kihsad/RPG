@@ -34,8 +34,7 @@ public class SaveManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Load"))
         {
-            Debug.Log("Has");
-            Debug.Log(_saveSlots[PlayerPrefs.GetInt("Load")]);
+            Player.MyInstance.GetAgent.enabled = false;
             Load(_saveSlots[PlayerPrefs.GetInt("Load")]);
             PlayerPrefs.DeleteKey("Load");
         }

@@ -57,10 +57,12 @@ public class HandScript : MonoBehaviour
     }
     public void DeleteItem()
     {
+
         if (MyMoveable is Item)
         {
             Item item = (Item)MyMoveable;
-            if(item.MySlot!=null)
+            if (item.Title == "Key" || item.Title == "Coin") return;
+            if (item.MySlot!=null)
             {
                 item.MySlot.Clear();
             }

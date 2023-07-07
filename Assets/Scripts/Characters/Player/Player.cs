@@ -47,11 +47,11 @@ public class Player : Character // игрок
     private int _intellect=20;
 
 
-    private void Start()
+    protected override void Awake()
     {
-        _agent.enabled = false;
         ResetStats();
         StartCoroutine(Regen());
+        base.Awake();
     }
     protected override void Update()
     {
@@ -76,7 +76,6 @@ public class Player : Character // игрок
         _health.Initialize(_stamina*StaminaMultiplier(), _stamina*StaminaMultiplier());
         _mana.Initialize(_intellect* _intellectMultiplier, _intellect* _intellectMultiplier);
         _meleeAttack.MyDamage = _strength*_strengthMultiplier;
-        _agent.enabled = true;
     }
     private void UpdateMaxStats()
     {
@@ -161,6 +160,8 @@ public class Player : Character // игрок
 
     private IEnumerator Regen()
     {
+        yield return new WaitForSeconds(0.2f);
+        GetAgent.enabled = true;
         while (true)
         {
                 if (_health.MyCurrentValue < _health.MyMaxValue)

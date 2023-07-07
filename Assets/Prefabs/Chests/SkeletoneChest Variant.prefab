@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 10
+  isQuest: 0
 --- !u!54 &107939830832617859
 Rigidbody:
   m_ObjectHideFlags: 0

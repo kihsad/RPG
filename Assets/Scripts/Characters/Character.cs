@@ -87,6 +87,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public void GetHealth(int health)
     {
         _health.MyCurrentValue += health;
+        if(_health.MyCurrentValue!=_health.MyMaxValue)
         CombatTextManager.Instance.CreateText(transform.position+_offset, health.ToString(),SCtype.Heal);
     }
     public IEnumerator Death()

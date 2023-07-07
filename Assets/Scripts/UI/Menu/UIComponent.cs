@@ -26,7 +26,7 @@ namespace Menu
         }
         public void StartNewGame()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("FirstScene");
         }
 
         public void QuitGame()

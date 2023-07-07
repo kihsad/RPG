@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
 
     public AudioClip attackSound;
     public AudioClip hitSound;
+    public AudioClip deathSound;
+    public AudioClip lootSound;
 
     private void Awake()
     {

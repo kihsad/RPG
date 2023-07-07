@@ -83,6 +83,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         {
             StartCoroutine(Death());
             _animator.SetBool("isDead", true);
+            SoundManager.Instance.PlaySound(_enemyController.deathSound);
             if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
             {
                 Player.MyInstance.MyTarget = null;
@@ -99,6 +100,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public IEnumerator Death()
     {
         var go = Instantiate(_chestPrefab);
+        SoundManager.Instance.PlaySound(_enemyController.lootSound);
         go.transform.position = transform.position;
         yield return new WaitForSeconds(3f);
         KillManager.Instance.OnKillConfirmed(this);

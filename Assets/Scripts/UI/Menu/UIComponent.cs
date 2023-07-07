@@ -6,6 +6,7 @@ namespace Menu
 {
     public class UIComponent : MonoBehaviour
     {
+       
         [SerializeField]
         private GameObject _settingsPanel;
 
@@ -36,5 +37,6 @@ namespace Menu
         Application.Quit();
 #endif
         }
+
     }
 }

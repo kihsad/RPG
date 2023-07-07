@@ -14,10 +14,13 @@ public class ShiledAction : MonoBehaviour
     private UIBarManager _cooldownManager;
     private bool _isCD;
 
+    public AudioClip shieldSound;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha2) && !_isCD)
         {
+            SoundManager.Instance.PlaySound(shieldSound);
             StartCoroutine(ShieldCooldown());
         }
     }

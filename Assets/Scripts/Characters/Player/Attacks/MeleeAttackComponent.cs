@@ -16,6 +16,8 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
 
     private bool _meleeCD = false;
 
+    public AudioClip attackSound;
+
     private void Awake()
     {
         _sword.gameObject.GetComponent<Collider>().enabled = false;
@@ -38,6 +40,7 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
                     _target = hitInfo.transform;
                     _sword.gameObject.GetComponent<Collider>().enabled = true;
                     transform.GetComponent<Animator>().Play("MeleeAttack_OneHanded");
+                    SoundManager.Instance.PlaySound(attackSound);
                     StartCoroutine(MeleeAttackCooldown());
                 }
             }

@@ -15,11 +15,14 @@ public class BearAction : MonoBehaviour
     private bool _isCD;
     private Vector3 _offset;
 
+    public AudioClip bearSound;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
             _offset = -Vector3.forward*3f;
+            SoundManager.Instance.PlaySound(bearSound);
             StartCoroutine(BearSpawn());
         }
     }

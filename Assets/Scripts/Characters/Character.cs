@@ -22,6 +22,9 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
     protected bool _isAttacking = false;
 
+    private EnemyController _enemyController;
+    private Player _player;
+
     public bool IsAlive
     {
         get
@@ -51,6 +54,8 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
+        _enemyController = GetComponent<EnemyController>();
+        _player = GetComponent<Player>();
     }
     protected virtual void Update()
     {
@@ -65,7 +70,13 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         if (this is Enemy && IsAlive)
         {
             _animator.SetTrigger("hit");
+            SoundManager.Instance.PlaySound(_enemyController.hitSound);
             transform.GetComponent<NavMeshAgent>().SetDestination(Player.MyInstance.transform.position);
+        }
+        else if(this is Player)
+        {
+            SoundManager.Instance.PlaySound(_player.hitSound);
+            SoundManager.Instance.PlaySound(_enemyController.attackSound);
         }
 
         if (_health.MyCurrentValue <= 0)

@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,6 +24,11 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         _soundSource.PlayOneShot(clip);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        _musicSource.PlayOneShot(clip);
     }
 
     public void ChangeMasterVolume(float value)

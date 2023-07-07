@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-
     [SerializeField]
     private Transform _detector;
     [SerializeField]
@@ -12,7 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Range(0, 100)]
     private float _distance;
 
-
+    private float _timer;
     private float _stoppingDistance = 5f;
 
     public Collider[] _targets = new Collider[10];
@@ -23,12 +22,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private SwordAttack _sword;
 
+    public AudioClip attackSound;
+    public AudioClip hitSound;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         if(_sword != null)
         _sword.gameObject.GetComponent<Collider>().enabled = false;
+        _timer = 0;
 
     }
     private void FixedUpdate()
@@ -38,6 +41,7 @@ public class EnemyController : MonoBehaviour
             Detect();
             SwordEnabled();
         }
+        //_timer += Time.deltaTime;
     }
 
     public void Detect()
@@ -52,6 +56,12 @@ public class EnemyController : MonoBehaviour
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
+                //if (_timer >= 0.5f)
+                //{
+                //    SoundManager.Instance.PlaySound(attackSound);
+                //    _timer = 0;
+                //}
+                //SoundManager.Instance.PlaySound(attackSound);
                 //transform.LookAt(_targets[0].transform);
             }
             else

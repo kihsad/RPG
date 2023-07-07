@@ -16,6 +16,8 @@ public class FireBallActionComponent : MonoBehaviour
     private Player _player;
     private float _speed;
 
+    public AudioClip fireBallSound;
+
     private void Start()
     {
         _speed = _player.GetAgent.speed;
@@ -34,6 +36,7 @@ public class FireBallActionComponent : MonoBehaviour
                 _player.GetAgent.speed = 0;
                 _animator.SetBool("isSpellCast", true);
                 _animator.Play("SpellCast");
+                SoundManager.Instance.PlaySound(fireBallSound);
                 _fireBall.transform.position = _spellPlace.transform.position;
                 Player.MyInstance.MyMana.MyCurrentValue -= _fireBall.ManaCost;
                 StartCoroutine(SpellAttackCooldown());

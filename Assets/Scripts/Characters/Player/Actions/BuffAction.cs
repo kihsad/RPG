@@ -18,11 +18,13 @@ public class BuffAction : MonoBehaviour
     private float _damage=50;
     private bool _isCD;
 
+    public AudioClip buffSound;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha3)&& !_isCD)
         {
+            SoundManager.Instance.PlaySound(buffSound);
             StartCoroutine(BuffActionCorroutine());
         }
     }

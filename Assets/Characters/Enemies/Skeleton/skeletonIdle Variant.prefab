@@ -575,6 +575,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _sword: {fileID: 2833586753974495251}
+  attackSound: {fileID: 8300000, guid: 087225766cbdf574aa3896f28ef38e16, type: 3}
+  hitSound: {fileID: 8300000, guid: e9cfe3fe5988d7941af125773c2e8b86, type: 3}
 --- !u!114 &3376392309026060495
 MonoBehaviour:
   m_ObjectHideFlags: 0

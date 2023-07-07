@@ -26,6 +26,9 @@ public class Player : Character // игрок
     [SerializeField]
     private float _initMana;
 
+    public AudioClip healSound;
+    public AudioClip hitSound;
+
     private int _intellectMultiplier=5;
     private int _strengthMultiplier=3;
     private MoveComponent _moveComponent;

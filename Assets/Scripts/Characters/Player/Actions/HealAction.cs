@@ -16,6 +16,13 @@ public class HealAction : MonoBehaviour
 
     private Stack<IUseable> _useables;
 
+    private Player _player;
+
+    private void Start()
+    {
+        _player = FindObjectOfType<Player>();
+    }
+
     private void Update()
     {
         UsePotion();
@@ -24,6 +31,7 @@ public class HealAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)&&!_isCd)
         {
+            
             GetPotions(_healthPotion as IUseable);
 
             if (HandScript.Instance.MyMoveable == null)
@@ -48,6 +56,7 @@ public class HealAction : MonoBehaviour
 
     private IEnumerator PotionCD()
     {
+        SoundManager.Instance.PlaySound(_player.healSound);
         _isCd = true;
         StartCoroutine(UIBarManager.MyInstance.Progress(5, _healCooldown));
         _useables.Pop().Use();

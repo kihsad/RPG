@@ -1128,9 +1128,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9153796263515267725}
     - target: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ac5df3c1eb0e1b4429db3be30e20c50f, type: 3}
+    - target: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a454b93dd0d81764bbee9aea79cc4c05, type: 3}
+    - target: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: _levelText
       value: 
       objectReference: {fileID: 2458034186385695892}
+    - target: {fileID: 2084273564152688635, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: buffSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da4cd03bfbb7ea3468b9d1ff20c29c99, type: 3}
     - target: {fileID: 2084273564152688635, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: _actionManager
       value: 
@@ -1191,6 +1203,10 @@ PrefabInstance:
       propertyPath: _spellManager
       value: 
       objectReference: {fileID: 940516974}
+    - target: {fileID: 6628410574576201735, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: shieldSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 61a537c75c80c7f408577f673d52908a, type: 3}
     - target: {fileID: 6628410574576201735, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: _cooldownManager
       value: 

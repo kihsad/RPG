@@ -73,17 +73,16 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
             SoundManager.Instance.PlaySound(_enemyController.hitSound);
             transform.GetComponent<NavMeshAgent>().SetDestination(Player.MyInstance.transform.position);
         }
-        else if(this is Player)
+        if (this is Player)
         {
             SoundManager.Instance.PlaySound(_player.hitSound);
-            SoundManager.Instance.PlaySound(_enemyController.attackSound);
+            //SoundManager.Instance.PlaySound(_enemyController.attackSound);
         }
 
         if (_health.MyCurrentValue <= 0)
         {
             StartCoroutine(Death());
             _animator.SetBool("isDead", true);
-            SoundManager.Instance.PlaySound(_enemyController.deathSound);
             if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
             {
                 Player.MyInstance.MyTarget = null;
@@ -101,6 +100,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     {
         var go = Instantiate(_chestPrefab);
         SoundManager.Instance.PlaySound(_enemyController.lootSound);
+        SoundManager.Instance.PlaySound(_enemyController.deathSound);
         go.transform.position = transform.position;
         yield return new WaitForSeconds(3f);
         KillManager.Instance.OnKillConfirmed(this);

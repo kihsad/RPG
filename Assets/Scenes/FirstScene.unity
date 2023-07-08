@@ -378,7 +378,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1197171267}
         m_TargetAssemblyTypeName: SkipAutro, Assembly-CSharp
-        m_MethodName: Skip
+        m_MethodName: SkipFirst
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

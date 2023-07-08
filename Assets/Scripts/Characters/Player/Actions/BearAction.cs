@@ -18,7 +18,7 @@ public class BearAction : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
+        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD && DirtLocationScript.Insance.IsComplete)
         {
             StartCoroutine(BearSpawn());
         }

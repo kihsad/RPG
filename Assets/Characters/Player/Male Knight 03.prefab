@@ -1807,7 +1807,7 @@ Transform:
   - {fileID: 6245895139017948021}
   - {fileID: 2292871230813605444}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2898391655598392806
 Animator:
@@ -1886,6 +1886,10 @@ MonoBehaviour:
   _xpStat: {fileID: 0}
   _levelText: {fileID: 0}
   _initMana: 50
+  _moveComponent: {fileID: 388923432904794394}
+  _attackComponent: {fileID: 6013447922324918460}
+  _meleeAttack: {fileID: 4085259419727578723}
+  _agent: {fileID: 2040607345308795370}
 --- !u!195 &2040607345308795370
 NavMeshAgent:
   m_ObjectHideFlags: 0

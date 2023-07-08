@@ -48,7 +48,7 @@ public class InteractComponent : MonoBehaviour
 
     private void CloseLoot()
     {
-        if (Vector3.Distance(transform.position, _lootTarget) > 1.5||Player.MyInstance.MyTarget!=null)
+        if (Vector3.Distance(transform.position, _lootTarget) > 3||Player.MyInstance.MyTarget!=null)
         {
             LootWindow.Instance.CloseLootWindow();
         }

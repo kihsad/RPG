@@ -42,7 +42,7 @@ public class BearController : MonoBehaviour
         {
             distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
 
-            if (_targets[i].GetComponent<Enemy>().IsAlive)
+            if (_targets[i].GetComponent<Enemy>()!=null && _targets[i].GetComponent<Enemy>().IsAlive)
             {
                 _agent.SetDestination(_targets[i].transform.position);
             }

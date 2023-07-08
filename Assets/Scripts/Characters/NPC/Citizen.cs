@@ -10,7 +10,7 @@ public class Citizen : NPC
 
     public override void Interact()
     {
-        base.Interact();
-        DialogueWindow.Instance.SetDialogue(_dialogue); 
+            DialogueWindow.Instance.SetDialogue(_dialogue);
+            base.Interact(); 
     }
 }

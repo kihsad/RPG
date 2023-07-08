@@ -81,7 +81,7 @@ public class DialogueWindow : Window
             _answerPos.gameObject.SetActive(true);
             GameObject go = Instantiate(_answerButton, _answerPos);
             buttons.Add(go);
-            go.GetComponentInChildren<Text>().text = "Close";
+            go.GetComponentInChildren<Text>().text = "”йти";
             go.GetComponent<Button>().onClick.AddListener(delegate { CloseDialogue(); });
         }
     }

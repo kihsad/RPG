@@ -696,7 +696,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.62
-  m_Speed: 2
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -727,10 +727,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.69589233
-  m_Height: 1.5996306
+  m_Radius: 0.66657716
+  m_Height: 1.8928679
   m_Direction: 1
-  m_Center: {x: -0.054730225, y: 0.6565545, z: 0.07216797}
+  m_Center: {x: -0.054730225, y: 0.8031732, z: 0.10148316}
 --- !u!54 &2948455865633934
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 20
+  _damage: 27
   _cooldown: 0.5
   _attackRange: 2
   character: {fileID: 1393759442328310472}

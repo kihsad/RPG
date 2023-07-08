@@ -26,7 +26,10 @@ public class TargetComponent : MonoBehaviour
             if (Physics.Raycast(agentRay, out hitInfo, 100, _npc))
             {
                 _currentTarget = hitInfo.collider.GetComponent<Enemy>();
-                _player.MyTarget = _currentTarget.HitBox;
+                if (_currentTarget!=null && _currentTarget.IsAlive)
+                {
+                    _player.MyTarget = _currentTarget.HitBox;
+                }
             }
             else
             {

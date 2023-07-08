@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Character : MonoBehaviour //персонажи (наследуются враги , игрок и нпц)
+public abstract class Character : MonoBehaviour //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ , пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ)
 {
     [SerializeField]
-    protected Transform _hitBox; //коллайдер
+    protected Transform _hitBox; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     [SerializeField]
     protected Stats _health;
     [SerializeField]
-    protected float _initHealth; //хп при старте
+    protected float _initHealth; //пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     [SerializeField]
     private string _typeStr;
     [SerializeField]
@@ -80,12 +80,16 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
 
         if (_health.MyCurrentValue <= 0)
         {
+            transform.GetComponent<Collider>().enabled = false;
             _animator.SetBool("isDead", true);
-            if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
+            if(this is Enemy)
             {
+                if (!IsAlive)
+                {
+                    Player.MyInstance.MyTarget = null;
+                    Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+                }
                 StartCoroutine(Death());
-                Player.MyInstance.MyTarget = null;
-                Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
             }
         }
     }
@@ -93,6 +97,7 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
     public void GetHealth(int health)
     {
         _health.MyCurrentValue += health;
+        if(_health.MyCurrentValue!=_health.MyMaxValue)
         CombatTextManager.Instance.CreateText(transform.position+_offset, health.ToString(),SCtype.Heal);
     }
     public IEnumerator Death()

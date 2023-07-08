@@ -38,7 +38,6 @@ public class InteractComponent : MonoBehaviour
                     }
                     if (hitInfo.collider.GetComponent<Citizen>() != null)
                     {
-                        Debug.Log("ctz");
                         hitInfo.collider.GetComponent<Citizen>().Interact();
                     }
 
@@ -49,7 +48,7 @@ public class InteractComponent : MonoBehaviour
 
     private void CloseLoot()
     {
-        if (Vector3.Distance(transform.position, _lootTarget) > 2)
+        if (Vector3.Distance(transform.position, _lootTarget) > 3||Player.MyInstance.MyTarget!=null)
         {
             LootWindow.Instance.CloseLootWindow();
         }

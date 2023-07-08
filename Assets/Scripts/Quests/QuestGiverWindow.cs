@@ -32,6 +32,7 @@ public class QuestGiverWindow : Window
 
     public void ShowQuest(QuestGiver questGiver)
     {
+        _acceptBtn.gameObject.SetActive(false);
         _questGiver = questGiver;
 
         foreach(GameObject go in _quests)
@@ -96,7 +97,8 @@ public class QuestGiverWindow : Window
     {
         if(_selectedQuest.IsComplete)
         {
-            for(int i =0;i<_questGiver.Quests.Length;i++)
+
+            for (int i =0;i<_questGiver.Quests.Length;i++)
             {
                 if(_selectedQuest == _questGiver.Quests[i])
                 {
@@ -117,7 +119,7 @@ public class QuestGiverWindow : Window
             }
             Player.MyInstance.GainXP(XpManager.CalculcateExp(_selectedQuest));
 
-            QuestLog.Instance.RemoveQuest(_selectedQuest.MyQuestScript);
+QuestLog.Instance.RemoveQuest(_selectedQuest.MyQuestScript);
             Back();
         }
     }

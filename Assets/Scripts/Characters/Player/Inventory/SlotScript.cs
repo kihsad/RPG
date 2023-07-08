@@ -112,6 +112,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         if(InventoryScript.Instance.FromSlot == this)
         {
             InventoryScript.Instance.FromSlot.MyIcon.enabled=true;
+            InventoryScript.Instance.FromSlot.MyIcon.color = Color.white;
             return true;
         }
         return false;
@@ -119,19 +120,21 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
 
     public void RemoveItem(Item item)
     {
-        if(!IsEmpty)
+        if (item.Title != "Key" && item.Title != "Coin")
         {
-            Debug.Log("remove");
-            _items.Pop();
+            if (!IsEmpty)
+            {
+                Debug.Log("remove");
+                _items.Pop();
+            }
         }
     }
     public void UseItem()
     {
-        Debug.Log("Use");
-        if (MyItem is IUseable)
+        if (MyItem.Title == "Key" || MyItem.Title == "Coin") return;
+            if (MyItem is IUseable)
         {
             (MyItem as IUseable).Use();
-            //InventoryScript.Instance.OnItemCountChanged(MyItem);
         }
         else if(MyItem is Armor)
         {
@@ -185,9 +188,8 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         UIBarManager.MyInstance.UpdateStackSize(this); 
     }
     public void Clear()
-    {
+    {      
         int initCount = MyItems.Count;
-
         if(_items.Count>0)
         {
             for (int i = 0; i < initCount; i++)

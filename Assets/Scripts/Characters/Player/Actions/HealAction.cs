@@ -31,16 +31,14 @@ public class HealAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)&&!_isCd)
         {
-            
-            GetPotions(_healthPotion as IUseable);
-
-            if (HandScript.Instance.MyMoveable == null)
-            {
-                if (_useables != null && _useables.Count > 0)
+                GetPotions(_healthPotion as IUseable);
+                if (HandScript.Instance.MyMoveable == null)
                 {
-                    StartCoroutine(PotionCD());
+                    if (_useables != null && _useables.Count > 0)
+                    {
+                        StartCoroutine(PotionCD());
+                    }
                 }
-            }
         }
     }
 

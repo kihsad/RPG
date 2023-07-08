@@ -7,6 +7,10 @@ public class Chest : MonoBehaviour
 
     [SerializeField]
     private float _lifeTime;
+    [SerializeField]
+    private bool isQuest;
+
+    public bool IsQuest => isQuest;
 
     private void Update()
     {
@@ -27,6 +31,7 @@ public class Chest : MonoBehaviour
     private IEnumerator DestroyCoroutine()
     {
         yield return new WaitForSeconds(_lifeTime);
+        if(!IsQuest)
         Destroy(gameObject);
     }
 

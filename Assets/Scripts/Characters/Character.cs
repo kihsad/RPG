@@ -76,15 +76,14 @@ public abstract class Character : MonoBehaviour //персонажи (наследуются враги ,
         if (this is Player)
         {
             SoundManager.Instance.PlaySound(_player.hitSound);
-            //SoundManager.Instance.PlaySound(_enemyController.attackSound);
         }
 
         if (_health.MyCurrentValue <= 0)
         {
-            StartCoroutine(Death());
             _animator.SetBool("isDead", true);
             if(this is Enemy && !IsAlive && Player.MyInstance.MyTarget!=null)
             {
+                StartCoroutine(Death());
                 Player.MyInstance.MyTarget = null;
                 Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
             }

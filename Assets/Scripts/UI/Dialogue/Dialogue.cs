@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-
     [SerializeField]
     private DialogueNode[] _dialogueNodes;
 

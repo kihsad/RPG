@@ -80,6 +80,10 @@ public class QuestGiver : NPC
                     {
                         GrassLocationComplete.Instance.OpenDoors();
                     }
+                    if(QuestGiverId==2)
+                    {
+                        SandLocationScript.Instance.OnComplete();
+                    }
                     _statusRenderer.enabled = false;
                 }
             }

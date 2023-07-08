@@ -10,6 +10,11 @@ namespace Menu
         [SerializeField]
         private GameObject _settingsPanel;
 
+        private void Awake()
+        {
+            _settingsPanel.SetActive(false);
+
+        }
         public void MainMenu()
         {
             SceneManager.LoadScene(0);

@@ -81,15 +81,15 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
         if (_health.MyCurrentValue <= 0)
         {
             transform.GetComponent<Collider>().enabled = false;
-            _animator.SetBool("isDead", true);
             if(this is Enemy)
             {
                 if (!IsAlive)
                 {
+                    _animator.SetBool("isDead", true);
                     Player.MyInstance.MyTarget = null;
                     Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
+                    StartCoroutine(Death());
                 }
-                StartCoroutine(Death());
             }
         }
     }
@@ -106,9 +106,9 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
         SoundManager.Instance.PlaySound(_enemyController.lootSound);
         SoundManager.Instance.PlaySound(_enemyController.deathSound);
         go.transform.position = transform.position;
-        yield return new WaitForSeconds(3f);
-        KillManager.Instance.OnKillConfirmed(this);
         _animator.GetComponent<Enemy>().OnCharacterRemoved();
+        yield return new WaitForSeconds(1f);
+        KillManager.Instance.OnKillConfirmed(this);
     }
 
 }

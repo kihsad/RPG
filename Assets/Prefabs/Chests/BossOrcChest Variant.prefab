@@ -9,8 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 914191230440822371, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: m_Size.y
+      value: 0.89774764
+      objectReference: {fileID: 0}
+    - target: {fileID: 914191230440822371, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: m_Center.y
+      value: 0.45848006
+      objectReference: {fileID: 0}
+    - target: {fileID: 914191230440822371, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242802350613259704, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.size
@@ -149,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 10
+  isQuest: 0
 --- !u!54 &-6544856485976691419
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -40,6 +40,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
+            MessageFeedManager.Instance.WriteMessage("Очисти город от нечести!");
             Player.MyInstance.SetDefaultsValues();
         }
     }

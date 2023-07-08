@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4735608547580945222}
   - component: {fileID: 1575732308092388616}
   - component: {fileID: 2820968199162553831}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: EnemyHealths (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8796102513208217859}
   - component: {fileID: 4763183492210098132}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1402755383594341466}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 8403387853431565011}
   - component: {fileID: 7677395682844877841}
   - component: {fileID: 2747053450855607896}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 9035040756358704027}
   - component: {fileID: 5932979741610308848}
   - component: {fileID: 4180096872805436137}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: EnemyHpValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
-  _distance: 4
+  _distance: 9
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 27
+  _damage: 23
   _cooldown: 0.5
   _attackRange: 2
   character: {fileID: 1393759442328310472}
@@ -941,5 +941,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.011722061, y: 0.02546216, z: 0.05789699}
-  m_Center: {x: 0.021890514, y: 0.028984874, z: 0.00808555}
+  m_Size: {x: 0.01172206, y: 0.02546217, z: 0.062147856}
+  m_Center: {x: 0.021890558, y: 0.02898486, z: 0.010210962}

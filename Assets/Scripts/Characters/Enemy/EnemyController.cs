@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Range(0, 100)]
     private float _distance;
 
-    private float _stoppingDistance = 5f;
+    private float _stoppingDistance = 2.5f;
 
     public Collider[] _targets = new Collider[10];
     public List<Transform> _points = new List<Transform>();
@@ -51,11 +51,10 @@ public class EnemyController : MonoBehaviour
         for (int i = 0; i < numColliders; i++)
         {
             distance = Vector3.Distance(_agent.transform.position, _targets[i].ClosestPoint(transform.position));
-            _agent.SetDestination(_targets[0].transform.position);
+            _agent.SetDestination(Player.MyInstance.transform.position);
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
-                transform.LookAt(_targets[0].transform);
             }
             else
             {
@@ -64,18 +63,19 @@ public class EnemyController : MonoBehaviour
             }
             if (distance > _distance)
             {
-                _distance = 6f;
+                _distance = 9f;
             }
             else
             {
-                _distance = 15f;
+                _distance = 20f;
             }
         }
     }
     private void SwordEnabled()
     {
         if (_animator.GetBool("isAttacking")&&!_animator.GetBool("isPatrolling"))
-        { 
+        {
+            transform.LookAt(Player.MyInstance.transform);
             _sword.gameObject.GetComponent<Collider>().enabled = true;
         }
         else

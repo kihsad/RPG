@@ -14,12 +14,18 @@ public class BuffAction : MonoBehaviour
     private UIBarManager _actionManager;
     [SerializeField]
     private MeleeAttack _sword;
+    [SerializeField]
+    private GameObject _buff;
 
     private float _damage=50;
     private bool _isCD;
 
     public AudioClip buffSound;
 
+    private void Awake()
+    {
+        _buff.SetActive(false);
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha3)&& !_isCD)
@@ -33,8 +39,10 @@ public class BuffAction : MonoBehaviour
     {
         _isCD = true;
         _sword.MyDamage += _damage;
+        _buff.SetActive(true);
         StartCoroutine(_actionManager.Progress(3, _coolDown));
         yield return new WaitForSeconds(_buffTime);
+        _buff.SetActive(false);
         _sword.MyDamage -= _damage;
         yield return new WaitForSeconds(_coolDown - _buffTime);
         _isCD = false;

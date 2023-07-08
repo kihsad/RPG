@@ -131,7 +131,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
     }
     public void UseItem()
     {
-        if (MyItem.Title == "Key" || MyItem.Title == "Coin"|| MyItem.Title != "Cat") return;
+        if (MyItem.Title == "Key" || MyItem.Title == "Coin") return;
             if (MyItem is IUseable)
         {
             (MyItem as IUseable).Use();

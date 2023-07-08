@@ -11,11 +11,17 @@ public class ShiledAction : MonoBehaviour
     [SerializeField]
     private float _coolDown;
     [SerializeField]
+    private GameObject _bubble;
+    [SerializeField]
     private UIBarManager _cooldownManager;
     private bool _isCD;
 
     public AudioClip shieldSound;
 
+    private void Awake()
+    {
+        _bubble.SetActive(false);
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha2) && !_isCD)
@@ -29,8 +35,10 @@ public class ShiledAction : MonoBehaviour
     {
         _isCD = true;
         _player.GetComponent<Collider>().enabled = false;
+        _bubble.SetActive(true);
         StartCoroutine(_cooldownManager.Progress(2, _coolDown));
         yield return new WaitForSeconds(_immortalTime);
+        _bubble.SetActive(false);
         _player.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(_coolDown-_immortalTime);
         _isCD = false;

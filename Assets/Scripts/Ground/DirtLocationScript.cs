@@ -12,6 +12,8 @@ public class DirtLocationScript : MonoBehaviour
     private GameObject _dialogue;
     [SerializeField]
     private GameObject _bearButton;
+    [SerializeField]
+    private GameObject _bear;
 
     private static DirtLocationScript instance;
     public static DirtLocationScript Instance
@@ -45,8 +47,10 @@ public class DirtLocationScript : MonoBehaviour
 
     public void OnCompleteBearQuest()
     {
-            _bearButton.SetActive(true);
+        Destroy(_bear);
+         _bearButton.SetActive(true);
         _dialogue.SetActive(true);
+        QuestGiverWindow.Instance.Close();
     }
 
 }

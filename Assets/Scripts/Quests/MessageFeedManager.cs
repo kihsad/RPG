@@ -26,6 +26,6 @@ public class MessageFeedManager : MonoBehaviour
         GameObject go = Instantiate(_messagePrefab, transform);
         go.GetComponent<Text>().text = message;
         go.transform.SetAsFirstSibling();
-        Destroy(go,2f);
+        Destroy(go,3f);
     }
 }

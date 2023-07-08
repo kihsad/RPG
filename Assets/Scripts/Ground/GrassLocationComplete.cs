@@ -7,9 +7,13 @@ public class GrassLocationComplete : MonoBehaviour
     [SerializeField]
     private GameObject _openedDoor;
     [SerializeField]
+    private GameObject _woodDoor;
+    [SerializeField]
     private Transform _skeletonsParent;
     [SerializeField]
     private QuestGiver _npcQuest;
+
+    private bool isMessage;
 
     public bool SkeletonsCount
     {
@@ -38,15 +42,25 @@ public class GrassLocationComplete : MonoBehaviour
     }
     public void OpenDoors()
     {
+        QuestGiverWindow.Instance.Close();
         Destroy(_openedDoor);
         _closedDoor.SetActive(true);
     }
 
     private void Update()
     {
-        if(SkeletonsCount)
+        if(SkeletonsCount&&!isMessage)
         {
-            _npcQuest.GetComponent<Collider>().enabled = true;
+            Message();
         }
+    }
+
+    private void Message()
+    {
+        isMessage = true;
+        _woodDoor.SetActive(false);
+        MessageFeedManager.Instance.WriteMessage("Город зачищен!");
+        MessageFeedManager.Instance.WriteMessage("Подойдите к старцу");
+        _npcQuest.GetComponent<Collider>().enabled = true;
     }
 }

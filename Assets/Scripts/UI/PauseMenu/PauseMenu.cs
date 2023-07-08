@@ -31,8 +31,8 @@ public class PauseMenu : MonoBehaviour
     }
     private void ToStartMenu()
     {
-        SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
     private void ExitGame()
     {
@@ -49,12 +49,13 @@ public class PauseMenu : MonoBehaviour
         {
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
+            Time.timeScale = 1f;
         }
         else
         {
             _canvasGroup.alpha = 1;
             _canvasGroup.blocksRaycasts = true;
+            Time.timeScale = 0f;
         }
-        Time.timeScale = 1f;
     }
 }

@@ -11,13 +11,11 @@ public class Teleport : MonoBehaviour
     {
         _player = FindObjectOfType<Player>();
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void OnSetActive()
     {
-        var player = other.gameObject.GetComponent<Player>();
-        if (player == null) return;
-        _player.GetComponent<Player>().enabled = false;
-        Debug.Log(name);
         _uiTeleport.gameObject.SetActive(true);
+        QuestGiverWindow.Instance.Close();
     }
 
     public void Teleportation()

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 268131926582245084}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4743076417489711751}
   - component: {fileID: 8797835065466751323}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.5
-  m_Speed: 1.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -860,10 +860,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.6097832
-  m_Height: 4.3749523
+  m_Radius: 1.3862406
+  m_Height: 4.830751
   m_Direction: 1
-  m_Center: {x: 0.008037567, y: 2.1688933, z: -0.043356895}
+  m_Center: {x: 0.08437093, y: 2.0667105, z: -0.045134388}
 --- !u!114 &6200258453584109700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
-  _distance: 6
+  _distance: 9
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 45
   _cooldown: 2
-  _attackRange: 7
+  _attackRange: 5
   character: {fileID: 6200258453584109700}
 --- !u!4 &7939568267250640452 stripped
 Transform:
@@ -1077,8 +1077,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.23294042, y: 0.6240504, z: 0.14420806}
-  m_Center: {x: -0.059303388, y: -0.119750045, z: -0.001611204}
+  m_Size: {x: 0.32976475, y: 0.38457245, z: 0.14420806}
+  m_Center: {x: -0.10771431, y: 0.0042222245, z: -0.0016107181}
 --- !u!114 &6540121498577711497
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,8 +5,6 @@ using UnityEngine;
 public class SandLocationScript : MonoBehaviour
 {
     [SerializeField]
-    private Collider _tpCollider;
-    [SerializeField]
     private Citizen _citizen;
     private static SandLocationScript instance;
     public static SandLocationScript Instance
@@ -21,13 +19,9 @@ public class SandLocationScript : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        _tpCollider.isTrigger = false;
-    }
-
     public void OnComplete()
     {
-        _tpCollider.isTrigger = true;
+        DialogueWindow.Instance.CloseDialogue();
+        _citizen.GetComponent<Teleport>().OnSetActive();
     }
 }

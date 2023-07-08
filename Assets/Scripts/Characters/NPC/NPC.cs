@@ -15,9 +15,10 @@ public class NPC: MonoBehaviour
             _window.Open(this);
         }
     }
-    public virtual void StopIntract()
+
+    public virtual void StopInteract()
     {
-        if(_isInteracting||Vector3.Distance(Player.MyInstance.transform.position,transform.position)>3)
+        if(_isInteracting)
         {
             _isInteracting = false;
             _window.Close();

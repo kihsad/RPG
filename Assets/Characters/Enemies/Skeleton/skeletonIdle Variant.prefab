@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5525320492541995591}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038611243353777970}
   - component: {fileID: 543064489781687127}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,8 +536,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 4512933047899835067}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.6
-  m_Speed: 4
+  m_Radius: 0.24
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -545,7 +545,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.12
+  m_Height: 1.97
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 1
@@ -655,7 +655,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
-  _distance: 3
+  _distance: 9
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 15
   _cooldown: 0.75
-  _attackRange: 2
+  _attackRange: 6
   character: {fileID: 3138730862551931660}
 --- !u!1001 &5553155953155479973
 PrefabInstance:
@@ -783,8 +783,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.24368456, y: 0.36047468, z: 1.4281367}
-  m_Center: {x: 0.09911106, y: 1.4826369, z: 1.0160131}
+  m_Size: {x: 0.24368453, y: 0.12592852, z: 1.5306202}
+  m_Center: {x: 0.09911347, y: 1.5999091, z: 1.0672649}
 --- !u!114 &2833586753974495251
 MonoBehaviour:
   m_ObjectHideFlags: 0

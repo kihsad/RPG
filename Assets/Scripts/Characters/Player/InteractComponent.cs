@@ -7,7 +7,9 @@ public class InteractComponent : MonoBehaviour
     private LayerMask _interactable;
     [SerializeField]
     private float _lootableDistance=3f;
-    private Vector3 _lootTarget; 
+    private Vector3 _lootTarget;
+
+    private Citizen Citizen;
 
     private void Update()
     {
@@ -38,6 +40,7 @@ public class InteractComponent : MonoBehaviour
                     }
                     if (hitInfo.collider.GetComponent<Citizen>() != null)
                     {
+                        Citizen = hitInfo.collider.GetComponent<Citizen>();
                         hitInfo.collider.GetComponent<Citizen>().Interact();
                     }
 
@@ -45,10 +48,9 @@ public class InteractComponent : MonoBehaviour
             }
         }
     }
-
     private void CloseLoot()
     {
-        if (Vector3.Distance(transform.position, _lootTarget) > 3||Player.MyInstance.MyTarget!=null)
+        if (Vector3.Distance(transform.position, _lootTarget) > 1.5||Player.MyInstance.MyTarget!=null)
         {
             LootWindow.Instance.CloseLootWindow();
         }

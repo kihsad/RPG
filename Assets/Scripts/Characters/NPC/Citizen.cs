@@ -13,4 +13,9 @@ public class Citizen : NPC
             DialogueWindow.Instance.SetDialogue(_dialogue);
             base.Interact(); 
     }
+    public override void StopInteract()
+    {
+        DialogueWindow.Instance.CloseDialogue();
+        base.StopInteract();
+    }
 }

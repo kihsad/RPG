@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource _musicSource, _soundSource;
 
     private void Awake()
-    {
+    {       
         if (Instance == null)
         {
             Instance = this;

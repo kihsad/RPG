@@ -7,12 +7,14 @@ public class DirtLocationScript : MonoBehaviour
     [SerializeField]
     private Transform _goblinStackParent;
     [SerializeField]
-    private Collider _prison;
+    private Collider _quest;
+    [SerializeField]
+    private GameObject _dialogue;
     [SerializeField]
     private GameObject _bearButton;
 
     private static DirtLocationScript instance;
-    public static DirtLocationScript Insance
+    public static DirtLocationScript Instance
     {
         get
         {
@@ -23,32 +25,28 @@ public class DirtLocationScript : MonoBehaviour
             return instance;
          }
     }
-
     private void Awake()
     {
+        _dialogue.SetActive(false);
+        _quest.enabled = false;
+        Player.MyInstance.GetComponent<BearAction>().enabled = false;
         _bearButton.SetActive(false);
-        _prison.enabled = false;
-    }
-
-    public bool IsComplete
-    {
-        get
-        {
-            return _goblinStackParent.childCount <= 0;
-        }
     }
     private void Update()
     {
-            OnCompleteBearQuest();
+        OpenQuest();
     }
 
-    private void OnCompleteBearQuest()
+    private void OpenQuest()
     {
-        if (IsComplete)
-        {
-            _prison.enabled = true;
+        if(_goblinStackParent.childCount<=0)
+        _quest.enabled = true;
+    }
+
+    public void OnCompleteBearQuest()
+    {
             _bearButton.SetActive(true);
-        }
+        _dialogue.SetActive(true);
     }
 
 }

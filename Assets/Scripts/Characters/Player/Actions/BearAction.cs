@@ -20,7 +20,7 @@ public class BearAction : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD && DirtLocationScript.Insance.IsComplete)
+        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
             SoundManager.Instance.PlaySound(bearSound);
             StartCoroutine(BearSpawn());

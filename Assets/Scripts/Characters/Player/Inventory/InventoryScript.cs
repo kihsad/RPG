@@ -257,7 +257,7 @@ public class InventoryScript : MonoBehaviour
                 {
                     foreach (Item item in slot.MyItems)
                     {
-                        if(item.Title!="Key"&& item.Title != "Coin")
+                        if(item.Title!="Key"&& item.Title != "Coin"&&item.Title!="Cat")
                         useables.Push(item as IUseable);
                     }
                 }

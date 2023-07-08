@@ -120,7 +120,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
 
     public void RemoveItem(Item item)
     {
-        if (item.Title != "Key" && item.Title != "Coin")
+        if (item.Title != "Key" && item.Title != "Coin" && item.Title != "Cat")
         {
             if (!IsEmpty)
             {
@@ -131,7 +131,7 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
     }
     public void UseItem()
     {
-        if (MyItem.Title == "Key" || MyItem.Title == "Coin") return;
+        if (MyItem.Title == "Key" || MyItem.Title == "Coin"|| MyItem.Title != "Cat") return;
             if (MyItem is IUseable)
         {
             (MyItem as IUseable).Use();

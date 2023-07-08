@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName ="Bag", menuName = "Items/Bag",order =1)]
 public class Bag : Item ,IUseable
@@ -26,6 +27,7 @@ public class Bag : Item ,IUseable
 
     public void Use()
     {
+        if (this.Title == "Cat") SceneManager.LoadScene("LastScene");
         if (InventoryScript.Instance.CanAddBag)
         {
             Remove();

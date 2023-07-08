@@ -61,7 +61,7 @@ public class HandScript : MonoBehaviour
         if (MyMoveable is Item)
         {
             Item item = (Item)MyMoveable;
-            if (item.Title == "Key" || item.Title == "Coin") return;
+            if (item.Title == "Key" || item.Title == "Coin"|| item.Title == "Cat") return;
             if (item.MySlot!=null)
             {
                 item.MySlot.Clear();

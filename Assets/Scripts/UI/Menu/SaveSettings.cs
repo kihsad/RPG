@@ -22,18 +22,6 @@ namespace Menu
         private int _volumeDuration;
         private int _modeNumber;
 
-        private SaveSettings instance;
-        public SaveSettings Instance
-        {
-            get
-            {
-                if(instance==null)
-                {
-                    instance = FindObjectOfType<SaveSettings>();
-                }
-                return instance;
-            }
-        }
         void Start()
         {
             LoadParams();
@@ -76,7 +64,7 @@ namespace Menu
             PlayerPrefs.SetInt("_soundsOnOff", _soundsOnOff);
             PlayerPrefs.Save();
         }
-        public void LoadParams()
+        private void LoadParams()
         {
             if (PlayerPrefs.HasKey("_volumeDuration"))
             {

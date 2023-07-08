@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1d20046592d1f4fb071b54c7c2d284, type: 3}
-  m_Name: Bag
+  m_Name: Cat
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  _icon: {fileID: 21300000, guid: 83c75df9a9106f681b0ef079de9137d7, type: 3}
   _stackSize: 1
-  _quality: 0
-  _title: Bag
+  _quality: 3
+  _title: Cat
   _bagPrefab: {fileID: 2991270257039490175, guid: 6d7cbb8aa1a654b439ac010d2e9477db, type: 3}

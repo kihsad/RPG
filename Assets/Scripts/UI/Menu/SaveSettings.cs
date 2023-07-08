@@ -14,11 +14,26 @@ namespace Menu
         [SerializeField]
         private Dropdown _gameMode;
 
+        public int Music => _volumeOnOff;
+        public int Sound => _soundsOnOff;
+
         private int _volumeOnOff;
         private int _soundsOnOff;
         private int _volumeDuration;
         private int _modeNumber;
 
+        private SaveSettings instance;
+        public SaveSettings Instance
+        {
+            get
+            {
+                if(instance==null)
+                {
+                    instance = FindObjectOfType<SaveSettings>();
+                }
+                return instance;
+            }
+        }
         void Start()
         {
             LoadParams();
@@ -61,7 +76,7 @@ namespace Menu
             PlayerPrefs.SetInt("_soundsOnOff", _soundsOnOff);
             PlayerPrefs.Save();
         }
-        private void LoadParams()
+        public void LoadParams()
         {
             if (PlayerPrefs.HasKey("_volumeDuration"))
             {

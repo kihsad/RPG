@@ -38,6 +38,7 @@ public class SoundManager : MonoBehaviour
 
     public void ToggleSounds()
     {
+
         _soundSource.mute = !_soundSource.mute;
     }
     public void ToggleMusic()

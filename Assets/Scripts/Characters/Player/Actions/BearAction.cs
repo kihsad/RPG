@@ -22,7 +22,6 @@ public class BearAction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD && DirtLocationScript.Insance.IsComplete)
         {
-            _offset = -Vector3.forward*3f;
             SoundManager.Instance.PlaySound(bearSound);
             StartCoroutine(BearSpawn());
         }

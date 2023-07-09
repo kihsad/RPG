@@ -24,12 +24,14 @@ namespace Menu
 
         public void ShowSettings()
         {
-            _settingsPanel.SetActive(true);
+            _settingsPanel.GetComponent<CanvasGroup>().alpha = 1;
+            _settingsPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
         }
 
         public void CloseSettings()
         {
-            _settingsPanel.SetActive(false);
+            _settingsPanel.GetComponent<CanvasGroup>().alpha = 0;
+            _settingsPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
         public void StartNewGame()
         {

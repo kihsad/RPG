@@ -137,7 +137,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3876573347773420973}
-    m_Position: {x: 310, y: 70, z: 0}
+    m_Position: {x: 280, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6799832712621187455}
     m_Position: {x: 300, y: 290, z: 0}
@@ -152,7 +152,9 @@ AnimatorStateMachine:
   - {fileID: 1973988539214530063}
   m_EntryTransitions:
   - {fileID: 6415283022791887996}
-  m_StateMachineTransitions: {}
+  m_StateMachineTransitions:
+  - first: {fileID: 3830255287306431411}
+    second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 80, y: 330, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -198,19 +200,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isSpellCast
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -342,7 +344,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.032967687
   m_TransitionOffset: 0
   m_ExitTime: 0.7115385
   m_HasExitTime: 1

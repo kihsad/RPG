@@ -9,8 +9,6 @@ public class InteractComponent : MonoBehaviour
     private float _lootableDistance=3f;
     private Vector3 _lootTarget;
 
-    private Citizen Citizen;
-
     private void Update()
     {
         OnClick();
@@ -19,7 +17,7 @@ public class InteractComponent : MonoBehaviour
 
     private void OnClick()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             
             Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,7 +38,6 @@ public class InteractComponent : MonoBehaviour
                     }
                     if (hitInfo.collider.GetComponent<Citizen>() != null)
                     {
-                        Citizen = hitInfo.collider.GetComponent<Citizen>();
                         hitInfo.collider.GetComponent<Citizen>().Interact();
                     }
 
@@ -50,7 +47,7 @@ public class InteractComponent : MonoBehaviour
     }
     private void CloseLoot()
     {
-        if (Vector3.Distance(transform.position, _lootTarget) > 1.5||Player.MyInstance.MyTarget!=null)
+        if (Vector3.Distance(transform.position, _lootTarget) > 3||Player.MyInstance.MyTarget!=null)
         {
             LootWindow.Instance.CloseLootWindow();
         }

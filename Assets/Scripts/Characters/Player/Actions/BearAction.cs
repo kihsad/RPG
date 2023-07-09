@@ -22,6 +22,7 @@ public class BearAction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
+            Debug.Log("bb");
             SoundManager.Instance.PlaySound(bearSound);
             StartCoroutine(BearSpawn());
         }
@@ -30,7 +31,6 @@ public class BearAction : MonoBehaviour
     private IEnumerator BearSpawn()
     {
         _isCD = true;
-
         var go = Instantiate(_bear,_bearPlace);
         go.GetComponent<MeleeAttack>().Character = GetComponent<Player>();
         go.transform.SetParent(transform.parent);

@@ -13,8 +13,12 @@ public class KeysHelper : MonoBehaviour
         {
             OpenClose();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Close();
+        }
     }
-    private void OpenClose()
+    public void OpenClose()
     {
         if (_canvasGroup.alpha == 1)
         {
@@ -27,6 +31,16 @@ public class KeysHelper : MonoBehaviour
             _canvasGroup.alpha = 1;
             _canvasGroup.blocksRaycasts = true;
             Time.timeScale = 0f;
+        }
+    }
+
+    private void Close()
+    {
+        if (_canvasGroup.alpha == 1)
+        {
+            _canvasGroup.alpha = 0;
+            _canvasGroup.blocksRaycasts = false;
+            Time.timeScale = 1f;
         }
     }
 

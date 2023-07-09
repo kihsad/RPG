@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
     public AudioSource _musicSource, _soundSource;
+    private Toggle _sound, _music;
+
+    private ToggleAudio[] _toggles;
 
     private void Awake()
-    {       
+    {
         if (Instance == null)
         {
             Instance = this;
@@ -20,7 +25,18 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "MenuScreen")
+        {
+            _toggles = FindObjectsOfType<ToggleAudio>();
+            _sound = _toggles[0].GetComponent<Toggle>();
+            _music = _toggles[1].GetComponent<Toggle>();
+            ToggleMusic();
+            ToggleSounds();
+        }
 
+    }
     public void PlaySound(AudioClip clip)
     {
         _soundSource.PlayOneShot(clip);
@@ -36,12 +52,34 @@ public class SoundManager : MonoBehaviour
         AudioListener.volume = value;
     }
 
-    public void ToggleSounds()
+    private void ToggleSounds()
     {
+        if (_sound.isOn==false)
+        {
+            _soundSource.mute = false;
+        }
+        else
+        { 
+            _soundSource.mute = true;
+        }
+    }
+    private void ToggleMusic()
+    {
+        if (_music.isOn==false)
+        {
+            _musicSource.mute = false;
+        }
+        else
+        {
+            _musicSource.mute = true;
+        }
+    }
 
+    public void ToggleS()
+    {
         _soundSource.mute = !_soundSource.mute;
     }
-    public void ToggleMusic()
+    public void ToggleM()
     {
         _musicSource.mute = !_musicSource.mute;
     }

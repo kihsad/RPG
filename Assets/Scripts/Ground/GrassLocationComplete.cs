@@ -42,7 +42,6 @@ public class GrassLocationComplete : MonoBehaviour
     }
     public void OpenDoors()
     {
-        QuestGiverWindow.Instance.Close();
         Destroy(_openedDoor);
         _closedDoor.SetActive(true);
     }
@@ -58,9 +57,14 @@ public class GrassLocationComplete : MonoBehaviour
     private void Message()
     {
         isMessage = true;
-        _woodDoor.SetActive(false);
+        OpenWoodDoors();
         MessageFeedManager.Instance.WriteMessage("Город зачищен!");
         MessageFeedManager.Instance.WriteMessage("Подойдите к старцу");
         _npcQuest.GetComponent<Collider>().enabled = true;
+    }
+
+    public void OpenWoodDoors()
+    {
+        _woodDoor.SetActive(false);
     }
 }

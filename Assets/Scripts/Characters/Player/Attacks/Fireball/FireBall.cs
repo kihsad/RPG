@@ -22,12 +22,12 @@ public class FireBall : MonoBehaviour //скрипт для префаба
     public int FireDamage => (int)(_damage*Player.MyInstance.MyMana.MyMaxValue/10);
 
     private void Awake()
-    {        
+    {
+        transform.LookAt(Player.MyInstance.MyTarget);
         StartCoroutine(DestroyFireBall());
     }
     private void Update()
     {
-        transform.LookAt(Player.MyInstance.MyTarget);
         transform.position += transform.forward * _speed * Time.deltaTime;
     }
 

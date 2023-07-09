@@ -7,6 +7,8 @@ public class Teleport : MonoBehaviour
     [SerializeField]
     private TeleportUI _uiTeleport;
 
+    private bool isComplete=false;
+
     private void Start()
     {
         _player = FindObjectOfType<Player>();
@@ -16,6 +18,15 @@ public class Teleport : MonoBehaviour
     {
         _uiTeleport.gameObject.SetActive(true);
         QuestGiverWindow.Instance.Close();
+        isComplete = true;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<Player>();
+        if (player == null&&isComplete) return;
+        _uiTeleport.gameObject.SetActive(true);
     }
 
     public void Teleportation()

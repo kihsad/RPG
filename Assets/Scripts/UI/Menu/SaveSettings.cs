@@ -22,7 +22,7 @@ namespace Menu
         private int _volumeDuration;
         private int _modeNumber;
 
-        void Start()
+        void Awake()
         {
             LoadParams();
         }
@@ -101,7 +101,7 @@ namespace Menu
 
             _volumeSlider.value = _volumeDuration;
             _gameMode.value = _modeNumber;
-
+            AudioListener.volume = _volumeSlider.value;
 
         }
     }

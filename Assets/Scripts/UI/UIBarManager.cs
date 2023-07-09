@@ -100,8 +100,8 @@ public class UIBarManager : MonoBehaviour
 
     public void UpdateStatsText(int strength,int stamina,int intellect)
     {
-        _strengthTxt.text = "Strength: " + strength.ToString();
-        _staminaTxt.text = "Stamina: " + stamina.ToString();
-        _intellectTxt.text = "Intellect: " + intellect.ToString();
+        _strengthTxt.text = "Сила: " + strength.ToString();
+        _staminaTxt.text = "Ловкость: " + stamina.ToString();
+        _intellectTxt.text = "Интеллект: " + intellect.ToString();
     }
 }

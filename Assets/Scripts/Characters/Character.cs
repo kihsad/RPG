@@ -80,12 +80,12 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
 
         if (_health.MyCurrentValue <= 0)
         {
+            _animator.SetBool("isDead", true);
             transform.GetComponent<Collider>().enabled = false;
             if(this is Enemy)
             {
                 if (!IsAlive)
                 {
-                    _animator.SetBool("isDead", true);
                     Player.MyInstance.MyTarget = null;
                     Player.MyInstance.GainXP(XpManager.CalculateExp(this as Enemy));
                     StartCoroutine(Death());

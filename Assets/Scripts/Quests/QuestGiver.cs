@@ -86,7 +86,6 @@ public class QuestGiver : NPC
                     if(QuestGiverId==3)
                     {
                         DirtLocationScript.Instance.OnCompleteBearQuest();
-                        Player.MyInstance.GetComponent<BearAction>().enabled = true;
                     }
                     _statusRenderer.enabled = false;
                 }

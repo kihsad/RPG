@@ -61,6 +61,25 @@ public class LootWindow : MonoBehaviour
             AddLoot();
             OpenLootWindow();
         }
+        else
+        {
+            CloseLootWindow();
+
+            List<Item> page = new List<Item>();
+            droppedLoot = items;
+            for (int i = 0; i < items.Count; i++)
+            {
+                page.Add(items[i]);
+
+                if (page.Count == 4 || i == items.Count - 1)
+                {
+                    pages.Add(page);
+                    page = new List<Item>();
+                }
+            }
+            AddLoot();
+            OpenLootWindow();
+        }
     }
     private void AddLoot()
     {

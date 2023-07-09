@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     public AudioClip deathSound;
     public AudioClip lootSound;
 
+    private float _speed;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -55,6 +57,7 @@ public class EnemyController : MonoBehaviour
             if (distance <= _stoppingDistance)
             {
                 _animator.SetBool("isAttacking", true);
+                _animator.SetBool("isPatrolling", false);
             }
             else
             {

@@ -137,8 +137,8 @@ public class SaveManager : MonoBehaviour
             //LoadChests(data);
             LoadEquipment(data);
             LoadInventory(data);
-            LoadQuests(data);
             LoadQuestGiver(data);
+            LoadQuests(data);
             LoadBags(data);
         }
         catch (System.Exception)

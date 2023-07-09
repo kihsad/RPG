@@ -31,7 +31,7 @@ public class DirtLocationScript : MonoBehaviour
     {
         _dialogue.SetActive(false);
         _quest.enabled = false;
-        Player.MyInstance.GetComponent<BearAction>().enabled = false;
+       Player.MyInstance.GetComponent<BearAction>().enabled = false;
         _bearButton.SetActive(false);
     }
     private void Update()
@@ -47,10 +47,11 @@ public class DirtLocationScript : MonoBehaviour
 
     public void OnCompleteBearQuest()
     {
-        Destroy(_bear);
-         _bearButton.SetActive(true);
+        Player.MyInstance.GetComponent<BearAction>().enabled = true;
+        _bearButton.SetActive(true);
         _dialogue.SetActive(true);
         QuestGiverWindow.Instance.Close();
+        Destroy(_bear);
     }
 
 }

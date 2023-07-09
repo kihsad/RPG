@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MoveComponent : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class MoveComponent : MonoBehaviour
     private void DistanceDetection()
     {
         _distance = Vector3.Distance(_targetPosition, _player.transform.position);
-        if (_distance <= 0.5 || _touchCount == 0)
+        if (_distance <= 1f || _touchCount == 0)
         {
             IsMoving = false;
         }
@@ -66,7 +67,7 @@ public class MoveComponent : MonoBehaviour
 
     public void Moving()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0)&&!EventSystem.current.IsPointerOverGameObject())
         {
             _touchCount++;
             Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);

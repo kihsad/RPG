@@ -28,12 +28,30 @@ using UnityEngine;
 			else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
 			offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
 		if (Input.GetKey(KeyCode.Mouse2))
-		{
-			X = transform.localEulerAngles.y + Input.GetAxis("Horizontal") * sensitivity;
-			Y += Input.GetAxis("Vertical") * sensitivity;
-			Y = Mathf.Clamp(Y, -limit, 0);
+        {
+			Mouse();
+        }
+        else
+        {
+			Keys();
+        }
+
 			transform.localEulerAngles = new Vector3(-Y, X, 0);
-		}
+
 			transform.position = transform.localRotation * offset + target.position;
+	}
+
+	private void Mouse()
+	{
+		X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
+		Y += Input.GetAxis("Mouse Y") * sensitivity;
+		Y = Mathf.Clamp(Y, -limit, 0);
+	}
+
+	private void Keys()
+    {
+		X = transform.localEulerAngles.y + Input.GetAxis("Horizontal") * sensitivity;
+		Y += Input.GetAxis("Vertical") * sensitivity;
+		Y = Mathf.Clamp(Y, -limit, 0);
 	}
 	} 

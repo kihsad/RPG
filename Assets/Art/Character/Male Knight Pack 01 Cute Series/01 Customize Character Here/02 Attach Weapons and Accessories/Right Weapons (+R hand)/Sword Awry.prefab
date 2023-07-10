@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4350442920777805996}
   - component: {fileID: 4350442920779100300}
   - component: {fileID: 4350442920780231244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword Awry
   m_TagString: Untagged
   m_Icon: {fileID: 0}

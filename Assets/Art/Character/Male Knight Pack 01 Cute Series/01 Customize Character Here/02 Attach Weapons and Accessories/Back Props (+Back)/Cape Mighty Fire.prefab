@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8036093977176020302}
   - component: {fileID: 8036093976865878587}
   - component: {fileID: 8036093976865878586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cape Mighty Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036093978117407632}
   - component: {fileID: 8036093978117407631}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cape Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 667065026810828276}
   - component: {fileID: 667065026809501140}
   - component: {fileID: 667065026808403732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword Justice Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 46556631841233852}
   - component: {fileID: 3882399576694684442}
   - component: {fileID: 1108699539307855424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FX Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

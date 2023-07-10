@@ -16,6 +16,8 @@ public class BuffAction : MonoBehaviour
     private MeleeAttack _sword;
     [SerializeField]
     private GameObject _buff;
+    [SerializeField]
+    private int _manaCost;
 
     private float _damage=50;
     private bool _isCD;
@@ -31,6 +33,7 @@ public class BuffAction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha3)&& !_isCD)
         {
             SoundManager.Instance.PlaySound(buffSound);
+            Player.MyInstance.MyMana.MyCurrentValue -= _manaCost;
             StartCoroutine(BuffActionCorroutine());
         }
     }

@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 public delegate void UpdateStackEvent();
 public class ObservableStack<T> :Stack<T>
 {

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShiledAction : MonoBehaviour
@@ -14,6 +13,9 @@ public class ShiledAction : MonoBehaviour
     private GameObject _bubble;
     [SerializeField]
     private UIBarManager _cooldownManager;
+    [SerializeField]
+    private int _manaCost;
+
     private bool _isCD;
 
     public AudioClip shieldSound;
@@ -27,6 +29,7 @@ public class ShiledAction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha2) && !_isCD)
         {
             SoundManager.Instance.PlaySound(shieldSound);
+            Player.MyInstance.MyMana.MyCurrentValue -= _manaCost;
             StartCoroutine(ShieldCooldown());
         }
     }

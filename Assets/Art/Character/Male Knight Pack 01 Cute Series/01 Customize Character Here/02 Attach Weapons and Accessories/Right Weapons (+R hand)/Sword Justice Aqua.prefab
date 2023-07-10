@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5404431036764530990}
   - component: {fileID: 9098414456125557128}
   - component: {fileID: 4956183064791387346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FX Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4851,7 +4851,7 @@ GameObject:
   - component: {fileID: 4820230929438123878}
   - component: {fileID: 4820230929441548102}
   - component: {fileID: 4820230929440548230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword Justice Aqua
   m_TagString: Untagged
   m_Icon: {fileID: 0}

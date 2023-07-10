@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5131920344830895689}
   - component: {fileID: 5131920344827471465}
   - component: {fileID: 5131920344828601513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword Rookie
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BearAction : MonoBehaviour
@@ -14,6 +13,9 @@ public class BearAction : MonoBehaviour
     private UIBarManager _uiBarManager;
     [SerializeField]
     private Transform _bearPlace;
+    [SerializeField]
+    private int _manaCost;
+
     private bool _isCD;
 
     public AudioClip bearSound;
@@ -23,6 +25,7 @@ public class BearAction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
             SoundManager.Instance.PlaySound(bearSound);
+            Player.MyInstance.MyMana.MyCurrentValue -= _manaCost;
             StartCoroutine(BearSpawn());
         }
     }

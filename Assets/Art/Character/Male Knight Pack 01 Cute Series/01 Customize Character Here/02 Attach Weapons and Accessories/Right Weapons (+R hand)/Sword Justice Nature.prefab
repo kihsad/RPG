@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1119436167211947774}
   - component: {fileID: 1119436167210653406}
   - component: {fileID: 1119436167209653278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword Justice Nature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 463178457259710646}
   - component: {fileID: 3686724612609194000}
   - component: {fileID: 696379003041529162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FX Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -40,7 +40,8 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            MessageFeedManager.Instance.WriteMessage("Очисти город от нечести!");
+            MessageFeedManager.Instance.WriteMessage("Очисти территорию от нечести");
+            MessageFeedManager.Instance.WriteMessage("Город атакован!");
             Player.MyInstance.SetDefaultsValues();
         }
     }
@@ -108,9 +109,9 @@ public class SaveManager : MonoBehaviour
             SavePlayer(data);
             //SaveChests(data);
             SaveEquipment(data);
-            SaveInventory(data);
             SaveQuests(data);
             SaveQuestGiver(data);
+            SaveInventory(data);
             SaveBags(data);
             bf.Serialize(file, data);
             file.Close();
@@ -136,9 +137,9 @@ public class SaveManager : MonoBehaviour
             LoadPlayer(data);
             //LoadChests(data);
             LoadEquipment(data);
-            LoadInventory(data);
             LoadQuestGiver(data);
             LoadQuests(data);
+            LoadInventory(data);
             LoadBags(data);
         }
         catch (System.Exception)
@@ -257,12 +258,11 @@ public class SaveManager : MonoBehaviour
     }
     private void LoadInventory(SaveData data)
     {
-        Debug.Log("invent");
         foreach (ItemData itemData in data.MyInventoryData.MyItems)
         {
+            Debug.Log("invent");
             Item item = Instantiate(Array.Find(_items, x => x.Title == itemData.MyTitle));
-
-            for(int i=0;i<itemData.MyStackCount;i++)
+            for (int i=0;i<itemData.MyStackCount;i++)
             {
                 InventoryScript.Instance.PlaceInSpecific(item, itemData.MySlotIndex);
             }

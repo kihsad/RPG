@@ -6,6 +6,6 @@ public class QuestItem : Item
 {
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\nQuest Item");
-    }
+        return base.GetDescription() + string.Format("\nПредмет для квеста");
+    } 
 }

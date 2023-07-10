@@ -27,7 +27,7 @@ public class Bag : Item ,IUseable
 
     public void Use()
     {
-        if (this.Title == "Cat") SceneManager.LoadScene("LastScene");
+        if (this.Title == "Кот в мешке(не открывать)") SceneManager.LoadScene("LastScene");
         if (InventoryScript.Instance.CanAddBag)
         {
             Remove();

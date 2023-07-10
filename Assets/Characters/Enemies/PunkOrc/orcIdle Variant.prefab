@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 5454061291826643629}
+  attackSound: {fileID: 0}
 --- !u!65 &8918572153964739607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -927,7 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 24
   _cooldown: 1.25
-  _attackRange: 4
+  _attackRange: 2.75
   character: {fileID: 4667885050410937192}
 --- !u!4 &1821363213479826690 stripped
 Transform:

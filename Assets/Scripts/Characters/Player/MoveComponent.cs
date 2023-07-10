@@ -5,13 +5,15 @@ public class MoveComponent : MonoBehaviour
 {
     [SerializeField]
     private LayerMask _isGround;
-
+    [SerializeField]
+    private LayerMask _isEnemy;
     public AudioClip movement;
 
     private float _distance;
     private int _touchCount;
 
-    private Vector3 _targetPosition;
+    private Transform _targetPositionEnemy;
+    private Vector3 _targetPositionGround;
 
     private Player _player;
     private Animator _animator;
@@ -48,8 +50,21 @@ public class MoveComponent : MonoBehaviour
 
     private void DistanceDetection()
     {
-        _distance = Vector3.Distance(_targetPosition, _player.transform.position);
-        if (_distance <= 1f || _touchCount == 0)
+        Debug.Log(_targetPositionEnemy);
+        Debug.Log(_targetPositionGround);
+        if (_targetPositionEnemy != null)
+        {
+            _distance = Vector3.Distance(_targetPositionEnemy.position , _player.transform.position);
+            _player.GetAgent.SetDestination(_targetPositionEnemy.position + Vector3.forward * 1);
+            _targetPositionGround = transform.position;
+        }
+        else
+        {
+            _player.GetAgent.SetDestination(_targetPositionGround);
+            _distance = Vector3.Distance(_targetPositionGround, _player.transform.position);
+        }
+
+        if (_distance <= 0.5f || _touchCount == 0)
         {
             IsMoving = false;
         }
@@ -60,8 +75,7 @@ public class MoveComponent : MonoBehaviour
             {
                 SoundManager.Instance.PlaySound(movement);
                 _timer = 0;
-            }
-           
+            }   
         }
     }
 
@@ -72,10 +86,17 @@ public class MoveComponent : MonoBehaviour
             _touchCount++;
             Ray agentRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
-            if (Physics.Raycast(agentRay, out hitInfo, 50, _isGround))
+            if (Physics.Raycast(agentRay, out hitInfo, 100, _isEnemy))
+            {
+                _targetPositionEnemy = hitInfo.transform;
+                return;
+            }
+                if (Physics.Raycast(agentRay, out hitInfo, 100, _isGround))
             {
                 _player.GetAgent.SetDestination(hitInfo.point);
-                _targetPosition = hitInfo.point;
+                _targetPositionGround = hitInfo.point;
+                _targetPositionEnemy = null;
+
             }
         }
     }

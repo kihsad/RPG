@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a614795c1c7c5249b13015db3a06425, type: 3}
-  m_Name: Coin
+  m_Script: {fileID: 11500000, guid: 564d7b017bdfadc4cb47b71cb8064cc2, type: 3}
+  m_Name: CoinQuest
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 5a63801179897b311f823d682cffc781, type: 3}
   _stackSize: 1
-  _quality: 3
-  _title: Coin
-  _healValue: 0
+  _quality: 2
+  _title: "\u041C\u043E\u043D\u0435\u0442\u0430 \u043B\u043E\u0434\u043E\u0447\u043D\u0438\u043A\u0430"

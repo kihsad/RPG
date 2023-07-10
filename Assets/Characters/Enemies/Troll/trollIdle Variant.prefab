@@ -143,8 +143,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1678218, y: 1.3826656, z: 1.2517953}
-  m_Center: {x: -0.083911, y: -0.19133185, z: 0.02251546}
+  m_Size: {x: 1.1678216, y: 1.894454, z: 1.7008638}
+  m_Center: {x: -0.08391093, y: 0.06456294, z: 0.24705032}
 --- !u!114 &1381504979285967069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 471055771841674977}
+  attackSound: {fileID: 0}
 --- !u!1 &2945066736667651270
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,9 +954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 55
+  _damage: 65
   _cooldown: 1
-  _attackRange: 7
+  _attackRange: 5
   character: {fileID: 3790996825144730733}
 --- !u!4 &728433717129224954 stripped
 Transform:

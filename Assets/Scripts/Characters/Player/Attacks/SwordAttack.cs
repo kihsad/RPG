@@ -5,6 +5,8 @@ public class SwordAttack : MonoBehaviour
     [SerializeField]
     private MeleeAttack _meleeAtack;
     public AudioClip attackSound;
+    private int _random;
+
     private void OnTriggerEnter(Collider other) // коллизии с разными видами обьектов(но в целом только для енеми т.к. рейкаст с layer Enemy)
     {
         var player = other.GetComponent<Player>();
@@ -14,8 +16,16 @@ public class SwordAttack : MonoBehaviour
 
             if (enemy != null && enemy.IsAlive && _meleeAtack.Character.gameObject.layer != enemy.gameObject.layer && _meleeAtack.Character.GetComponent<Player>().MyTarget == enemy.GetComponent<Character>().HitBox)
             {
+            _random = Random.Range(0, 100);
+            if (enemy.MyHealth.MyCurrentValue >= enemy.MyHealth.MyMaxValue / 2)
+            {
                 enemy.TakeDamage(_meleeAtack.MyDamage);
-            SoundManager.Instance.PlaySound(attackSound);
+                SoundManager.Instance.PlaySound(attackSound);
+            } else if(_random>=20)
+            {
+                enemy.TakeDamage(_meleeAtack.MyDamage);
+                SoundManager.Instance.PlaySound(attackSound);
+            }
         }
         else if (enemy != null && enemy.IsAlive && _meleeAtack.Character.gameObject.layer != enemy.gameObject.layer&&_meleeAtack.GetComponent<BearController>()!=null)
         {

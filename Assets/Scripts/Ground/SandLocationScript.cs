@@ -21,7 +21,6 @@ public class SandLocationScript : MonoBehaviour
 
     public void OnComplete()
     {
-        DialogueWindow.Instance.CloseDialogue();
         _citizen.GetComponent<Teleport>().OnSetActive();
     }
 }

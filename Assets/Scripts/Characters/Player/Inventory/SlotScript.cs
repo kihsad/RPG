@@ -84,7 +84,6 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
         _icon.sprite = item.MyIcon;
         _icon.color = Color.white;
         item.MySlot = this;
-        //InventoryScript.Instance.OnItemCountChanged(item);
         return true;
     }
     public bool AddItems(ObservableStack<Item> newItems)
@@ -120,19 +119,14 @@ public class SlotScript : MonoBehaviour , IPointerClickHandler , IPointerEnterHa
 
     public void RemoveItem(Item item)
     {
-        if (item.Title != "Key" && item.Title != "Coin" && item.Title != "Cat")
-        {
             if (!IsEmpty)
             {
-                Debug.Log("remove");
                 _items.Pop();
             }
-        }
     }
     public void UseItem()
     {
-        if (MyItem.Title == "Key" || MyItem.Title == "Coin") return;
-            if (MyItem is IUseable)
+        if (MyItem is IUseable)
         {
             (MyItem as IUseable).Use();
         }

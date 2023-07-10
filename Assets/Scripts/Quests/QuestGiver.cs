@@ -78,14 +78,18 @@ public class QuestGiver : NPC
                     if (QuestGiverId == 1)
                     {
                         GrassLocationComplete.Instance.OpenDoors();
+                        QuestGiverWindow.Instance.Close();
                     }
                     if(QuestGiverId==2)
                     {
                         SandLocationScript.Instance.OnComplete();
+                        DialogueWindow.Instance.CloseDialogue();
+                        QuestGiverWindow.Instance.Close();
                     }
                     if(QuestGiverId==3)
                     {
                         DirtLocationScript.Instance.OnCompleteBearQuest();
+                        QuestGiverWindow.Instance.Close();
                     }
                     _statusRenderer.enabled = false;
                 }

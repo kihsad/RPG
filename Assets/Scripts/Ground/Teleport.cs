@@ -17,7 +17,6 @@ public class Teleport : MonoBehaviour
     public void OnSetActive()
     {
         _uiTeleport.gameObject.SetActive(true);
-        QuestGiverWindow.Instance.Close();
         isComplete = true;
     }
 
@@ -25,7 +24,8 @@ public class Teleport : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<Player>();
-        if (player == null&&isComplete) return;
+        if (player == null||!isComplete) return;
+        _player.GetComponent<Player>().enabled = false;
         _uiTeleport.gameObject.SetActive(true);
     }
 

@@ -1848,6 +1848,9 @@ MonoBehaviour:
   _isGround:
     serializedVersion: 2
     m_Bits: 8
+  _isEnemy:
+    serializedVersion: 2
+    m_Bits: 512
   movement: {fileID: 8300000, guid: 0831c114835b6634f8d5c9dcb61ddfab, type: 3}
 --- !u!114 &6013447922324918460
 MonoBehaviour:
@@ -1955,7 +1958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 10
   _cooldown: 1
-  _attackRange: 4
+  _attackRange: 2
   character: {fileID: 1873295027610493703}
 --- !u!114 &1723269218639018558
 MonoBehaviour:

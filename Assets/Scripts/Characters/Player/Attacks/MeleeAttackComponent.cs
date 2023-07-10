@@ -12,17 +12,18 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
 
     private UIBarManager _spellManager;
 
-    private float _speed;
+    private float _distance;
     private bool _isCd;
     private bool isStarted;
 
+    private Player _player;
 
     private void Awake()
     {
         _sword.gameObject.GetComponent<Collider>().enabled = false;
         _spellManager = FindObjectOfType<UIBarManager>();
         _meleeAttack = GetComponent<MeleeAttack>();
-        _speed = Player.MyInstance.GetAgent.speed;
+        _player = GetComponent<Player>();
 
     }
     public void Attacking()
@@ -34,8 +35,11 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
 
             if (Physics.Raycast(agentRay, out hitInfo, 100, _isEnemy))
             {
-                if(!isStarted)
-                StartCoroutine(MeleeAttackCooldown());
+                if (!isStarted)
+                {
+                    Debug.Log("Started");
+                    StartCoroutine(MeleeAttackCooldown());
+                }
             }
         }
     }
@@ -43,28 +47,27 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
     public IEnumerator MeleeAttackCooldown() // кд атаки
     {
         isStarted = true;
-            while (Player.MyInstance.MyTarget != null)
+            while (_player.MyTarget != null)
             {
-                Player.MyInstance.GetAgent.SetDestination(Player.MyInstance.MyTarget.position);
-                var distance = Vector3.Distance(transform.position, Player.MyInstance.MyTarget.position);
-                if (distance <= _meleeAttack.AttackRange)
-                {
-                _isCd = true;
-                transform.GetComponent<Animator>().SetBool("isMoving", false);
-                Player.MyInstance.GetAgent.speed = 0;
-                transform.LookAt(Player.MyInstance.MyTarget);
-                _sword.gameObject.GetComponent<Collider>().enabled = true;
-                transform.GetComponent<Animator>().Play("MeleeAttack_OneHanded");
-                yield return new WaitForSeconds(0.25f);
-                _sword.gameObject.GetComponent<Collider>().enabled = false;
-                Player.MyInstance.GetAgent.speed = _speed;
+            _distance = Vector3.Distance(transform.position, Player.MyInstance.MyTarget.position);
 
+                if (_distance <= _meleeAttack.AttackRange)
+                {
+                    _player.GetAgent.speed = 0;
+                    _isCd = true;
+                    transform.LookAt(_player.MyTarget);
+                    _sword.gameObject.GetComponent<Collider>().enabled = true;
+                    transform.GetComponent<Animator>().Play("MeleeAttack_OneHanded");
+                    yield return new WaitForSeconds(0.15f);
+                    _sword.gameObject.GetComponent<Collider>().enabled = false;
                 StartCoroutine(_spellManager.Progress(0, _meleeAttack.SwordCooldown)); // для отрисовки кд на ui
                 yield return new WaitForSeconds(_meleeAttack.SwordCooldown);
-                _isCd = false;
-            }
-            isStarted = false;
+                }
+            _player.GetAgent.speed = 8;
+            _isCd = false;
             yield return null;
-        }
+            }
+        isStarted = false;
+        yield return null;
     }
 }

@@ -29,15 +29,15 @@ public class Armor : Item
 
         if(_strength>0)
         {
-            stats += string.Format("\n+{0} strength",_strength);
+            stats += string.Format("\n+{0} силы",_strength);
         }
         if (_stamina > 0)
         {
-            stats += string.Format("\n+{0} stamina", _stamina);
+            stats += string.Format("\n+{0} ловкости", _stamina);
         }
         if (_intellect > 0)
         {
-            stats += string.Format("\n+{0} intellect", _intellect);
+            stats += string.Format("\n+{0} интеллекта", _intellect);
         }
         return base.GetDescription() + stats;
     }
@@ -45,7 +45,6 @@ public class Armor : Item
     public void Equip()
     {
         CharacterPanel.Instance.EquipArmor(this);
-      //  InventoryScript.Instance.OnItemCountChanged(this);
     }
 }
 

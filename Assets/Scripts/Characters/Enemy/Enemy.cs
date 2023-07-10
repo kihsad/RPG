@@ -34,5 +34,4 @@ public class Enemy : Character
         }
         Destroy(gameObject);
     }
-
 }

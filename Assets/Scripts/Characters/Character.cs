@@ -107,8 +107,7 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
         SoundManager.Instance.PlaySound(_enemyController.deathSound);
         go.transform.position = transform.position;
         _animator.GetComponent<Enemy>().OnCharacterRemoved();
-        yield return new WaitForSeconds(1f);
         KillManager.Instance.OnKillConfirmed(this);
+        yield return null;
     }
-
 }

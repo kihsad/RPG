@@ -33,7 +33,7 @@ Transform:
   - {fileID: 381249111959904216}
   - {fileID: 4695953567701228824}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3143822668163164210
 GameObject:
@@ -190,6 +190,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 77ed62b57eda0a54e8d4d6271a096491, type: 2}
   - {fileID: 11400000, guid: e08cb7396b61c884aad0b91f54bc1efb, type: 2}
   - {fileID: 11400000, guid: 82190f6e2aaf75f4d9acf10c6af5c074, type: 2}
+  - {fileID: 11400000, guid: e0b3dc7d2fd89f6489c951fe41749fbf, type: 2}
+  - {fileID: 11400000, guid: b2e397c78975d594a9fd1b906fce77a4, type: 2}
+  - {fileID: 11400000, guid: 0e8bb702eb27eb34fb046940a249d531, type: 2}
   _saveSlots:
   - {fileID: 0}
   - {fileID: 0}

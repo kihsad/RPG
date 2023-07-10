@@ -23,8 +23,8 @@ public class QuestScript : MonoBehaviour
         if(MyQuest.IsComplete&&!_markedComplete)
         {
             _markedComplete = true;
-            GetComponent<Text>().text = "[" + MyQuest.Level + "]" + MyQuest.Title + "(C)";
-            MessageFeedManager.Instance.WriteMessage(string.Format("{0}(C)", MyQuest.Title));
+            GetComponent<Text>().text = "[" + MyQuest.Level + "]" + MyQuest.Title + "(Выполнено)";
+            MessageFeedManager.Instance.WriteMessage(string.Format("{0}(Выполнено)", MyQuest.Title));
         }
         else if(!MyQuest.IsComplete)
         {

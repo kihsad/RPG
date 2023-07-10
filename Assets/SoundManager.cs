@@ -32,10 +32,9 @@ public class SoundManager : MonoBehaviour
             _toggles = FindObjectsOfType<ToggleAudio>();
             _sound = _toggles[0].GetComponent<Toggle>();
             _music = _toggles[1].GetComponent<Toggle>();
-            ToggleMusic();
-            ToggleSounds();
         }
-
+        ToggleMusic();
+        ToggleSounds();
     }
     public void PlaySound(AudioClip clip)
     {

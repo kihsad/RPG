@@ -696,7 +696,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.62
-  m_Speed: 6
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 23
   _cooldown: 0.5
-  _attackRange: 2
+  _attackRange: 1
   character: {fileID: 1393759442328310472}
 --- !u!4 &8453552308088747404 stripped
 Transform:
@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 4452313060067467327}
+  attackSound: {fileID: 0}
 --- !u!65 &4265762793981500157
 BoxCollider:
   m_ObjectHideFlags: 0

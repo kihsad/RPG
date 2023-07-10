@@ -41,8 +41,11 @@ public class DirtLocationScript : MonoBehaviour
 
     private void OpenQuest()
     {
-        if(_goblinStackParent.childCount<=0)
-        _quest.enabled = true;
+        if (_goblinStackParent.childCount <= 0)
+        {
+            _quest.enabled = true;
+            return;
+        }
     }
 
     public void OnCompleteBearQuest()
@@ -50,7 +53,6 @@ public class DirtLocationScript : MonoBehaviour
         Player.MyInstance.GetComponent<BearAction>().enabled = true;
         _bearButton.SetActive(true);
         _dialogue.SetActive(true);
-        QuestGiverWindow.Instance.Close();
         Destroy(_bear);
     }
 

@@ -58,10 +58,10 @@ public class HandScript : MonoBehaviour
     public void DeleteItem()
     {
 
-        if (MyMoveable is Item)
+        if (MyMoveable is Item && MyMoveable is not QuestItem)
         {
             Item item = (Item)MyMoveable;
-            if (item.Title == "Key" || item.Title == "Coin"|| item.Title == "Cat") return;
+
             if (item.MySlot!=null)
             {
                 item.MySlot.Clear();

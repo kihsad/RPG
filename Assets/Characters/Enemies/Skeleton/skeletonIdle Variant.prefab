@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 15
   _cooldown: 0.75
-  _attackRange: 6
+  _attackRange: 4
   character: {fileID: 3138730862551931660}
 --- !u!1001 &5553155953155479973
 PrefabInstance:
@@ -798,6 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 3376392309026060495}
+  attackSound: {fileID: 0}
 --- !u!4 &5375746095828762190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}

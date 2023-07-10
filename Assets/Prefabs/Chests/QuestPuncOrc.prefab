@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[0]._item
       value: 
-      objectReference: {fileID: 11400000, guid: 5136b53775c3a7c4da764adeeb6fe00d, type: 2}
+      objectReference: {fileID: 11400000, guid: 0e8bb702eb27eb34fb046940a249d531, type: 2}
     - target: {fileID: 6900224949653153072, guid: c6720431bfa9e95488e7bd91140b4518, type: 3}
       propertyPath: _loot.Array.data[0]._dropChance
       value: 100

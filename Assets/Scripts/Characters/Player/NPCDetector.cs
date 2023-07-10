@@ -19,10 +19,6 @@ public class NPCDetector : MonoBehaviour // сфера для подсветки ui врагов
             enemy.Select();
             _enemies.Add(enemy);
         }
-        if(chest!=null)
-        {
-            Debug.Log("dd");
-        }
     }
     private void OnTriggerExit(Collider other)
     {

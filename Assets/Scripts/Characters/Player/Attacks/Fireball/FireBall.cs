@@ -21,14 +21,17 @@ public class FireBall : MonoBehaviour //скрипт для префаба
     public float FireCooldown => _cooldownSpell;
     public int FireDamage => (int)(_damage*Player.MyInstance.MyMana.MyMaxValue/10);
 
+    private Transform _target;
+
     private void Awake()
     {
+        _target = Player.MyInstance.MyTarget;
         transform.LookAt(Player.MyInstance.MyTarget);
         StartCoroutine(DestroyFireBall());
     }
     private void Update()
     {
-        transform.position += transform.forward * _speed * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, _target.position, _speed*Time.fixedDeltaTime/10);
     }
 
     private void OnTriggerEnter(Collider other) // коллизии с разными видами обьектов(но в целом только для енеми т.к. рейкаст с layer Enemy)

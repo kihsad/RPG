@@ -132,7 +132,6 @@ public class SaveManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/" + saved.gameObject.name + ".dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
-            Debug.Log(data.MyPlayerData.MyHealth);
             file.Close();
             LoadPlayer(data);
             //LoadChests(data);
@@ -161,8 +160,7 @@ public class SaveManager : MonoBehaviour
 
     private void SavePlayer(SaveData data)
     {
-        Debug.Log(Player.MyInstance.MyMana.MyCurrentValue);
-        data.MyPlayerData = new PlayerData(Player.MyInstance.MyLevel,
+            data.MyPlayerData = new PlayerData(Player.MyInstance.MyLevel,
             Player.MyInstance.MyXp.MyCurrentValue,Player.MyInstance.MyXp.MyMaxValue,
             Player.MyInstance.MyHealth.MyCurrentValue,Player.MyInstance.MyHealth.MyMaxValue,
             Player.MyInstance.MyMana.MyCurrentValue,Player.MyInstance.MyMana.MyMaxValue,
@@ -175,11 +173,7 @@ public class SaveManager : MonoBehaviour
         Player.MyInstance.MyHealth.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
         Player.MyInstance.MyXp.Initialize(data.MyPlayerData.MyXP, data.MyPlayerData.MyMaxXP);
         Player.MyInstance.MyMana.Initialize(data.MyPlayerData.MyMana, data.MyPlayerData.MyMaxMana);
-        Debug.Log(Player.MyInstance.MyHealth);
-        Debug.Log(Player.MyInstance.MyXp);
-        Debug.Log(Player.MyInstance.MyMana);
         Player.MyInstance.transform.position = new Vector3(data.MyPlayerData.MyX, data.MyPlayerData.MyY, data.MyPlayerData.MyZ);
-        Debug.Log("Load");
     }
 
     private void SaveChests(SaveData data)
@@ -218,7 +212,6 @@ public class SaveManager : MonoBehaviour
     }
     private void LoadBags(SaveData data)
     {
-        Debug.Log("Bags");
         foreach (BagData bagData in data.MyInventoryData.MyBags)
         {
             Bag newBag = (Bag)Instantiate(_items[0]);
@@ -239,7 +232,6 @@ public class SaveManager : MonoBehaviour
     }
     private void LoadEquipment(SaveData data)
     {
-        Debug.Log("equip");
         foreach(EquipmentData equip in data.MyEquipmentData)
         {
             CharButton cb = Array.Find(_equipment, x => x.name == equip.MyType);
@@ -260,7 +252,6 @@ public class SaveManager : MonoBehaviour
     {
         foreach (ItemData itemData in data.MyInventoryData.MyItems)
         {
-            Debug.Log("invent");
             Item item = Instantiate(Array.Find(_items, x => x.Title == itemData.MyTitle));
             for (int i=0;i<itemData.MyStackCount;i++)
             {
@@ -278,7 +269,6 @@ public class SaveManager : MonoBehaviour
     }
     private void LoadQuests(SaveData data)
     {
-        Debug.Log("quest");
         QuestGiver[] questGivers = FindObjectsOfType<QuestGiver>();
 
         foreach( QuestData questData in data.MyQuestData)
@@ -303,7 +293,6 @@ public class SaveManager : MonoBehaviour
 
     private void LoadQuestGiver(SaveData data)
     {
-        Debug.Log("questGiver");
         QuestGiver[] questGivers = FindObjectsOfType<QuestGiver>();
         foreach(QuestGiverData questGiverData in data.MyQuestGiverData)
         {

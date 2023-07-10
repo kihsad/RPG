@@ -48,7 +48,6 @@ public class FireBallActionComponent : MonoBehaviour
     {
         _spellCD = true;
         transform.LookAt(Player.MyInstance.MyTarget);
-        yield return new WaitForSeconds(0.15f);
         Instantiate(_fireBall);
         StartCoroutine(_spellManager.Progress(1, _fireBall.FireCooldown)); // для отрисовки кд на ui
         _player.GetAgent.speed = _speed;

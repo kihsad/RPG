@@ -37,7 +37,6 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
             {
                 if (!isStarted)
                 {
-                    Debug.Log("Started");
                     StartCoroutine(MeleeAttackCooldown());
                 }
             }

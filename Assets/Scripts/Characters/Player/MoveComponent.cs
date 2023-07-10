@@ -50,8 +50,6 @@ public class MoveComponent : MonoBehaviour
 
     private void DistanceDetection()
     {
-        Debug.Log(_targetPositionEnemy);
-        Debug.Log(_targetPositionGround);
         if (_targetPositionEnemy != null)
         {
             _distance = Vector3.Distance(_targetPositionEnemy.position , _player.transform.position);

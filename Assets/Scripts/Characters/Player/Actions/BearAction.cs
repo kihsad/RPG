@@ -22,7 +22,6 @@ public class BearAction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
         {
-            Debug.Log("bb");
             SoundManager.Instance.PlaySound(bearSound);
             StartCoroutine(BearSpawn());
         }

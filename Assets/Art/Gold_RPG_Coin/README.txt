@@ -1,1 +1,0 @@
-Dwarven Gold RPG Coin by Talismancer on Thingiverse: https://www.thingiverse.com/thing:1988179

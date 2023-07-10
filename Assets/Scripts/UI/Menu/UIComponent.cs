@@ -12,7 +12,7 @@ namespace Menu
 
         private void Awake()
         {
-            if (SceneManager.GetActiveScene().name == "MenuScreen")
+            if (SceneManager.GetActiveScene().name == "MenuScene")
             {
                 CloseSettings(); 
             }

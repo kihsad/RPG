@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class HealAction : MonoBehaviour
 {
-    public IUseable MyUseable { get; set; }
-
     [SerializeField]
     private Item _healthPotion;
     [SerializeField]
     private float _healCooldown=0.5f;
 
-    private bool _isCd = false;
+    public IUseable MyUseable { get; set; }
 
     private Stack<IUseable> _useables;
 
-    private Player _player;
+    private AudioClip _healSound;
+
+    private bool _isCd = false;
 
     private void Start()
     {
-        _player = FindObjectOfType<Player>();
+        _healSound = Player.MyInstance.HealSound;
     }
 
     private void Update()
@@ -53,7 +53,7 @@ public class HealAction : MonoBehaviour
 
     private IEnumerator PotionCD()
     {
-        SoundManager.Instance.PlaySound(_player.healSound);
+        SoundManager.Instance.PlaySound(_healSound);
         _isCd = true;
         StartCoroutine(UIBarManager.MyInstance.Progress(5, _healCooldown));
         _useables.Pop().Use();

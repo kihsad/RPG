@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class CombatTextManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _prefabCT;
+
     private static CombatTextManager instance;
     public static CombatTextManager Instance
     {
@@ -15,9 +18,6 @@ public class CombatTextManager : MonoBehaviour
             return instance;
         }
     }
-
-    [SerializeField]
-    private GameObject _prefabCT;
 
     public void CreateText(Vector3 posisiton , string text,SCtype type)
     {

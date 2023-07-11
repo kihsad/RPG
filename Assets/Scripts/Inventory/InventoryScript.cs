@@ -7,19 +7,6 @@ public class InventoryScript : MonoBehaviour
 {
     public event ItemCountChangedEvent itemCountChangedEvent;
 
-    private static InventoryScript instance;
-    public static InventoryScript Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<InventoryScript>();
-            }
-            return instance;
-        }
-    }
-
     [SerializeField]
     private BagButton[] _bagButtons;
     [SerializeField]
@@ -42,6 +29,19 @@ public class InventoryScript : MonoBehaviour
             {
                 _fromSlot.MyIcon.color = Color.gray;
             }
+        }
+    }
+
+    private static InventoryScript instance;
+    public static InventoryScript Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<InventoryScript>();
+            }
+            return instance;
         }
     }
 

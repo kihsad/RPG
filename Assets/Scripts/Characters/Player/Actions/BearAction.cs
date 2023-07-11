@@ -15,10 +15,10 @@ public class BearAction : MonoBehaviour
     private Transform _bearPlace;
     [SerializeField]
     private int _manaCost;
+    [SerializeField]
+    private AudioClip bearSound;
 
     private bool _isCD;
-
-    public AudioClip bearSound;
 
     private void Update()
     {

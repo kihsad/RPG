@@ -23,6 +23,7 @@ public class LootWindow : MonoBehaviour
         get
         { return _canvasGroup.alpha > 0; } 
     }
+
     private static LootWindow instance;
     public static LootWindow Instance
     {
@@ -35,6 +36,7 @@ public class LootWindow : MonoBehaviour
             return instance;
         }
     }
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();

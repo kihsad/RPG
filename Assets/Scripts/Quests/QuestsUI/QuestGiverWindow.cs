@@ -4,9 +4,7 @@ using UnityEngine.UI;
 
 public class QuestGiverWindow : Window
 {
-    private static QuestGiverWindow instance;
 
-    private QuestGiver _questGiver;
     [SerializeField]
     private Button _backBtn, _acceptBtn, _completeBtn;
     [SerializeField]
@@ -14,10 +12,12 @@ public class QuestGiverWindow : Window
     [SerializeField]
     private Transform _questArea;
 
+    private QuestGiver _questGiver;
     private Quest _selectedQuest;
 
     private List<GameObject> _quests = new List<GameObject>();
 
+    private static QuestGiverWindow instance;
     public static QuestGiverWindow Instance 
     { 
         get {

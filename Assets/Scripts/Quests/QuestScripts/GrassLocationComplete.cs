@@ -13,8 +13,6 @@ public class GrassLocationComplete : MonoBehaviour
     [SerializeField]
     private QuestGiver _npcQuest;
 
-    private bool isMessage;
-
     public bool SkeletonsCount
     {
         get
@@ -34,6 +32,8 @@ public class GrassLocationComplete : MonoBehaviour
             return instance;
          }
     }
+
+    private bool isMessage;
 
     private void Awake()
     {

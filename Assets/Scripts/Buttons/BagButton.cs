@@ -4,11 +4,10 @@ using UnityEngine.UI;
 
 public class BagButton : MonoBehaviour,IPointerClickHandler
 {
-
-    private Bag _bag;
-
     [SerializeField]
     private Sprite _full, _empty;
+
+    private Bag _bag;
 
     public Bag  MyBag
     {

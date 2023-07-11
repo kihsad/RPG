@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class AudioButtons : MonoBehaviour
 {
-    public AudioClip hover;
-    public AudioClip click;
-    public AudioClip parameter;
+    [SerializeField]
+    private AudioClip hover;
+    [SerializeField]
+    private AudioClip click;
+    [SerializeField]
+    private AudioClip parameter;
 
     public void HoverSound()
     {

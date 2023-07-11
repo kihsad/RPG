@@ -8,9 +8,10 @@ public class CharButton : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
     private ArmorType _armorType;
     [SerializeField]
     private GearSoccet _gearSoccet;
-    private Armor _equippedArmor;
     [SerializeField]
     private Image _icon;
+
+    private Armor _equippedArmor;
 
     public Armor EquippedArmor { get => _equippedArmor;}
 

@@ -3,9 +3,10 @@ public class Teleport : MonoBehaviour
 {
     [SerializeField]
     private TeleportPosition _tpPos;
-    private Player _player;
     [SerializeField]
     private TeleportUI _uiTeleport;
+
+    private Player _player;
 
     private bool isComplete=false;
 

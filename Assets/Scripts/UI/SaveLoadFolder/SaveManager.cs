@@ -9,10 +9,11 @@ public class SaveManager : MonoBehaviour
 {
     [SerializeField]
     private Item[] _items;
-    private LootTable[] _loot;
-    private CharButton[] _equipment;
     [SerializeField]
     private SavedGame[] _saveSlots;
+
+    private LootTable[] _loot;
+    private CharButton[] _equipment;
 
     private string _action;
 

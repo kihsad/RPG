@@ -7,10 +7,8 @@ public class MoveComponent : MonoBehaviour
     private LayerMask _isGround;
     [SerializeField]
     private LayerMask _isEnemy;
-    public AudioClip movement;
-
-    private float _distance;
-    private int _touchCount;
+    [SerializeField]
+    private AudioClip movement;
 
     private Transform _targetPositionEnemy;
     private Vector3 _targetPositionGround;
@@ -18,6 +16,8 @@ public class MoveComponent : MonoBehaviour
     private Player _player;
     private Animator _animator;
 
+    private float _distance;
+    private int _touchCount;
     private float _timer;
 
     private bool _isMoving = false;

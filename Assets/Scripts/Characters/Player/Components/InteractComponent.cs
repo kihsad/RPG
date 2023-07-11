@@ -7,6 +7,7 @@ public class InteractComponent : MonoBehaviour
     private LayerMask _interactable;
     [SerializeField]
     private float _lootableDistance=3f;
+
     private Vector3 _lootTarget;
 
     private void Update()

@@ -4,18 +4,30 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager Instance;
-
-    public AudioSource _musicSource, _soundSource;
+    [SerializeField]
+    private AudioSource _musicSource, _soundSource;
     private Toggle _sound, _music;
 
     private ToggleAudio[] _toggles;
 
+    private static SoundManager instance;
+    public static SoundManager Instance
+    {
+        get
+        {
+            if(instance==null)
+            {
+                instance = FindObjectOfType<SoundManager>();
+            }
+            return instance;
+        }
+    }
+
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else

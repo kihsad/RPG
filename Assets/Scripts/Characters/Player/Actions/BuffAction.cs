@@ -18,11 +18,13 @@ public class BuffAction : MonoBehaviour
     private GameObject _buff;
     [SerializeField]
     private int _manaCost;
+    [SerializeField]
+    private float _damage = 50;
 
-    private float _damage=50;
+    [SerializeField]
+    private AudioClip buffSound;
+
     private bool _isCD;
-
-    public AudioClip buffSound;
 
     private void Awake()
     {

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class BagScript : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject _slotPrefab;
 

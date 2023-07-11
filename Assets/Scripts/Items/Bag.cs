@@ -4,14 +4,13 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName ="Bag", menuName = "Items/Bag",order =1)]
 public class Bag : Item ,IUseable
 {
-    private int _slots;
-
     [SerializeField]
     private GameObject _bagPrefab;
 
     public BagScript MyBagScrtipt { get; set; }
     public BagButton MyBagButton { get; set; }
 
+    private int _slots;
     public int Slots => _slots;
 
     public void Initialize(int slots)

@@ -16,9 +16,10 @@ public class ShiledAction : MonoBehaviour
     [SerializeField]
     private int _manaCost;
 
-    private bool _isCD;
+    [SerializeField]
+    private AudioClip shieldSound;
 
-    public AudioClip shieldSound;
+    private bool _isCD;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class ShiledAction : MonoBehaviour
         }
     }
 
-    public IEnumerator ShieldCooldown() // κδ ροελλΰ
+    public IEnumerator ShieldCooldown()
     {
         _isCD = true;
         _player.GetComponent<Collider>().enabled = false;

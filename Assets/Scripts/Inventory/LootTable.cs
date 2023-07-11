@@ -5,7 +5,9 @@ public class LootTable : MonoBehaviour
 {
     [SerializeField]
     private Loot[] _loot;
+
     public List<Item> _droppedItems = new List<Item>();
+
     private bool _rolled =false;
 
 

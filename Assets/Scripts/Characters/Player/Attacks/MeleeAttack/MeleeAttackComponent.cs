@@ -11,12 +11,11 @@ public class MeleeAttackComponent : MonoBehaviour // компонент для двух видов ат
     private SwordAttack _sword;
 
     private UIBarManager _spellManager;
+    private Player _player;
 
     private float _distance;
     private bool _isCd;
     private bool isStarted;
-
-    private Player _player;
 
     private void Awake()
     {

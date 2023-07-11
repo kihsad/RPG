@@ -794,6 +794,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _distance: 9
+  _sword: {fileID: 9088047051283172327}
+  _attackSound: {fileID: 8300000, guid: 7bfd23776d8b7fc418e3707f61d35a63, type: 3}
+  _hitSound: {fileID: 8300000, guid: d5b9aaf7e83c8b841bbb14a5eb9b8136, type: 3}
+  _deathSound: {fileID: 8300000, guid: 41c431bdfaa27ee41a84fd1b2cb66771, type: 3}
+  _lootSound: {fileID: 8300000, guid: aa1c994513e6b394a8d4e790b682732d, type: 3}
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -806,11 +811,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _points: []
-  _sword: {fileID: 9088047051283172327}
-  attackSound: {fileID: 8300000, guid: 7bfd23776d8b7fc418e3707f61d35a63, type: 3}
-  hitSound: {fileID: 8300000, guid: d5b9aaf7e83c8b841bbb14a5eb9b8136, type: 3}
-  deathSound: {fileID: 8300000, guid: 41c431bdfaa27ee41a84fd1b2cb66771, type: 3}
-  lootSound: {fileID: 8300000, guid: aa1c994513e6b394a8d4e790b682732d, type: 3}
 --- !u!114 &4452313060067467327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,10 +823,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1393759442328310472}
   _damage: 23
   _cooldown: 0.5
   _attackRange: 1
-  character: {fileID: 1393759442328310472}
 --- !u!4 &8453552308088747404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1070350730909333850, guid: ac8c74f378540c74cbde4c9ed829b7fe, type: 3}

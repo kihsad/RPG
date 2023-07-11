@@ -2,16 +2,24 @@ using UnityEngine;
 
 	public class CameraRotateAround : MonoBehaviour
 	{
+	[SerializeField]
+    private Transform target;
+	[SerializeField]
+	private Vector3 offset;
+	[SerializeField]
+	private float sensitivity = 3; // чувствительность мышки
+	[SerializeField]
+	private float limit = 80; // ограничение вращения по Y
+	[SerializeField]
+	private float zoom = 0.25f; // чувствительность при увеличении, колесиком мышки
+	[SerializeField]
+	private float zoomMax = 10; // макс. увеличение
+	[SerializeField]
+	private float zoomMin = 3; // мин. увеличение
 
-		public Transform target;
-		public Vector3 offset;
-		public float sensitivity = 3; // чувствительность мышки
-		public float limit = 80; // ограничение вращения по Y
-		public float zoom = 0.25f; // чувствительность при увеличении, колесиком мышки
-		public float zoomMax = 10; // макс. увеличение
-		public float zoomMin = 3; // мин. увеличение
-		private float X, Y;
-		void Start()
+	private float X, Y;
+
+	void Start()
 		{
 			limit = Mathf.Abs(limit);
 			if (limit > 90) limit = 90;

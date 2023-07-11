@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Citizen : NPC
 {
-
     [SerializeField]
     private Dialogue _dialogue;
 

@@ -14,8 +14,8 @@ public class FireBallActionComponent : MonoBehaviour
     [SerializeField]
     private Player _player;
     private float _speed;
-
-    public AudioClip fireBallSound;
+    [SerializeField]
+    private AudioClip fireBallSound;
 
     private void Start()
     {

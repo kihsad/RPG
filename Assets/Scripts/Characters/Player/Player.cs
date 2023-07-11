@@ -5,16 +5,6 @@ using UnityEngine.UI;
 
 public class Player : Character // игрок
     {
-    private static Player instance;
-    public static Player MyInstance
-    {
-        get
-        {
-            if (instance == null) instance = FindObjectOfType<Player>();
-            return instance;
-        }
-    }
-
     [SerializeField]
     private GameObject[] _spellPrefabs; // для возможности замены файрболла
     [SerializeField]
@@ -26,11 +16,6 @@ public class Player : Character // игрок
     [SerializeField]
     private float _initMana;
 
-    public AudioClip healSound;
-    public AudioClip hitSound;
-
-    private int _intellectMultiplier=5;
-    private int _strengthMultiplier=3;
     [SerializeField]
     private MoveComponent _moveComponent;
     [SerializeField]
@@ -39,7 +24,25 @@ public class Player : Character // игрок
     private MeleeAttack _meleeAttack;
     [SerializeField]
     private NavMeshAgent _agent;
+
+    private static Player instance;
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<Player>();
+            return instance;
+        }
+    }
+
+    [SerializeField]
+    private AudioClip healSound;
+    [SerializeField]
+    private AudioClip hitSound;
+
     public NavMeshAgent GetAgent => _agent;
+    public AudioClip HealSound => healSound;
+    public AudioClip HitSound => hitSound;
 
     public Transform MyTarget { get; set; }
     public Stats MyXp { get => _xpStat; set => _xpStat = value; }
@@ -49,6 +52,8 @@ public class Player : Character // игрок
     private int _stamina=100;
     private int _intellect=20;
 
+    private int _intellectMultiplier = 5;
+    private int _strengthMultiplier = 3;
 
     protected override void Awake()
     {

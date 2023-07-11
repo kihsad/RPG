@@ -11,7 +11,22 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Range(0, 100)]
     private float _distance;
 
-    private float _stoppingDistance = 2.5f;
+    [SerializeField]
+    private SwordAttack _sword;
+
+    [SerializeField]
+    private AudioClip _attackSound;
+    [SerializeField]
+    private AudioClip _hitSound;
+    [SerializeField]
+    private AudioClip _deathSound;
+    [SerializeField]
+    private AudioClip _lootSound;
+
+    public AudioClip AttackSound => _attackSound;
+    public AudioClip HitSound => _hitSound;
+    public AudioClip DeathSound => _deathSound;
+    public AudioClip LootSound => _lootSound;
 
     public Collider[] _targets = new Collider[10];
     public List<Transform> _points = new List<Transform>();
@@ -19,14 +34,8 @@ public class EnemyController : MonoBehaviour
     private Animator _animator;
     private NavMeshAgent _agent;
     [SerializeField]
-    private SwordAttack _sword;
+    private float _stoppingDistance = 2.1f;
 
-    public AudioClip attackSound;
-    public AudioClip hitSound;
-    public AudioClip deathSound;
-    public AudioClip lootSound;
-
-    private float _speed;
 
     private void Awake()
     {

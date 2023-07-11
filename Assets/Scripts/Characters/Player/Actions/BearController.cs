@@ -9,16 +9,15 @@ public class BearController : MonoBehaviour
     private LayerMask _layerMask;
     [SerializeField, Range(0, 100)]
     private float _distance;
-
-    private float _stoppingDistance = 5f;
-
-    public Collider[] _targets = new Collider[10];
+    [SerializeField]
+    private SwordAttack _sword;
 
     private Animator _animator;
     private NavMeshAgent _agent;
 
-    [SerializeField]
-    private SwordAttack _sword;
+    public Collider[] _targets = new Collider[10];
+
+    private float _stoppingDistance = 5f;
 
     private void Awake()
     {

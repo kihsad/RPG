@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½)
+public abstract class Character : MonoBehaviour
 {
     [SerializeField]
-    protected Transform _hitBox; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    protected Transform _hitBox; 
     [SerializeField]
     protected Stats _health;
     [SerializeField]
-    protected float _initHealth; //ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    protected float _initHealth; 
     [SerializeField]
     private string _typeStr;
     [SerializeField]
@@ -19,11 +19,10 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
     private Chest _chestPrefab;
 
     private Vector3 _offset = new Vector3(2,3,0);
-
-    protected bool _isAttacking = false;
-
     private EnemyController _enemyController;
     private Player _player;
+
+    protected bool _isAttacking = false;
 
     public bool IsAlive
     {
@@ -70,12 +69,12 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
         if (this is Enemy && IsAlive)
         {
             _animator.SetTrigger("hit");
-            SoundManager.Instance.PlaySound(_enemyController.hitSound);
+            SoundManager.Instance.PlaySound(_enemyController.HitSound);
             transform.GetComponent<NavMeshAgent>().SetDestination(Player.MyInstance.transform.position);
         }
         if (this is Player)
         {
-            SoundManager.Instance.PlaySound(_player.hitSound);
+            SoundManager.Instance.PlaySound(_player.HitSound);
         }
 
         if (_health.MyCurrentValue <= 0)
@@ -103,8 +102,8 @@ public abstract class Character : MonoBehaviour //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï
     public IEnumerator Death()
     {
         var go = Instantiate(_chestPrefab);
-        SoundManager.Instance.PlaySound(_enemyController.lootSound);
-        SoundManager.Instance.PlaySound(_enemyController.deathSound);
+        SoundManager.Instance.PlaySound(_enemyController.LootSound);
+        SoundManager.Instance.PlaySound(_enemyController.DeathSound);
         go.transform.position = transform.position;
         _animator.GetComponent<Enemy>().OnCharacterRemoved();
         KillManager.Instance.OnKillConfirmed(this);

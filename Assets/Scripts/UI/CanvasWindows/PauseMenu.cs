@@ -14,7 +14,8 @@ public class PauseMenu : MonoBehaviour
     private Button _startMenuButton;
     [SerializeField]
     private CanvasGroup _canvasGroup;
-
+    [SerializeField]
+    private AudioClip _musicMenu;
 
     private void Awake()
     {

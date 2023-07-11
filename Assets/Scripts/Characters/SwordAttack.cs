@@ -7,7 +7,11 @@ public class SwordAttack : MonoBehaviour
     [SerializeField]
     private AudioClip attackSound;
     private int _random;
-
+    private AudioClip _evasion;
+    private void Awake()
+    {
+        _evasion = Player.MyInstance.Evasion;
+    }
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<Player>();
@@ -26,6 +30,11 @@ public class SwordAttack : MonoBehaviour
             {
                 enemy.TakeDamage(_meleeAtack.MyDamage);
                 SoundManager.Instance.PlaySound(attackSound);
+            }
+            else
+            {
+                enemy.GetComponent<Animator>().SetTrigger("block");
+                SoundManager.Instance.PlaySound(_evasion);
             }
         }
         else if (enemy != null && enemy.IsAlive && _meleeAtack.Character.gameObject.layer != enemy.gameObject.layer&&_meleeAtack.GetComponent<BearController>()!=null)

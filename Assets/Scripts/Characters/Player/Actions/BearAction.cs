@@ -22,7 +22,7 @@ public class BearAction : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD)
+        if(Input.GetKeyDown(KeyCode.Alpha4)&&!_isCD&& Player.MyInstance.MyMana.MyCurrentValue>=_manaCost)
         {
             SoundManager.Instance.PlaySound(bearSound);
             Player.MyInstance.MyMana.MyCurrentValue -= _manaCost;

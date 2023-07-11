@@ -5,6 +5,8 @@ public class DeathManager : MonoBehaviour
 {
     [SerializeField]
     private Player _player;
+    [SerializeField]
+    private AudioClip _gameoverSound;
 
     private void Update()
     {

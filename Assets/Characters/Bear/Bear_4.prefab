@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: _meleeAtack
       value: 
       objectReference: {fileID: 3169068935089658813}
+    - target: {fileID: 8057474151763784709, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 473e61715a30eb84cb2824a3f8a57b87, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -236,6 +240,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _distance: 15
+  _sword: {fileID: 2880118428134724094}
   _targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -247,7 +252,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _sword: {fileID: 2880118428134724094}
 --- !u!195 &-6948713845602555204
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -282,10 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   _damage: 120
   _cooldown: 2
   _attackRange: 5
-  character: {fileID: 0}
 --- !u!4 &748159665419006022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4776108361136494013, guid: 022bc3819c820514ab260a7be8ea3af4, type: 3}

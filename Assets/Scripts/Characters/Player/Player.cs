@@ -39,11 +39,16 @@ public class Player : Character // игрок
     private AudioClip healSound;
     [SerializeField]
     private AudioClip hitSound;
+    [SerializeField]
+    private AudioClip evasion;
+    [SerializeField]
+    private AudioClip catMeow;
 
     public NavMeshAgent GetAgent => _agent;
     public AudioClip HealSound => healSound;
     public AudioClip HitSound => hitSound;
-
+    public AudioClip Evasion => evasion;
+    public AudioClip CatMeow => catMeow;
     public Transform MyTarget { get; set; }
     public Stats MyXp { get => _xpStat; set => _xpStat = value; }
     public Stats MyMana { get => _mana; set => _mana = value; }
@@ -84,6 +89,7 @@ public class Player : Character // игрок
         _health.Initialize(_stamina*StaminaMultiplier(), _stamina*StaminaMultiplier());
         _mana.Initialize(_intellect* _intellectMultiplier, _intellect* _intellectMultiplier);
         _meleeAttack.MyDamage = _strength*_strengthMultiplier;
+        UIBarManager.MyInstance.UpdateStatsText(_strength, _stamina, _intellect);
     }
     private void UpdateMaxStats()
     {

@@ -27,7 +27,7 @@ public class ShiledAction : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha2) && !_isCD)
+        if(Input.GetKeyDown(KeyCode.Alpha2) && !_isCD && Player.MyInstance.MyMana.MyCurrentValue >= _manaCost)
         {
             SoundManager.Instance.PlaySound(shieldSound);
             Player.MyInstance.MyMana.MyCurrentValue -= _manaCost;

@@ -6,7 +6,6 @@ namespace Menu
 {
     public class UIComponent : MonoBehaviour
     {
-       
         [SerializeField]
         private GameObject _settingsPanel;
 

@@ -676,6 +676,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _stoppingDistance: 2.1
 --- !u!114 &3376392309026060495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,16 +706,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6197373
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.483
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.421
+      value: -0.455
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.806
+      value: 1.882
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}
       propertyPath: m_LocalRotation.w
@@ -783,8 +788,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.24368453, y: 0.12592852, z: 1.5306202}
-  m_Center: {x: 0.09911347, y: 1.5999091, z: 1.0672649}
+  m_Size: {x: 0.24368453, y: 0.12592852, z: 1.0810347}
+  m_Center: {x: 0.099118575, y: 1.5999016, z: 0.84248}
 --- !u!114 &2833586753974495251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 3376392309026060495}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 087225766cbdf574aa3896f28ef38e16, type: 3}
 --- !u!4 &5375746095828762190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ca2190376da7a04d8eb386684131a15, type: 3}

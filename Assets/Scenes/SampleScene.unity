@@ -500,6 +500,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1809732024}
+    - target: {fileID: 5850479791567461730, guid: a9e14ac549cb6a44a82a48087ec13d6b, type: 3}
+      propertyPath: _gameoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 93f12e8887c67ba43b8ccadee33fd72a, type: 3}
     - target: {fileID: 8795424469155613791, guid: a9e14ac549cb6a44a82a48087ec13d6b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3471,6 +3475,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9153796263515267725}
     - target: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: catMeow
+      value: 
+      objectReference: {fileID: 8300000, guid: 636fe5c4752a779418d1448373e6bd05, type: 3}
+    - target: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
+      propertyPath: evasion
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f7b28bbc2d44c647878ec43521b271b, type: 3}
+    - target: {fileID: 1873295027610493703, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: _levelText
       value: 
       objectReference: {fileID: 2458034186385695892}
@@ -3488,19 +3500,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -99.47
+      value: -109.831
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.241
+      value: 16.12
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105.31
+      value: -105.142
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.07062692
+      value: 0.7707218
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3508,11 +3520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9975028
+      value: -0.63717186
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3520,7 +3532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -188.1
+      value: -79.162
       objectReference: {fileID: 0}
     - target: {fileID: 2898391655723208319, guid: 490c3f519aa400649823f49df2d58f28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -18240,6 +18252,7 @@ MonoBehaviour:
   _unpauseButton: {fileID: 709175769304895178}
   _startMenuButton: {fileID: 204708512617058021}
   _canvasGroup: {fileID: 2705386333472353293}
+  _musicMenu: {fileID: 8300000, guid: 2ae26d5096b7ac54493612b31e3fbdbc, type: 3}
 --- !u!114 &5990007450400889318
 MonoBehaviour:
   m_ObjectHideFlags: 0

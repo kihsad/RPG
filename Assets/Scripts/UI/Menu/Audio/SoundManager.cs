@@ -6,9 +6,12 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField]
     private AudioSource _musicSource, _soundSource;
+    public AudioClip _menuClip,_gameClip,_endGameClip;
     private Toggle _sound, _music;
 
     private ToggleAudio[] _toggles;
+
+    public AudioSource MusicSource => _musicSource;
 
     private static SoundManager instance;
     public static SoundManager Instance
@@ -27,7 +30,7 @@ public class SoundManager : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;
+            instance = FindObjectOfType<SoundManager>();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -35,6 +38,7 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "MenuScene")
@@ -53,6 +57,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusic(AudioClip clip)
     {
+        //_musicSource.Stop();
         _musicSource.PlayOneShot(clip);
     }
 

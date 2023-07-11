@@ -32,7 +32,7 @@ public class BuffAction : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha3)&& !_isCD)
+        if(Input.GetKeyDown(KeyCode.Alpha3) && !_isCD && Player.MyInstance.MyMana.MyCurrentValue>=_manaCost)
         {
             SoundManager.Instance.PlaySound(buffSound);
             Player.MyInstance.MyMana.MyCurrentValue -= _manaCost;

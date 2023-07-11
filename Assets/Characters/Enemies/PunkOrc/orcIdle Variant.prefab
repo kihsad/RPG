@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 5454061291826643629}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 874046a15ca3cc847b8832979649cc57, type: 3}
 --- !u!65 &8918572153964739607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -914,6 +914,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _stoppingDistance: 2.1
 --- !u!114 &5454061291826643629
 MonoBehaviour:
   m_ObjectHideFlags: 0

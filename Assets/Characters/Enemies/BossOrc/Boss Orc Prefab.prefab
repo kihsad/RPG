@@ -944,6 +944,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _points: []
+  _stoppingDistance: 2.1
 --- !u!114 &3024451977200227178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,4 +1093,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeAtack: {fileID: 3024451977200227178}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 874046a15ca3cc847b8832979649cc57, type: 3}

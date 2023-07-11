@@ -69,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677128483473970829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 1.1, z: 0.9}
+  m_LocalPosition: {x: 0.05, y: 0.8, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1810,7 +1810,7 @@ Transform:
   - {fileID: 7982201720996783832}
   - {fileID: 2506476695887993185}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2898391655598392806
 Animator:
@@ -1893,12 +1893,12 @@ MonoBehaviour:
   _xpStat: {fileID: 0}
   _levelText: {fileID: 0}
   _initMana: 50
-  healSound: {fileID: 8300000, guid: a454b93dd0d81764bbee9aea79cc4c05, type: 3}
-  hitSound: {fileID: 8300000, guid: ac5df3c1eb0e1b4429db3be30e20c50f, type: 3}
   _moveComponent: {fileID: 388923432904794394}
   _attackComponent: {fileID: 6013447922324918460}
   _meleeAttack: {fileID: 4085259419727578723}
   _agent: {fileID: 2040607345308795370}
+  healSound: {fileID: 8300000, guid: a454b93dd0d81764bbee9aea79cc4c05, type: 3}
+  hitSound: {fileID: 8300000, guid: ac5df3c1eb0e1b4429db3be30e20c50f, type: 3}
 --- !u!195 &2040607345308795370
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1956,10 +1956,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ca0f2eb1cef9641b4059fb4ae7ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1873295027610493703}
   _damage: 10
   _cooldown: 0.75
   _attackRange: 2.1
-  character: {fileID: 1873295027610493703}
 --- !u!114 &1723269218639018558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2048,6 +2048,7 @@ MonoBehaviour:
   _sword: {fileID: 4085259419727578723}
   _buff: {fileID: 4868946417540969607}
   _manaCost: 25
+  _damage: 50
   buffSound: {fileID: 8300000, guid: da4cd03bfbb7ea3468b9d1ff20c29c99, type: 3}
 --- !u!114 &3949663893533825357
 MonoBehaviour:

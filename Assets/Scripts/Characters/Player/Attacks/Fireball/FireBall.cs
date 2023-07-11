@@ -37,7 +37,7 @@ public class FireBall : MonoBehaviour //скрипт для префаба
 
     private void MoveToTarget()
     {
-        transform.position = Vector3.Lerp(transform.position, _target.position, _speed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter(Collider other) // коллизии с разными видами обьектов(но в целом только для енеми т.к. рейкаст с layer Enemy)

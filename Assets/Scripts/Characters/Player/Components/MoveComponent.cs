@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class MoveComponent : MonoBehaviour
@@ -50,13 +51,14 @@ public class MoveComponent : MonoBehaviour
 
     private void DistanceDetection()
     {
+        if (!_player.GetAgent.enabled) return;
         if (_targetPositionEnemy != null)
         {
             _distance = Vector3.Distance(_targetPositionEnemy.position , _player.transform.position);
             _player.GetAgent.SetDestination(_targetPositionEnemy.position + Vector3.forward * 1);
             _targetPositionGround = transform.position;
         }
-        else
+        else if(_targetPositionGround!=null)
         {
             _player.GetAgent.SetDestination(_targetPositionGround);
             _distance = Vector3.Distance(_targetPositionGround, _player.transform.position);
